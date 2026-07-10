@@ -1,4 +1,4 @@
-export type NavChild = { label: string; href: string };
+export type NavChild = { label: string; href: string; external?: boolean };
 export type NavItem = { label: string; href?: string; children?: NavChild[] };
 
 export const site = {
@@ -11,52 +11,49 @@ export const site = {
   email: "support@bulwarkblack.com",
   nav: [
     {
+      label: "Software",
+      href: "/products/",
+      children: [
+        { label: "Contractor Codex", href: "https://contractorcodex.com", external: true },
+        { label: "SAMscout AI", href: "https://samscout.ai", external: true },
+        { label: "VA Disability Calc & Track", href: "/va-disability-calc-track-app/" },
+        { label: "All software", href: "/products/" },
+      ],
+    },
+    {
       label: "Threat Intel",
       href: "/cyber-threat-intelligence/",
       children: [
+        { label: "Latest reporting", href: "/cyber-threat-intelligence/" },
         { label: "Russian CTI", href: "/category/russian-cyber-threat-intelligence/" },
         { label: "Chinese CTI", href: "/category/chinese-cyber-threat-intelligence/" },
         { label: "North Korean CTI", href: "/category/north-korean-cyber-threat-intelligence/" },
         { label: "Iranian CTI", href: "/category/iranian-cyber-threat-intelligence/" },
         { label: "Global / Anomalous", href: "/category/anomalous-cyber-threat-intelligence/" },
         { label: "Malware", href: "/category/malware/" },
-        { label: "Threat-Actor Profiles", href: "/anomalous-threat-actors/" },
+        { label: "IOC / YARA downloads", href: "/cyber-threat-intelligence/" },
       ],
     },
     {
-      label: "Security",
-      href: "/offensive-security/",
+      label: "Services",
+      href: "/services/",
       children: [
-        { label: "Defensive Security", href: "/blue-teaming/" },
-        { label: "Offensive Security", href: "/offensive-security/" },
-        { label: "Detection", href: "/category/detection/" },
-        { label: "Red Teaming", href: "/category/red-teaming/" },
-        { label: "Bug Bounty", href: "/category/bug-bounty/" },
+        { label: "Websites & Web Apps", href: "/services/" },
+        { label: "Custom iOS Apps", href: "/services/" },
+        { label: "AI & Automation", href: "/services/" },
+        { label: "Small-Business IT & Cybersecurity", href: "/services/" },
       ],
     },
     {
-      label: "Topics",
-      href: "/ai-artificial-intelligence/",
+      label: "Company",
+      href: "/about/",
       children: [
-        { label: "AI", href: "/ai-artificial-intelligence/" },
-        { label: "Privacy & Security", href: "/privacy-security/" },
-        { label: "Operational Technology", href: "/operational-technology-ot/" },
-        { label: "Research Papers", href: "/research-papers/" },
-        { label: "Training / Projects", href: "/projects/" },
+        { label: "About", href: "/about/" },
+        { label: "Community", href: "/community/" },
+        { label: "Contact", href: "/contact/" },
       ],
     },
     { label: "Blog", href: "/blog/" },
-    {
-      label: "Work With Us",
-      href: "/services/",
-      children: [
-        { label: "Services", href: "/services/" },
-        { label: "Apps", href: "/products/" },
-        { label: "About", href: "/about/" },
-        { label: "Contact", href: "/contact/" },
-        { label: "Donations", href: "/donations/" },
-      ],
-    },
   ] as NavItem[],
   booking: {
     calendlyUrl: "https://calendly.com/rural-tech-and-support/tech-advisory-call",

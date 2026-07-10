@@ -1,6 +1,20 @@
 ---
 import { site } from "@/lib/site";
 const nav = site.nav;
+
+// Active-page indicator: highlight the top-level item whose own href — or any of
+// its internal children — matches the current path. Trailing slashes normalized.
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+function itemHrefs(item: (typeof nav)[number]): string[] {
+  const list: string[] = [];
+  if (item.href) list.push(item.href);
+  for (const c of item.children ?? []) if (!c.external) list.push(c.href);
+  return list.map((h) => h.replace(/\/+$/, "") || "/");
+}
+function isActive(item: (typeof nav)[number]): boolean {
+  if (path === "/") return false;
+  return itemHrefs(item).some((h) => h !== "/" && (path === h || path.startsWith(h + "/")));
+}
 ---
 <header class="sticky top-0 z-40 border-b border-line bg-bg-primary/85 backdrop-blur">
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
@@ -12,14 +26,19 @@ const nav = site.nav;
     </a>
 
     <nav class="hidden items-center lg:flex" aria-label="Primary">
-      {nav.map((item, i) => (
-        item.children && item.children.length > 0 ? (
+      {nav.map((item, i) => {
+        const active = isActive(item);
+        return item.children && item.children.length > 0 ? (
           <div class="mega relative">
             <a
               href={item.href}
-              class="mega-trigger flex items-center gap-1 px-3 py-2 text-sm text-muted transition-colors hover:text-ink"
+              class:list={[
+                "mega-trigger flex items-center gap-1 border-b-2 px-3 py-2 text-sm transition-colors",
+                active ? "border-intel text-ink" : "border-transparent text-ink/80 hover:text-ink",
+              ]}
               aria-haspopup="true"
               aria-expanded="false"
+              aria-current={active ? "page" : undefined}
             >
               {item.label}
               <svg class="mega-caret h-3 w-3 text-muted/60 transition-transform" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -32,9 +51,12 @@ const nav = site.nav;
                   <li>
                     <a
                       href={c.href}
-                      class="block border-l-2 border-transparent px-3 py-2 text-sm text-muted transition-colors hover:border-ink/25 hover:bg-white/[0.04] hover:text-ink"
+                      target={c.external ? "_blank" : undefined}
+                      rel={c.external ? "noopener" : undefined}
+                      class="flex items-center justify-between gap-2 border-l-2 border-transparent px-3 py-2 text-sm text-ink/80 transition-colors hover:border-intel/40 hover:bg-white/[0.04] hover:text-ink"
                     >
                       {c.label}
+                      {c.external && <span class="text-[11px] text-muted/60" aria-hidden="true">↗</span>}
                     </a>
                   </li>
                 ))}
@@ -42,11 +64,18 @@ const nav = site.nav;
             </div>
           </div>
         ) : (
-          <a href={item.href} class="px-3 py-2 text-sm text-muted transition-colors hover:text-ink">
+          <a
+            href={item.href}
+            class:list={[
+              "border-b-2 px-3 py-2 text-sm transition-colors",
+              active ? "border-intel text-ink" : "border-transparent text-ink/80 hover:text-ink",
+            ]}
+            aria-current={active ? "page" : undefined}
+          >
             {item.label}
           </a>
-        )
-      ))}
+        );
+      })}
     </nav>
 
     <div class="hidden items-center gap-3 lg:flex">
@@ -90,7 +119,15 @@ const nav = site.nav;
                 </a>
               )}
               {item.children.map((c) => (
-                <a href={c.href} class="block py-2 pl-3 text-sm text-muted hover:text-ink">{c.label}</a>
+                <a
+                  href={c.href}
+                  target={c.external ? "_blank" : undefined}
+                  rel={c.external ? "noopener" : undefined}
+                  class="flex items-center gap-1.5 py-2 pl-3 text-sm text-ink/70 hover:text-ink"
+                >
+                  {c.label}
+                  {c.external && <span class="text-[11px] text-muted/60" aria-hidden="true">↗</span>}
+                </a>
               ))}
             </div>
           </div>

@@ -10,7 +10,10 @@ const hasBody = bodyHtml.replace(/<[^>]*>/g, "").trim().length > 0;
 ---
 <BaseLayout title={title} description={description}>
   <article class="mx-auto max-w-3xl px-6 py-16">
-    <p class="eyebrow-intel">Bulwark Black</p>
+    <a href="/va-disability-calc-track-app/" class="font-mono text-[11px] uppercase tracking-wider text-accent hover:underline">
+      ← Back to VA Disability Calc &amp; Track
+    </a>
+    <p class="eyebrow-intel mt-6">Bulwark Black</p>
     <h1 class="mt-3 font-display text-3xl leading-tight text-ink md:text-5xl">{title}</h1>
     <div class="accent-line my-8"></div>
     {hasBody ? (

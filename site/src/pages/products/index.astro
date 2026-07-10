@@ -1,121 +1,168 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import SectionHeader from "@/components/SectionHeader.astro";
+import SoftwareCard from "@/components/SoftwareCard.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { graph, breadcrumb, softwareApplication } from "@/lib/jsonld";
 
-const flagship = {
-  name: "VA Disability Calc & Track",
-  platform: "iOS · iPhone & iPad",
-  url: "https://apps.apple.com/us/app/va-disability-calc-track/id6748180691",
-  description:
-    "A native app for veterans navigating VA claims. BVA-accurate combined-rating math, 900+ diagnostic codes, an encrypted document vault, and full offline operation.",
-  stats: [
-    { k: "Diagnostic codes", v: "900+" },
-    { k: "Combined-rating math", v: "BVA-accurate" },
-    { k: "Document vault", v: "Encrypted" },
-    { k: "Works offline", v: "100%" },
-  ],
-};
-
-const products = [
-  {
-    name: "SAMscout.ai",
-    platform: "Web",
-    url: "https://samscout.ai",
-    description: "Multi-agent AI platform that drafts federal contracting proposals.",
-  },
-  {
-    name: "Contractor Codex",
-    platform: "Web",
-    url: "https://contractorcodex.com",
-    description:
-      "Branded client portal for service businesses: time tracking, invoicing, Stripe payments, and client approval workflows.",
-  },
-];
+const APP_STORE_URL = "https://apps.apple.com/us/app/va-disability-calc-track/id6748180691";
 
 const jsonldApps = [
   softwareApplication({
-    name: flagship.name,
-    description: flagship.description,
-    url: flagship.url,
+    name: "Contractor Codex",
+    description:
+      "A branded client portal that lets contractors send a quote in 60 seconds, get it accepted and signed online, and auto-invoice the deposit and every stage as the work gets done.",
+    url: "https://contractorcodex.com",
+    appCategory: "BusinessApplication",
+    operatingSystem: "Web",
+  }),
+  softwareApplication({
+    name: "SAMscout AI",
+    description:
+      "An AI federal-proposal platform that turns a SAM.gov opportunity into a reviewable, Shipley-grade draft in minutes, with live opportunity intelligence, FAR/DFARS compliance, and price-to-win pricing.",
+    url: "https://samscout.ai",
+    appCategory: "BusinessApplication",
+    operatingSystem: "Web",
+  }),
+  softwareApplication({
+    name: "VA Disability Calc & Track",
+    description:
+      "The most comprehensive VA disability calculator: BVA-accurate combined-rating math, payment estimates, and claim-tracking tools, all running privately on your device.",
+    url: APP_STORE_URL,
     appCategory: "UtilitiesApplication",
     operatingSystem: "iOS",
   }),
-  ...products.map((p) =>
-    softwareApplication({ name: p.name, description: p.description, url: p.url, appCategory: "BusinessApplication" }),
-  ),
+];
+
+const vaStats = [
+  "BVA-accurate combined-rating math",
+  "900+ diagnostic codes + 38 CFR",
+  "Encrypted Document Vault (AES-256-GCM + Face ID)",
+  "100% offline",
 ];
 ---
 <BaseLayout
-  title="Apps & Products"
-  description="Apps and products built by Bulwark Black, including VA Disability Calc & Track for iOS, SAMscout.ai, and Contractor Codex. Custom web and iOS apps built for businesses."
+  title="Software"
+  description="Software from Bulwark Black: Contractor Codex, a client portal that quotes, contracts, and bills; SAMscout AI, an AI federal-proposal platform; and VA Disability Calc & Track for iOS. Live in production and the App Store."
 >
   <JsonLd slot="head" data={graph(
-    breadcrumb([{ name: "Home", path: "/" }, { name: "Apps", path: "/products/" }]),
+    breadcrumb([{ name: "Home", path: "/" }, { name: "Software", path: "/products/" }]),
     ...jsonldApps,
   )} />
 
+  {/* Hero */}
   <section class="grid-bg border-b border-line bg-bg-primary px-6 py-20">
     <div class="mx-auto max-w-3xl">
-      <p class="eyebrow">Apps &amp; Products</p>
+      <p class="eyebrow">Software · Built &amp; Live</p>
       <h1 class="mt-3 font-display text-4xl uppercase tracking-[0.04em] text-ink md:text-6xl">
-        Software we <span class="text-accent">shipped</span>
+        Our <span class="text-accent">Software</span>
       </h1>
       <p class="mt-6 leading-relaxed text-muted">
-        We build custom web and iOS apps for businesses and ship our own products too. These are live, in the App Store and in production, not concepts. The same team that built these can build yours.
+        Two SaaS platforms and an iOS app we build, run, and pay the bills with, live in production
+        and the App Store, not concepts.
       </p>
-      <div class="mt-8">
-        <a href="/contact/" class="btn-primary">Build your app with us →</a>
+    </div>
+  </section>
+
+  {/* SaaS co-headliners */}
+  <section class="border-b border-line bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-6 md:grid-cols-2">
+        <SoftwareCard
+          name="Contractor Codex"
+          chip="SaaS · Web app"
+          tagline="Quote. Contract. Bill. Get Paid."
+          oneLiner="A branded client portal that lets contractors send a quote in 60 seconds, get it accepted and signed online, and auto-invoice the deposit and every stage as the work gets done."
+          features={[
+            "60-second AI-drafted quotes from a 240-item library across 25 industries",
+            "Auto-invoicing on acceptance with five billing modes (deposit, full, on completion, and progress stages)",
+            "Built-in contracts + e-signatures with audit trail and optional DocuSign sync",
+            "Stripe pay-now links plus the Codex suite — per-project profit tracking and an AI business advisor",
+          ]}
+          pricing="Standard $15/mo · Pro $35/mo · unlimited clients · free trial"
+          href="https://contractorcodex.com"
+          ctaLabel="Start Your Free Trial →"
+          external={true}
+          secondaryHref="https://contractorcodex.com"
+          secondaryLabel="See all features →"
+          titleHref="https://contractorcodex.com"
+          accent={true}
+        />
+        <SoftwareCard
+          name="SAMscout AI"
+          chip="SaaS · Web app"
+          tagline="The federal proposal team you can afford to hire."
+          oneLiner="An AI federal-proposal platform that turns a SAM.gov opportunity into a reviewable, Shipley-grade draft in minutes — with live opportunity intelligence, FAR/DFARS compliance, and price-to-win pricing running in parallel."
+          features={[
+            "AI contract intelligence that extracts scope, requirements, criteria, and key dates (auto-refreshed on amendments)",
+            "Draft Studio — a 22-agent Shipley-methodology proposal generator with Section-Gate quality control",
+            "FAR/DFARS compliance gate that checks clauses, page limits, and set-aside rules before any AI writes",
+            "Price-to-win pricing from BLS labor rates + GSA CALC+ ceilings, with an AI pricing narrative",
+          ]}
+          pricing="Free Recruit tier · Vanguard $29.99/mo · Elite $39.99/mo (Most Popular) · bring your own AI key"
+          href="https://app.samscout.ai"
+          ctaLabel="Start Free →"
+          external={true}
+          secondaryHref="https://samscout.ai"
+          secondaryLabel="See all features →"
+          titleHref="https://samscout.ai"
+          accent={true}
+        />
       </div>
     </div>
   </section>
 
-  <!-- Flagship -->
-  <section class="border-b border-line bg-bg-secondary px-6 py-20">
+  {/* VA app, third */}
+  <section class="border-b border-line bg-bg-primary px-6 py-20">
     <div class="mx-auto max-w-6xl">
-      <div class="grid items-center gap-10 border border-line bg-bg-card p-8 md:grid-cols-[1.1fr_1fr] md:p-12">
-        <div>
-          <p class="eyebrow">Flagship · {flagship.platform}</p>
-          <h2 class="mt-4 font-display text-3xl text-ink md:text-4xl">{flagship.name}</h2>
-          <p class="mt-4 leading-relaxed text-muted">{flagship.description}</p>
-          <div class="mt-8 flex flex-wrap items-center gap-4">
-            <a href={flagship.url} class="btn-primary" rel="noopener" target="_blank">View on the App Store →</a>
+      <article class="grid gap-10 border border-line bg-bg-card p-8 md:grid-cols-[1.1fr_1fr] md:p-12">
+        <div class="flex flex-col">
+          <div class="flex items-start justify-between gap-3">
+            <h2 class="font-display text-2xl font-semibold text-ink md:text-3xl">
+              VA Disability Calc &amp; Track
+            </h2>
+            <span class="shrink-0 border border-intel/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-intel">
+              iOS · iPhone &amp; iPad
+            </span>
+          </div>
+          <p class="mt-3 font-display text-lg text-accent">Know your rating. Track your claim.</p>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            The most comprehensive VA disability calculator — BVA-accurate combined-rating math,
+            payment estimates, and claim-tracking tools, all running privately on your device.
+          </p>
+          <div class="mt-auto pt-8">
+            <div class="flex flex-wrap items-center gap-3">
+              <a href={APP_STORE_URL} target="_blank" rel="noopener" class="btn-primary">
+                Download Free on the App Store →
+              </a>
+              <a href="/va-disability-calc-track-app/" class="btn-outline">See the app details →</a>
+            </div>
+            <a
+              href="/va-disability-calc-track/"
+              class="mt-4 inline-block font-mono text-[11px] text-muted underline hover:text-accent"
+            >
+              Privacy policy →
+            </a>
           </div>
         </div>
         <div class="grid grid-cols-2 gap-3">
-          {flagship.stats.map((s) => (
-            <div class="border border-line bg-bg-secondary p-5">
-              <p class="font-display text-xl text-accent">{s.v}</p>
-              <p class="mt-1 font-mono text-[11px] uppercase tracking-wider text-muted">{s.k}</p>
+          {vaStats.map((s) => (
+            <div class="flex items-center border border-line bg-bg-secondary p-5">
+              <p class="text-sm font-semibold leading-snug text-ink">{s}</p>
             </div>
           ))}
         </div>
-      </div>
+      </article>
     </div>
   </section>
 
-  <!-- Other products -->
+  {/* Custom-build bridge */}
   <section class="bg-bg-primary px-6 py-20">
     <div class="mx-auto max-w-6xl">
-      <SectionHeader eyebrow="Also shipped" title="More from the workbench" />
-      <div class="grid gap-5 md:grid-cols-2">
-        {products.map((p) => (
-          <a href={p.url} rel="noopener" target="_blank" class="group flex flex-col border border-line bg-bg-card p-7 card-lift">
-            <div class="flex items-center justify-between gap-3">
-              <h3 class="font-display text-xl text-ink group-hover:text-accent">{p.name}</h3>
-              <span class="chip shrink-0">{p.platform}</span>
-            </div>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{p.description}</p>
-            <span class="mt-4 font-mono text-[11px] uppercase tracking-wider text-accent">Visit →</span>
-          </a>
-        ))}
-      </div>
-
-      <div class="mt-12 border border-line bg-bg-card p-8 text-center">
+      <div class="border border-line bg-bg-card p-8 text-center">
         <h2 class="font-display text-2xl text-ink">Have an app idea for your business?</h2>
         <p class="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted">
-          Web or iOS, from a focused first version to a full product. Tell us the outcome you want and we will tell you the shortest path to it.
+          Web or iOS, from a focused first version to a full product. Tell us the outcome you want
+          and we will tell you the shortest path to it.
         </p>
         <div class="mt-6 flex flex-wrap justify-center gap-4">
           <a href="/contact/" class="btn-primary">Start a conversation →</a>
