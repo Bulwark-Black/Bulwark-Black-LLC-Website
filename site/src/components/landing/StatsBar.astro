@@ -1,0 +1,20 @@
+---
+const stats = [
+  { headline: "390+", sub: "Cyber threat intel reports published" },
+  { headline: "iOS", sub: "Native apps shipped to the App Store" },
+  { headline: "SDVOSB", sub: "Veteran-owned · SAM registered" },
+  { headline: "Remote", sub: "Nationwide across the United States" },
+];
+---
+<div class="stats">
+  <div class="stats-grid">
+    {
+      stats.map((s) => (
+        <div class="stat-item reveal">
+          <h3>{s.headline}</h3>
+          <p>{s.sub}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>

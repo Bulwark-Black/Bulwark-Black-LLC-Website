@@ -1,0 +1,109 @@
+---
+interface FeedEntry {
+  href: string;
+  category: string;
+  date: string;
+  title: string;
+  summary: string;
+}
+interface Props {
+  entries: FeedEntry[];
+}
+const { entries } = Astro.props;
+---
+<section class="advantage" id="intel-feed">
+  <div class="container">
+    <div class="advantage-grid">
+      <div class="reveal">
+        <span class="section-label">Intel Feed</span>
+        <h2 class="section-title advantage-title-left">
+          Inside the intel feed.<br />
+          <span class="text-accent">Updated daily.</span>
+        </h2>
+        <p class="advantage-lead">
+          Every day we track what is actually moving: active threat actors,
+          fresh malware, and the campaigns hitting small businesses. Each report
+          is written to be used, with indicators your defenders can put to work
+          the same afternoon.
+        </p>
+        <div class="advantage-list">
+          <div class="advantage-item">
+            <div class="advantage-check">&#10003;</div>
+            <div>
+              <h4>Threat-actor &amp; campaign tracking</h4>
+              <p>
+                Running notes on active groups, their infrastructure, and how
+                their targeting shifts over time.
+              </p>
+            </div>
+          </div>
+          <div class="advantage-item">
+            <div class="advantage-check">&#10003;</div>
+            <div>
+              <h4>Malware &amp; TTP breakdowns</h4>
+              <p>
+                Families and techniques mapped to the behavior defenders can
+                actually detect and block.
+              </p>
+            </div>
+          </div>
+          <div class="advantage-item">
+            <div class="advantage-check">&#10003;</div>
+            <div>
+              <h4>IOC &amp; YARA downloads</h4>
+              <p>
+                Machine-readable indicators attached to reports, so your team
+                can hunt without re-typing.
+              </p>
+            </div>
+          </div>
+          <div class="advantage-item">
+            <div class="advantage-check">&#10003;</div>
+            <div>
+              <h4>Free, and no login required</h4>
+              <p>
+                The whole feed is open. Read it, cite it, or feed it straight
+                into your stack.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 2rem;">
+          <a href="/cyber-threat-intelligence/" class="btn btn-primary"
+            >Enter the intel feed &rarr;</a
+          >
+        </div>
+      </div>
+
+      <div class="advantage-visual reveal">
+        {
+          entries.length > 0 ? (
+            <div class="feed-list">
+              {entries.map((e) => (
+                <a href={e.href} class="feed-card">
+                  <div class="feed-meta">
+                    <span>{e.category}</span>
+                    <span class="feed-date">{e.date}</span>
+                  </div>
+                  <h4>{e.title}</h4>
+                  <p>{e.summary}</p>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div class="feed-empty">
+              <strong>Latest intelligence, landing soon.</strong>
+              <span>
+                New daily reporting and the full archive appear here shortly.
+              </span>
+            </div>
+          )
+        }
+        <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--bb-muted);">
+          Roughly 390 reports and counting. New intelligence published on a
+          steady cadence.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { site } from "@/lib/site";
+import { graph, breadcrumb } from "@/lib/jsonld";
+
+export async function getStaticPaths() {
+  const allBlog: CollectionEntry<"blog">[] = await getCollection("blog");
+  const all = allBlog
+    .filter((entry) => !entry.data.draft)
+    .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  return all.map((post, i) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      prev: all[i + 1] ?? null,
+      next: all[i - 1] ?? null,
+    },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  prev: CollectionEntry<"blog"> | null;
+  next: CollectionEntry<"blog"> | null;
+}
+const { post, prev, next } = Astro.props;
+const { Content } = await post.render();
+
+const url = new URL(`/blog/${post.slug}/`, site.url).toString();
+const datePub = post.data.publishedAt.toISOString();
+
+const articleSchema = {
+  "@type": "BlogPosting",
+  "@id": `${url}#article`,
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  headline: post.data.title,
+  description: post.data.summary,
+  datePublished: datePub,
+  dateModified: datePub,
+  author: { "@id": `${site.url}/#albert` },
+  publisher: { "@id": `${site.url}/#bulwark-black` },
+  image: new URL("/og.svg", site.url).toString(),
+  keywords: post.data.tags?.join(", "),
+};
+---
+<BaseLayout title={post.data.title} description={post.data.summary}>
+  <JsonLd slot="head" data={graph(
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog/" },
+      { name: post.data.title, path: `/blog/${post.slug}/` },
+    ]),
+    articleSchema,
+  )} />
+
+  <article class="prose-invert mx-auto max-w-3xl px-6 py-20">
+    <p class="text-[11px] uppercase tracking-[3px] text-accent">
+      <time datetime={datePub}>{post.data.publishedAt.toISOString().slice(0, 10)}</time>
+    </p>
+    <h1 class="mt-2 font-display text-4xl text-ink break-words md:text-5xl">{post.data.title}</h1>
+    <p class="mt-4 break-words text-muted">{post.data.summary}</p>
+    <p class="mt-4 text-sm text-muted">
+      By <a href="/about/" rel="author" class="text-accent">Albert LaScola</a>
+      {post.data.tags && post.data.tags.length > 0 && (
+        <span class="ml-2">· {post.data.tags.map((t: string) => `#${t}`).join(" ")}</span>
+      )}
+    </p>
+    <div class="accent-line my-8"></div>
+    <div class="break-words text-ink leading-relaxed [&_p]:my-4 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:mt-10 [&_h2]:text-ink [&_a]:text-accent [&_ul]:my-4 [&_ul]:ml-6 [&_ul]:list-disc [&_li]:my-2 [&_strong]:text-ink [&_img]:max-w-full [&_pre]:my-6 [&_pre]:overflow-x-auto [&_pre]:border [&_pre]:border-line [&_pre]:bg-bg-secondary [&_pre]:p-4 [&_pre]:text-sm [&_code]:font-mono">
+      <Content />
+    </div>
+    <div class="accent-line my-10"></div>
+
+    <nav aria-label="Adjacent posts" class="grid gap-4 md:grid-cols-2">
+      {prev ? (
+        <a href={`/blog/${prev.slug}/`} class="block border border-accent/15 bg-bg-card p-5 card-lift">
+          <p class="text-xs uppercase tracking-[2px] text-accent">← Older post</p>
+          <p class="mt-2 font-display text-base text-ink">{prev.data.title}</p>
+        </a>
+      ) : <span />}
+      {next ? (
+        <a href={`/blog/${next.slug}/`} class="block border border-accent/15 bg-bg-card p-5 text-right card-lift">
+          <p class="text-xs uppercase tracking-[2px] text-accent">Newer post →</p>
+          <p class="mt-2 font-display text-base text-ink">{next.data.title}</p>
+        </a>
+      ) : <span />}
+    </nav>
+
+    <p class="mt-10 text-sm text-muted">
+      Worked on something like this and want help applying it?
+      <a href="/contact/" class="text-accent">Get in touch →</a>
+    </p>
+  </article>
+</BaseLayout>

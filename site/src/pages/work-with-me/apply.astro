@@ -1,0 +1,206 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FAQ from "@/components/FAQ.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { graph, breadcrumb, faqPage } from "@/lib/jsonld";
+
+const faqs = [
+  { q: "How fast will I hear back?", a: "Within one business day. If I'm out, the auto-reply will tell you when I'll be back at the desk." },
+  { q: "What if my situation isn't on your services list?", a: "Send the application anyway. If it's not a fit, I'll tell you and point you toward someone who can help, that part's free." },
+  { q: "Do you work remotely or in person?", a: "Both. Remote covers most jobs. In-person is available for households and businesses on the Olympic Peninsula and Jefferson County area, with travel across Washington and beyond for larger engagements." },
+  { q: "Do I have to put a budget number?", a: "No. The budget question is optional and only there to help me match scope to what makes sense for you. If you skip it, I'll quote what I'd recommend regardless." },
+  { q: "Will my application be private?", a: "Yes. Submissions go straight to my inbox at support@bulwarkblack.com, not a CRM, not a third-party form processor." },
+  { q: "Do you take credit cards?", a: "Yes, Stripe for cards, ACH for larger jobs, and standard invoicing for federal / agency clients." },
+  { q: "What happens after I submit?", a: "You'll get a personal reply, usually with a couple of clarifying questions and either a recommended scope or a polite \"this isn't my lane.\" If we move forward, the next step is a short call." },
+];
+---
+<BaseLayout title="Apply to Work Together" description="A short application, five minutes, so I can give you a real answer.">
+  <JsonLd slot="head" data={graph(
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Work With Me", path: "/work-with-me/" },
+      { name: "Apply", path: "/work-with-me/apply/" },
+    ]),
+    faqPage(faqs),
+  )} />
+  <section class="grid-bg bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <a href="/work-with-me/" class="text-xs uppercase tracking-[2px] text-accent">← Work With Me</a>
+      <p class="mt-6 text-[11px] uppercase tracking-[3px] text-accent">Application</p>
+      <h1 class="mt-3 font-display text-4xl text-ink md:text-6xl">
+        Tell me a little, and I'll <span class="text-accent">tell you a lot.</span>
+      </h1>
+      <p class="mt-6 text-muted leading-relaxed">
+        About five minutes. The more honest you are about what you want and what's already in
+        place, the better an answer I can give you. Required fields are marked with <span class="text-accent">*</span>.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <form data-apply class="space-y-10">
+
+        <fieldset class="space-y-4 border border-accent/15 bg-bg-card p-6">
+          <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">1. About You</legend>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            <label class="block">
+              <span class="text-xs uppercase tracking-[2px] text-accent">Full name *</span>
+              <input required name="name" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            </label>
+            <label class="block">
+              <span class="text-xs uppercase tracking-[2px] text-accent">Email *</span>
+              <input required type="email" name="email" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            </label>
+            <label class="block">
+              <span class="text-xs uppercase tracking-[2px] text-accent">Phone (optional)</span>
+              <input name="phone" type="tel" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            </label>
+            <label class="block">
+              <span class="text-xs uppercase tracking-[2px] text-accent">Where you're located</span>
+              <input name="location" placeholder="City, State" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            </label>
+          </div>
+
+          <fieldset class="border border-accent/10 p-4">
+            <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">Best way to reach you</legend>
+            <div class="flex flex-wrap gap-4 text-sm text-muted">
+              <label class="flex items-center gap-2"><input type="radio" name="contact_pref" value="email" checked /> Email</label>
+              <label class="flex items-center gap-2"><input type="radio" name="contact_pref" value="phone" /> Phone</label>
+              <label class="flex items-center gap-2"><input type="radio" name="contact_pref" value="text" /> Text</label>
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="space-y-4 border border-accent/15 bg-bg-card p-6">
+          <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">2. What Kind Of Help</legend>
+
+          <fieldset class="border border-accent/10 p-4">
+            <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">Pick the closest *</legend>
+            <div class="grid gap-2 text-sm text-muted md:grid-cols-2">
+              <label class="flex items-center gap-2"><input required type="radio" name="lane" value="home" /> Personal / household</label>
+              <label class="flex items-center gap-2"><input required type="radio" name="lane" value="small_business" /> Small business / shop / clinic</label>
+              <label class="flex items-center gap-2"><input required type="radio" name="lane" value="agency" /> Agency / prime / federal</label>
+              <label class="flex items-center gap-2"><input required type="radio" name="lane" value="unsure" /> Honestly not sure</label>
+            </div>
+          </fieldset>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">What's going on? *</span>
+            <textarea required name="situation" rows="5" placeholder="A few sentences about what you're trying to fix, build, or set up." class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">What's already in place?</span>
+            <textarea name="current_state" rows="3" placeholder="Devices, accounts, apps, internet, whatever you can list off the top of your head." class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">What does success look like?</span>
+            <textarea name="outcome" rows="3" placeholder="If this goes well, what's different a month from now?" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset class="space-y-4 border border-accent/15 bg-bg-card p-6">
+          <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">3. Timing & Budget</legend>
+
+          <fieldset class="border border-accent/10 p-4">
+            <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">Timeline</legend>
+            <div class="grid gap-2 text-sm text-muted md:grid-cols-2">
+              <label class="flex items-center gap-2"><input type="radio" name="timeline" value="asap" /> As soon as possible</label>
+              <label class="flex items-center gap-2"><input type="radio" name="timeline" value="month" /> Within a month</label>
+              <label class="flex items-center gap-2"><input type="radio" name="timeline" value="quarter" /> Within a few months</label>
+              <label class="flex items-center gap-2"><input type="radio" name="timeline" value="flexible" /> Flexible / no rush</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="border border-accent/10 p-4">
+            <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">Budget comfort (optional)</legend>
+            <p class="text-xs text-muted/80">No commitment, just helps me match scope to what makes sense for you.</p>
+            <div class="mt-2 grid gap-2 text-sm text-muted md:grid-cols-2">
+              <label class="flex items-center gap-2"><input type="radio" name="budget" value="lt500" /> Under $500</label>
+              <label class="flex items-center gap-2"><input type="radio" name="budget" value="500_2k" /> $500 – $2,000</label>
+              <label class="flex items-center gap-2"><input type="radio" name="budget" value="2k_5k" /> $2,000 – $5,000</label>
+              <label class="flex items-center gap-2"><input type="radio" name="budget" value="5k_plus" /> $5,000+</label>
+              <label class="flex items-center gap-2"><input type="radio" name="budget" value="unsure" /> Not sure yet</label>
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="space-y-4 border border-accent/15 bg-bg-card p-6">
+          <legend class="px-2 text-xs uppercase tracking-[2px] text-accent">4. Anything Else</legend>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">How did you hear about me?</span>
+            <input name="source" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+          </label>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">Anything else I should know?</span>
+            <textarea name="notes" rows="3" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none"></textarea>
+          </label>
+        </fieldset>
+
+        <!-- honeypot: hidden from humans, filled by bots -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="absolute -left-[9999px] h-0 w-0 opacity-0" aria-hidden="true" />
+
+        <div>
+          <button type="submit" data-apply-submit class="btn-primary">Send Application →</button>
+          <p data-apply-result class="mt-3 text-sm" hidden></p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>("[data-apply]");
+    const submit = document.querySelector<HTMLButtonElement>("[data-apply-submit]");
+    const out = document.querySelector<HTMLParagraphElement>("[data-apply-result]");
+    const fields = [
+      "name","email","phone","location","contact_pref","lane",
+      "situation","current_state","outcome","timeline","budget",
+      "source","notes","website",
+    ];
+
+    function setResult(msg: string, ok: boolean) {
+      if (!out) return;
+      out.hidden = false;
+      out.textContent = msg;
+      out.className = `mt-3 text-sm ${ok ? "text-accent" : "text-rose-400"}`;
+    }
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!submit) return;
+      const fd = new FormData(form);
+      const payload: Record<string, string> = {};
+      for (const f of fields) payload[f] = String(fd.get(f) ?? "").trim();
+
+      submit.disabled = true;
+      submit.textContent = "Sending…";
+      setResult("", true);
+
+      try {
+        const res = await fetch("/api/applications", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({ error: "submission failed" }));
+          throw new Error(data.error || "submission failed");
+        }
+        setResult("Application sent. Redirecting…", true);
+        setTimeout(() => { window.location.href = "/confirmed/"; }, 800);
+      } catch (err) {
+        setResult(`Couldn't send: ${(err as Error).message}. Try again, or email support@bulwarkblack.com.`, false);
+        submit.disabled = false;
+        submit.textContent = "Send Application →";
+      }
+    });
+  </script>
+</BaseLayout>

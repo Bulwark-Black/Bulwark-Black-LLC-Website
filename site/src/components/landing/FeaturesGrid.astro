@@ -1,0 +1,65 @@
+---
+import { serviceCategories } from "@/lib/services";
+
+// Pull the four service lanes straight from the shared services catalog so the
+// homepage copy can never drift from /services. Cyber Threat Intelligence and
+// Remote Tech Advisory are added as the fifth and sixth cards.
+const bySlug = Object.fromEntries(serviceCategories.map((c) => [c.slug, c]));
+
+const features = [
+  {
+    icon: "📡",
+    title: "Cyber Threat Intelligence",
+    body:
+      "Daily reporting on active threat actors, malware families, and campaigns, written to be used, not skimmed. Downloadable IOCs and YARA rules for defenders.",
+  },
+  {
+    icon: bySlug["websites-web-apps"].icon,
+    title: bySlug["websites-web-apps"].title,
+    body: bySlug["websites-web-apps"].summary,
+  },
+  {
+    icon: bySlug["ios-apps"].icon,
+    title: bySlug["ios-apps"].title,
+    body: bySlug["ios-apps"].summary,
+  },
+  {
+    icon: bySlug["ai-automation"].icon,
+    title: bySlug["ai-automation"].title,
+    body: bySlug["ai-automation"].summary,
+  },
+  {
+    icon: bySlug["it-security"].icon,
+    title: bySlug["it-security"].title,
+    body: bySlug["it-security"].summary,
+  },
+  {
+    icon: "🧭",
+    title: "Remote Tech Advisory",
+    body:
+      "One honest technical brain on call. Book a session for AI, security, or whatever technical decision you are stuck on, and get a straight answer you can act on.",
+  },
+];
+---
+<section id="features" class="text-center">
+  <div class="container">
+    <span class="section-label">What we do</span>
+    <h2 class="section-title">Two front doors. One operator.</h2>
+    <p class="section-desc">
+      Intelligence on one side, building on the other, run by the same
+      veteran-owned team with the same standard: no hype, no filler, work you
+      can verify.
+    </p>
+    <div class="features-grid">
+      {
+        features.map((f) => (
+          <div class="feature-card reveal">
+            <div class="feature-icon">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

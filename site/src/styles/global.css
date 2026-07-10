@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg-primary: #0a0e14;
+    --bg-secondary: #0f1520;
+    --bg-card: #111725;
+    --ink: #e6edf3;
+    --muted: #8b98a9;
+    --accent: #e0b64d;
+    --accent-bright: #f2c14e;
+    --intel: #4fd1c5;
+    --hairline: rgba(255, 255, 255, 0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--bg-primary);
+  }
+
+  body {
+    @apply bg-bg-primary text-ink font-body;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-wide;
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #0a0e14;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Monospace technical eyebrow / label */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-accent;
+  }
+  .eyebrow-intel {
+    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-intel;
+  }
+  .eyebrow-muted {
+    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-muted;
+  }
+
+  .accent-line {
+    height: 2px;
+    width: 72px;
+    background: linear-gradient(to right, var(--accent), transparent);
+  }
+
+  /* Faint ops-console grid — section-scoped only, never page-height */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
+  }
+
+  .card-lift {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -24px rgba(224, 182, 77, 0.28);
+    border-color: rgba(224, 182, 77, 0.45);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2.5 border border-accent bg-accent
+           px-6 py-3 text-sm font-semibold uppercase tracking-wider
+           text-[#0a0e14] transition-colors hover:bg-accent-bright hover:border-accent-bright;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2.5 border border-line bg-white/[0.02]
+           px-6 py-3 text-sm font-semibold uppercase tracking-wider
+           text-ink transition-colors hover:border-accent hover:text-accent;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-sm uppercase tracking-wider
+           text-muted transition-colors hover:text-accent;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 border border-line
+           bg-white/[0.03] px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider
+           text-muted;
+  }
+  .chip-intel {
+    @apply inline-flex items-center gap-1 border border-intel/25
+           bg-intel/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider
+           text-intel;
+  }
+
+  .hairline {
+    border-color: var(--hairline);
+  }
+
+  .marquee-track {
+    width: max-content;
+    will-change: transform;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+
+  .cv-defer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+}
+
+/* The ambient circuit layer (CircuitBackground.astro) is fixed at z-0 behind a
+   z-1 content wrapper. Primary section bands share the exact page base color
+   (#0a0e14), so dropping their opaque fill is visually identical but lets the
+   base + circuit texture read through the open field. Cards (bg-card) and
+   secondary bands stay solid, so the texture never sits under article cards or
+   body copy. Higher specificity than the utility, so no @layer ordering needed. */
+section.bg-bg-primary {
+  background-color: transparent;
+}

@@ -1,0 +1,40 @@
+---
+const steps = [
+  {
+    n: 1,
+    title: "Tell us what you need",
+    body: "A website, a custom app, AI setup, a security cleanup, or just a question. Plain language is fine. No sales funnel, no discovery-call gauntlet.",
+  },
+  {
+    n: 2,
+    title: "We scope it honestly",
+    body: "You get a clear plan, a real timeline, and a straight price. If the simple option is the right one, or if it is not a fit, we say so.",
+  },
+  {
+    n: 3,
+    title: "We build, ship, and hand it off",
+    body: "We do the work, ship it, and hand it off documented, so you can run it without us. Support stays available when you want it.",
+  },
+];
+---
+<section id="how-it-works" class="text-center">
+  <div class="container">
+    <span class="section-label">How it works</span>
+    <h2 class="section-title">Simple to start. Easy to keep.</h2>
+    <p class="section-desc">
+      No account managers, no runaround. Three steps from first message to
+      shipped work you own.
+    </p>
+    <div class="steps-grid">
+      {
+        steps.map((s) => (
+          <div class="step-card reveal">
+            <div class="step-number">{s.n}</div>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

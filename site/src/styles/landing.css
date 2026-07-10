@@ -1,0 +1,798 @@
+/*
+  Homepage landing styles — ported from the samscout.ai marketing design and
+  recolored to Bulwark gold. EVERY rule is prefixed with `.bb-landing` so none
+  of it leaks onto the rest of the site (which ships its own Tailwind-based
+  design system). The homepage wraps its sections in <div class="bb-landing">.
+
+  Color map applied from the source green theme:
+    #22c55e  -> #e0b64d  (gold accent)          -> var(--bb-gold)
+    #16a34a  -> #b8933a  (deep gold, hovers)     -> var(--bb-gold-deep)
+    #5ef08e  -> #f2c14e  (bright gold)           -> var(--bb-gold-bright)
+    rgba(34,197,94,a) -> rgba(224,182,77,a)      (gold glows)
+  Neutrals are aligned to the Bulwark blue-black scale so the landing seams
+  invisibly into the shared header/footer.
+*/
+
+.bb-landing {
+  --bb-bg: #0a0e14;
+  --bb-bg-2: #0f1520;
+  --bb-card: #111725;
+  --bb-line: rgba(255, 255, 255, 0.08);
+  --bb-line-2: rgba(255, 255, 255, 0.06);
+  --bb-line-strong: rgba(255, 255, 255, 0.14);
+  --bb-ink: #e6edf3;
+  --bb-text: #a9b4c2;
+  --bb-muted: #7c8797;
+  --bb-gold: #e0b64d;
+  --bb-gold-deep: #b8933a;
+  --bb-gold-bright: #f2c14e;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--bb-text);
+  background: var(--bb-bg);
+  line-height: 1.6;
+}
+
+/* Neutralize the site-wide Oswald heading treatment inside the landing so it
+   matches the source's clean sans look. The header/footer keep Oswald. */
+.bb-landing h1,
+.bb-landing h2,
+.bb-landing h3,
+.bb-landing h4 {
+  font-family: inherit;
+  letter-spacing: normal;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.bb-landing a {
+  color: inherit;
+  text-decoration: none;
+}
+.bb-landing img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==================== UTILITIES ==================== */
+.bb-landing .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.bb-landing .text-center {
+  text-align: center;
+}
+.bb-landing .text-accent {
+  color: var(--bb-gold);
+}
+.bb-landing .text-muted {
+  color: var(--bb-muted);
+}
+.bb-landing .text-secondary {
+  color: var(--bb-text);
+}
+
+/* ==================== BUTTONS ==================== */
+.bb-landing .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+  text-decoration: none;
+}
+.bb-landing .btn-primary {
+  background: var(--bb-gold);
+  color: #0a0e14;
+  box-shadow: 0 0 20px rgba(224, 182, 77, 0.2);
+}
+.bb-landing .btn-primary:hover {
+  background: var(--bb-gold-deep);
+  color: #0a0e14;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(224, 182, 77, 0.35);
+}
+.bb-landing .btn-secondary {
+  background: transparent;
+  color: var(--bb-text);
+  border: 1px solid var(--bb-line-strong);
+}
+.bb-landing .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--bb-ink);
+  border-color: rgba(224, 182, 77, 0.5);
+}
+.bb-landing .btn-large {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+}
+
+/* ==================== HERO ==================== */
+.bb-landing .hero {
+  position: relative;
+  padding: 8rem 1.5rem 6rem;
+  text-align: center;
+  overflow: hidden;
+}
+.bb-landing .hero::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  max-width: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(224, 182, 77, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.bb-landing .hero > * {
+  position: relative;
+  z-index: 2;
+}
+.bb-landing .hero-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+.bb-landing .hero-brand svg {
+  height: 46px;
+  width: auto;
+}
+.bb-landing .hero-wordmark {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bb-ink);
+  font-family: "Oswald", ui-sans-serif, system-ui, sans-serif;
+}
+.bb-landing .hero-wordmark .gold {
+  color: var(--bb-gold);
+}
+.bb-landing .hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--bb-ink);
+}
+.bb-landing .hero h1 .highlight {
+  background: linear-gradient(135deg, var(--bb-gold-bright), var(--bb-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.bb-landing .hero-sub {
+  font-size: 1.2rem;
+  color: var(--bb-text);
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.bb-landing .hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bb-landing .hero-note {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--bb-muted);
+}
+
+/* Contained network background canvas — lives inside the hero only. */
+.bb-landing .bb-net {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+.bb-landing .bb-net canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== STATS BAR ==================== */
+.bb-landing .stats {
+  border-top: 1px solid var(--bb-line);
+  border-bottom: 1px solid var(--bb-line);
+  padding: 3rem 1.5rem;
+  background: var(--bb-bg-2);
+}
+.bb-landing .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
+}
+.bb-landing .stat-item h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bb-gold);
+  margin-bottom: 0.25rem;
+}
+.bb-landing .stat-item p {
+  font-size: 0.9rem;
+  color: var(--bb-muted);
+}
+
+/* ==================== SECTIONS ==================== */
+.bb-landing section {
+  padding: 6rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.bb-landing .section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bb-gold);
+  background: rgba(224, 182, 77, 0.1);
+  border: 1px solid rgba(224, 182, 77, 0.2);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+.bb-landing .section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  color: var(--bb-ink);
+}
+.bb-landing .section-desc {
+  font-size: 1.05rem;
+  color: var(--bb-text);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+/* ==================== FEATURES ==================== */
+.bb-landing .features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.bb-landing .feature-card {
+  background: var(--bb-card);
+  border: 1px solid var(--bb-line);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+.bb-landing .feature-card:hover {
+  border-color: rgba(224, 182, 77, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+.bb-landing .feature-icon {
+  margin-bottom: 1rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(224, 182, 77, 0.1);
+  border-radius: 12px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.bb-landing .feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--bb-ink);
+}
+.bb-landing .feature-card p {
+  font-size: 0.9rem;
+  color: var(--bb-text);
+  line-height: 1.6;
+}
+
+/* ==================== ADVANTAGE / SPLIT SECTIONS ==================== */
+.bb-landing .advantage {
+  background: var(--bb-bg-2);
+  position: relative;
+  overflow: hidden;
+}
+.bb-landing .advantage::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -160px;
+  width: 600px;
+  height: 600px;
+  transform: translateY(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(224, 182, 77, 0.07) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.bb-landing .advantage.advantage-right::before {
+  left: auto;
+  right: -160px;
+}
+.bb-landing .advantage > .container {
+  position: relative;
+  z-index: 1;
+}
+.bb-landing .advantage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.bb-landing .advantage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.bb-landing .advantage-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.bb-landing .advantage-check {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: rgba(224, 182, 77, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bb-gold);
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+.bb-landing .advantage-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bb-ink);
+  margin-bottom: 0.25rem;
+}
+.bb-landing .advantage-item p {
+  font-size: 0.9rem;
+  color: var(--bb-text);
+  line-height: 1.5;
+}
+.bb-landing .advantage-visual {
+  background: var(--bb-card);
+  border: 1px solid var(--bb-line);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.bb-landing .advantage-eyebrow {
+  font-size: 1rem;
+  color: var(--bb-muted);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.bb-landing .advantage-lead {
+  color: var(--bb-text);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.bb-landing .advantage-body {
+  color: var(--bb-text);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+.bb-landing .advantage-body:last-child {
+  margin-bottom: 0;
+}
+.bb-landing .advantage-title-left {
+  text-align: left;
+}
+
+/* Small stacked "chip" rows used inside advantage visuals. */
+.bb-landing .chip-row {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.bb-landing .chip-tile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  background: var(--bb-bg-2);
+  border-radius: 8px;
+  border: 1px solid var(--bb-line);
+}
+.bb-landing .chip-tile .chip-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.bb-landing .chip-tile .chip-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bb-ink);
+}
+.bb-landing .chip-tile .chip-sub {
+  font-size: 0.8rem;
+  color: var(--bb-muted);
+}
+
+/* ==================== INTEL FEED (recent CTI) ==================== */
+.bb-landing .feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+.bb-landing .feed-card {
+  display: block;
+  padding: 1.25rem 1.4rem;
+  background: var(--bb-bg-2);
+  border: 1px solid var(--bb-line);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.bb-landing .feed-card:hover {
+  border-color: rgba(224, 182, 77, 0.35);
+  transform: translateY(-2px);
+}
+.bb-landing .feed-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bb-gold);
+  margin-bottom: 0.55rem;
+}
+.bb-landing .feed-meta .feed-date {
+  color: var(--bb-muted);
+}
+.bb-landing .feed-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bb-ink);
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+.bb-landing .feed-card:hover h4 {
+  color: var(--bb-gold);
+}
+.bb-landing .feed-card p {
+  font-size: 0.85rem;
+  color: var(--bb-text);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.bb-landing .feed-empty {
+  text-align: center;
+  padding: 1rem;
+}
+.bb-landing .feed-empty strong {
+  color: var(--bb-ink);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+.bb-landing .feed-empty span {
+  font-size: 0.9rem;
+  color: var(--bb-muted);
+}
+
+/* ==================== HOW IT WORKS ==================== */
+.bb-landing .steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.bb-landing .step-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+.bb-landing .step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(224, 182, 77, 0.15);
+  color: var(--bb-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 auto 1.25rem;
+  border: 2px solid rgba(224, 182, 77, 0.3);
+}
+.bb-landing .step-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--bb-ink);
+}
+.bb-landing .step-card p {
+  font-size: 0.9rem;
+  color: var(--bb-text);
+  line-height: 1.6;
+}
+
+/* ==================== FLAGSHIP APP SPOTLIGHT ==================== */
+.bb-landing .spotlight {
+  background: var(--bb-bg-2);
+}
+.bb-landing .spotlight-card {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 3.5rem;
+  align-items: center;
+  background: var(--bb-card);
+  border: 1px solid rgba(224, 182, 77, 0.28);
+  border-radius: 18px;
+  padding: 3rem;
+  box-shadow: 0 0 40px rgba(224, 182, 77, 0.06);
+}
+.bb-landing .spotlight-card .section-title {
+  text-align: left;
+}
+.bb-landing .spotlight-lead {
+  color: var(--bb-text);
+  line-height: 1.7;
+  margin: 1.25rem 0;
+}
+.bb-landing .spotlight-fine {
+  color: var(--bb-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.bb-landing .spotlight-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.bb-landing .spotlight-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.bb-landing .spotlight-stat {
+  background: var(--bb-bg-2);
+  border: 1px solid var(--bb-line);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.bb-landing .spotlight-stat .stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--bb-gold);
+  line-height: 1;
+}
+.bb-landing .spotlight-stat .stat-key {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bb-muted);
+}
+
+/* ==================== FINAL CTA ==================== */
+.bb-landing .final-cta {
+  text-align: center;
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.bb-landing .final-cta::before {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  max-width: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(224, 182, 77, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+.bb-landing .final-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--bb-ink);
+}
+.bb-landing .final-cta p {
+  font-size: 1.1rem;
+  color: var(--bb-text);
+  margin-bottom: 2rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bb-landing .final-cta .hero-buttons {
+  margin-top: 0;
+}
+
+/* ==================== SCROLL REVEAL ==================== */
+.bb-landing .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.bb-landing .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .bb-landing .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bb-landing .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bb-landing .advantage-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .bb-landing .spotlight-card {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .bb-landing .hero {
+    padding: 5rem 1.25rem 3.5rem;
+  }
+  .bb-landing .hero h1 {
+    font-size: 2rem;
+  }
+  .bb-landing .hero-sub {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .bb-landing .hero-wordmark {
+    font-size: 1.25rem;
+  }
+  .bb-landing section {
+    padding: 4rem 1.25rem;
+  }
+  .bb-landing .section-title {
+    font-size: 1.6rem;
+  }
+  .bb-landing .section-desc {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  .bb-landing .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .bb-landing .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .bb-landing .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .bb-landing .advantage-grid {
+    gap: 2rem;
+  }
+  .bb-landing .advantage-visual.order-first {
+    order: -1;
+  }
+  .bb-landing .spotlight-card {
+    padding: 2rem;
+  }
+  .bb-landing .feature-card {
+    padding: 1.5rem;
+  }
+  .bb-landing .final-cta {
+    padding: 4rem 1.25rem;
+  }
+  .bb-landing .final-cta h2 {
+    font-size: 1.6rem;
+  }
+  .bb-landing .final-cta p {
+    font-size: 1rem;
+  }
+  .bb-landing .stats {
+    padding: 2rem 1.25rem;
+  }
+}
+@media (max-width: 480px) {
+  .bb-landing .hero h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  .bb-landing .hero-sub {
+    font-size: 0.9rem;
+  }
+  .bb-landing .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .bb-landing .btn-large {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+  }
+  .bb-landing section {
+    padding: 3rem 1rem;
+  }
+  .bb-landing .section-title {
+    font-size: 1.4rem;
+  }
+  .bb-landing .container {
+    padding: 0 1rem;
+  }
+  .bb-landing .stat-item h3 {
+    font-size: 1.25rem;
+  }
+  .bb-landing .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  .bb-landing .final-cta h2 {
+    font-size: 1.4rem;
+  }
+  .bb-landing .spotlight-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bb-landing .advantage-visual,
+  .bb-landing .spotlight-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bb-landing .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

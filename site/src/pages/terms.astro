@@ -1,0 +1,145 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { site } from "@/lib/site";
+import { graph, breadcrumb } from "@/lib/jsonld";
+
+const lastUpdated = "May 20, 2026";
+---
+<BaseLayout
+  title="Terms of Service"
+  description="The rules for using this site and engaging Rural Tech and Support for paid work."
+>
+  <JsonLd slot="head" data={graph(
+    breadcrumb([{ name: "Home", path: "/" }, { name: "Terms", path: "/terms/" }]),
+  )} />
+
+  <section class="grid-bg bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">Terms</p>
+      <h1 class="mt-3 font-display text-4xl text-ink md:text-5xl">
+        The rules. <span class="text-accent">Short version.</span>
+      </h1>
+      <p class="mt-4 text-xs text-muted">Last updated: {lastUpdated}</p>
+      <p class="mt-6 text-muted leading-relaxed">
+        By using this site or hiring me, you agree to what is written below. If something here is
+        a problem for you, email me before we start work and we can sort it out in writing.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-3xl space-y-12 text-muted leading-relaxed">
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Who you are dealing with</h2>
+        <p class="mt-3">
+          The site and the services it advertises are operated by {site.legalName},
+          a Washington limited liability company. Owner-operator: Albert LaScola.
+          Registered in {site.operating.city}, {site.operating.state}. Registered office:
+          {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">What the site is</h2>
+        <p class="mt-3">
+          A marketing and intake site for an independent IT, cybersecurity, and AI advisory
+          practice. Articles, project notes, and recommendations are published in good faith but
+          are general information, not personalized advice for your situation. Reading something
+          here does not create a client relationship.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Booked calls and engagements</h2>
+        <ul class="mt-3 space-y-3">
+          <li>
+            <span class="text-ink">Advisory calls.</span> A booked
+            {site.booking.duration} call costs {site.booking.price}, charged at the time you book
+            through Calendly + Stripe. Payment is non-refundable, with one exception: if I have to
+            cancel and cannot reschedule within 30 days, you get a full refund.
+          </li>
+          <li>
+            <span class="text-ink">Project engagements.</span> Anything bigger than a single
+            booked call gets its own written scope and quote before any work starts. The signed
+            scope governs that engagement, and these Terms apply where the scope is silent.
+          </li>
+          <li>
+            <span class="text-ink">Right to decline.</span> I may decline to work with anyone for
+            any lawful reason, including conflicts of interest, ethical concerns, or scope I am
+            not the right fit for. If I decline, you get a full refund of anything already paid.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Reviews you submit</h2>
+        <p class="mt-3">
+          When you submit a review, you confirm that you actually worked with me, that the review
+          is your own honest opinion, and that I may publish it on this site with the display
+          name and metadata you provided. Your email is kept private. I read every review and
+          publish them manually. I may decline to publish a review without notice.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Intellectual property</h2>
+        <p class="mt-3">
+          Content on this site (writing, code samples, illustrations) is © {site.legalName}
+          unless attributed otherwise. You may quote short excerpts with credit and a link back.
+          For anything beyond that, ask.
+        </p>
+        <p class="mt-3">
+          Work delivered under a paid engagement is governed by the scope for that engagement,
+          which will specify what gets transferred to you on payment and what I retain rights to
+          (typically my own internal tooling and reusable patterns).
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Acceptable use</h2>
+        <p class="mt-3">
+          Do not use the forms or the site to harass, defraud, scrape at scale, or attempt to
+          break things. The reviews and contact forms have rate limits and bot protection. Repeat
+          abuse gets your IP blocked.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">No warranty, limited liability</h2>
+        <p class="mt-3">
+          The site and its content are provided "as is" without warranty of any kind. To the
+          maximum extent allowed by law, {site.legalName}'s total liability for anything
+          related to this site (separate from a signed engagement) is limited to the amount you
+          have paid me in the last 12 months, or $50, whichever is greater. Signed engagements
+          carry their own liability terms.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Governing law</h2>
+        <p class="mt-3">
+          These Terms are governed by the laws of the State of Washington, USA, without regard to
+          conflict-of-laws principles. Disputes go to the state or federal courts located in
+          Jefferson County, Washington.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Changes</h2>
+        <p class="mt-3">
+          I may update these Terms. The "Last updated" date at the top of this page shows when. If
+          changes materially affect an active engagement, I will email you directly.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs">
+          See also: <a href="/privacy/" class="text-accent">Privacy Policy</a>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

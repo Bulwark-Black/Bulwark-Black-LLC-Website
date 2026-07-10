@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import bodyHtml from "@/data/wp/va-disability-calc-track-app.html?raw";
+
+// Migrated from the original WordPress page /va-disability-calc-track-app/. Body rendered verbatim
+// (bulwarkblack.com URLs rewritten to root-relative) in the site page style.
+const title = "VA Disability Calc & Track App";
+const description = ".va-calc-page { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #e0e0e0; background-color:…";
+const hasBody = bodyHtml.replace(/<[^>]*>/g, "").trim().length > 0;
+---
+<BaseLayout title={title} description={description}>
+  <article class="mx-auto max-w-3xl px-6 py-16">
+    <p class="eyebrow-intel">Bulwark Black</p>
+    <h1 class="mt-3 font-display text-3xl leading-tight text-ink md:text-5xl">{title}</h1>
+    <div class="accent-line my-8"></div>
+    {hasBody ? (
+      <div class="article-body text-ink/90 leading-relaxed [&_p]:my-4 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-ink [&_h3]:font-display [&_h3]:text-xl [&_h3]:mt-8 [&_h3]:text-ink [&_a]:text-accent [&_a]:underline [&_ul]:my-4 [&_ul]:ml-6 [&_ul]:list-disc [&_ol]:my-4 [&_ol]:ml-6 [&_ol]:list-decimal [&_li]:my-2 [&_strong]:text-ink [&_img]:my-6 [&_img]:max-w-full [&_img]:border [&_img]:border-line [&_table]:my-6 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:text-sm [&_th]:border [&_th]:border-line [&_th]:p-2 [&_td]:border [&_td]:border-line [&_td]:p-2 [&_pre]:my-6 [&_pre]:overflow-x-auto [&_pre]:border [&_pre]:border-line [&_pre]:bg-bg-secondary [&_pre]:p-4 [&_pre]:text-sm [&_code]:font-mono [&_blockquote]:my-6 [&_blockquote]:border-l-2 [&_blockquote]:border-accent [&_blockquote]:pl-4 [&_blockquote]:text-muted [&_figure]:my-6 [&_figcaption]:mt-2 [&_figcaption]:text-center [&_figcaption]:text-sm [&_figcaption]:text-muted [&_hr]:my-8 [&_hr]:border-line" set:html={bodyHtml}></div>
+    ) : (
+      <div class="border border-dashed border-line bg-bg-card/60 px-6 py-14 text-center">
+        <p class="font-mono text-[11px] uppercase tracking-[0.24em] text-intel">Section</p>
+        <p class="mt-3 leading-relaxed text-muted">
+          This page is part of the site rebuild.{" "}<a class="text-accent underline" href="/cyber-threat-intelligence/">Browse the threat intel feed →</a>
+        </p>
+      </div>
+    )}
+  </article>
+</BaseLayout>

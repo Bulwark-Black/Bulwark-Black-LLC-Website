@@ -1,0 +1,265 @@
+
+<!-- VA Disability Calculator Product Page -->
+<style>
+.va-calc-page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #1a1a2e;
+}
+.va-hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+.va-hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.va-hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+.va-app-store-btn {
+    display: inline-block;
+    background: #000;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+.va-app-store-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.va-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+.va-feature-card {
+    background: #16213e;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.va-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.va-feature-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+.va-feature-card h3 {
+    color: #5b9bd5;
+    margin-bottom: 15px;
+}
+.va-screenshots {
+    text-align: center;
+    margin: 50px 0;
+}
+.va-screenshot-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.va-screenshot {
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.va-benefits {
+    background: #0f3460;
+    padding: 40px;
+    border-radius: 10px;
+    margin: 40px 0;
+}
+.va-benefit-list {
+    list-style: none;
+    padding: 0;
+}
+.va-benefit-list li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+}
+.va-benefit-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.va-security {
+    background: #1a3a4a;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #ffff66;
+    margin: 40px 0;
+}
+.va-cta {
+    background: #16213e;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.va-badge {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .va-hero h1 {
+        font-size: 2em;
+    }
+    .va-features {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="va-calc-page">
+    <!-- Hero Section -->
+    <div class="va-hero">
+    <h1>VA Disability Calc &#038; Track</h1>
+    <img decoding="async" src="/wp-content/uploads/2025/07/Icon-512.png" 
+         alt="App Hero Image" 
+         style="max-width: 300px; width: 100%; margin: 20px auto; border-radius: 10px;">
+    
+    <p>The most comprehensive VA disability calculator with BVA-accurate calculations, payment estimates, and claim tracking tools</p>
+    <a href="https://apps.apple.com/us/app/va-disability-calc-track/id6748180691" class="va-app-store-btn">
+        📱 Download on the App Store
+    </a>
+</div>
+
+    <!-- Main Features -->
+    <h2 style="text-align: center; color: #5b9bd5; margin-bottom: 30px;">Powerful Features for Veterans</h2>
+    
+    <div class="va-features">
+        <div class="va-feature-card">
+            <div class="va-feature-icon">🧮</div>
+            <h3>Dual Calculation Methods</h3>
+            <p>Calculate your VA disability rating using both BVA (precise) and Table (standard) methods for the most accurate results</p>
+        </div>
+        
+        <div class="va-feature-card">
+            <div class="va-feature-icon">💰</div>
+            <h3>Payment Calculator</h3>
+            <p>Instantly estimate monthly compensation based on your rating and dependents (spouse, children, parents)</p>
+        </div>
+        
+        <div class="va-feature-card">
+            <div class="va-feature-icon">🔍</div>
+            <h3>Search 900+ VA Codes</h3>
+            <p>Find diagnostic codes by condition, symptoms, or code number. Browse by body system or search directly</p>
+        </div>
+        
+        <div class="va-feature-card">
+            <div class="va-feature-icon">📄</div>
+            <h3>Document Vault</h3>
+            <p>Scan and store VA documents with military-grade AES-256 encryption. Tag and organize for easy retrieval</p>
+        </div>
+        
+        <div class="va-feature-card">
+            <div class="va-feature-icon">📝</div>
+            <h3>Notes &#038; Reminders</h3>
+            <p>Track appointments, symptoms, and claim progress with timestamped notes and push notification reminders</p>
+        </div>
+        
+        <div class="va-feature-card">
+            <div class="va-feature-icon">💾</div>
+            <h3>Save Profiles</h3>
+            <p>Create multiple calculation scenarios to compare current vs. potential ratings and track progression over time</p>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+<div class="va-benefits">
+    <h2 style="text-align: center; color: #5b9bd5;">Why Veterans Choose Our App</h2>
+    <ul class="va-benefit-list">
+        <li><strong>Stay Organized Effortlessly:</strong> Keep all your VA information in one secure place &#8211; calculations, codes, documents, and notes with smart tagging and instant search</li>
+        <li><strong>Find Any Reference Instantly:</strong> Search 900+ VA disability codes, browse 38 CFR regulations, and access 70+ categorized resources &#8211; no more endless googling</li>
+        <li><strong>Track Your Claims Journey:</strong> Interactive 7-phase checklist guides you from pre-separation through VHIC card with progress tracking and export features</li>
+        <li><strong>Document Vault with Smart Sharing:</strong> Scan, encrypt, tag, and organize all VA documents &#8211; share securely when needed while originals stay protected</li>
+        <li><strong>Profile Tracking Made Simple:</strong> Save unlimited calculation scenarios to compare current vs potential ratings &#8211; perfect for tracking progression over time</li>
+        <li><strong>Built-in DBQ &#038; Claims Guides:</strong> Step-by-step walkthroughs with real examples, document checklists, and common mistakes to avoid</li>
+        <li><strong>Everything Works Offline:</strong> No internet required &#8211; all your data stays on your device with military-grade encryption</li>
+        <li><strong>Quick Access Dashboard:</strong> See saved codes, recent calculations, and important documents at a glance from the home screen</li>
+        <li><strong>Never Miss a Deadline:</strong> Set reminders for appointments, claim deadlines, and follow-ups with push notifications</li>
+        <li><strong>Export for VSO Meetings:</strong> Generate reports of your calculations, checklists, and notes to share with representatives</li>
+    </ul>
+</div>
+
+    <!-- Screenshots Section -->
+<div class="va-screenshots">
+    <h2 style="color: #5b9bd5;">See It In Action</h2>
+    <div class="va-screenshot-container">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0003-scaled.png" alt="Screenshot 1" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0002-scaled.png" alt="Screenshot 2" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0004-scaled.png" alt="Screenshot 3" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0005-scaled.png" alt="Screenshot 4" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0006-scaled.png" alt="Screenshot 5" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0007-scaled.png" alt="Screenshot 6" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0011-scaled.png" alt="Screenshot 7" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0012-scaled.png" alt="Screenshot 8" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0013-scaled.png" alt="Screenshot 9" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0014-scaled.png" alt="Screenshot 10" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0015-scaled.png" alt="Screenshot 11" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0019-scaled.png" alt="Screenshot 13" class="va-screenshot">
+        <img decoding="async" src="/wp-content/uploads/2025/07/IMG_0020-scaled.png" alt="Screenshot 14" class="va-screenshot">
+    </div>
+</div>
+
+<!-- Privacy Section -->
+<div class="va-security">
+    <img decoding="async" src="/wp-content/uploads/2025/07/ChatGPT-Image-Jul-17-2025-04_52_13-PM.png" alt="Military Grade Security Badge" style="max-width: 120px; margin-bottom: 20px;">
+    
+    <h3>🔒 Your Privacy is Protected</h3>
+    <p>
+        <strong>Military-Grade Security:</strong> Documents are encrypted with AES-256-GCM encryption. 
+        All data stays on your device. We cannot see, access, or collect any of your information. 
+        Enable Face ID/Touch ID and PIN protection for additional security.
+        <br><br>
+        Learn more and read our whole Privacy Policy at:
+        <a href="/va-disability-calc-track" target="_blank" rel="noopener noreferrer">
+            bulwarkblack.com/va-disability-calc-track
+        </a>.
+    </p>
+</div>
+    <!-- Call to Action -->
+    <div class="va-cta">
+        <div class="va-badge">Trusted by Veterans Since 2025</div>
+        <h2>Start Maximizing Your VA Benefits Today</h2>
+        <p style="font-size: 1.1em; margin-bottom: 30px;">Join thousands of veterans who use our app to understand and track their VA disability ratings</p>
+        <a href="https://apps.apple.com/us/app/va-disability-calc-track/id6748180691" class="va-app-store-btn">
+            📱 Download Free on the App Store
+        </a>
+        <p style="margin-top: 20px; color: #b0b0b0; font-size: 0.9em;">
+            Compatible with iPhone and iPad • iOS 17.0+ • No subscription required
+        </p>
+    </div>
+
+    <!-- Disclaimer -->
+    <div style="text-align: center; padding: 30px 20px; color: #b0b0b0; font-size: 0.85em; border-top: 1px solid #333; margin-top: 50px;">
+        <p><strong>Disclaimer:</strong> This app is an independent tool that provides estimates based on VA disability calculation methods. It is not affiliated with or endorsed by the Department of Veterans Affairs (VA). For official information and decisions, always consult the VA or a certified representative.</p>
+        <p style="margin-top: 15px;">© 2026 Bulwark Black LLC. All rights reserved.</p>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "name": "ruraltech-services",
+  "private": true,
+  "type": "module",
+  "version": "0.2.0",
+  "main": "newsletter.mjs",
+  "scripts": {
+    "start": "node newsletter.mjs",
+    "start:reviews": "node reviews.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+<BaseLayout title="Page Not Found" description="That page isn't here, try one of these instead." noindex>
+  <section class="grid-bg bg-bg-primary px-6 py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="font-display text-7xl text-accent md:text-9xl">404</p>
+      <h1 class="mt-4 font-display text-3xl text-ink md:text-5xl">
+        That page isn't here.
+      </h1>
+      <p class="mx-auto mt-4 max-w-xl text-muted leading-relaxed">
+        Either the link is wrong or I moved the page. Pick a door below, one of these is probably
+        what you wanted.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
+      <a href="/services/" class="block border border-accent/15 bg-bg-card p-6 card-lift">
+        <p class="text-xs uppercase tracking-[2px] text-accent">Door 1</p>
+        <p class="mt-2 font-display text-lg text-ink">What I help with</p>
+        <p class="mt-2 text-sm text-muted">Personal IT, web + AI, automation, and small-business cybersecurity.</p>
+      </a>
+      <a href="/work-with-me/apply/" class="block border border-accent/15 bg-bg-card p-6 card-lift">
+        <p class="text-xs uppercase tracking-[2px] text-accent">Door 2</p>
+        <p class="mt-2 font-display text-lg text-ink">Work with me</p>
+        <p class="mt-2 text-sm text-muted">A short form, five minutes, so I can give you a real answer.</p>
+      </a>
+      <a href="/contact/" class="block border border-accent/15 bg-bg-card p-6 card-lift">
+        <p class="text-xs uppercase tracking-[2px] text-accent">Door 3</p>
+        <p class="mt-2 font-display text-lg text-ink">Just say hi</p>
+        <p class="mt-2 text-sm text-muted">A quick note, I read every one.</p>
+      </a>
+    </div>
+    <p class="mx-auto mt-10 max-w-xl text-center text-sm text-muted">
+      Or head <a href="/" class="text-accent">back home</a>.
+    </p>
+  </section>
+</BaseLayout>

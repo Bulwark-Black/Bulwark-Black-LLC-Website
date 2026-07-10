@@ -1,0 +1,105 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { site } from "@/lib/site";
+import { graph, breadcrumb } from "@/lib/jsonld";
+
+// Root-level CTI article routes. WordPress served these at bulwarkblack.com/<slug>,
+// so we keep the exact same URL. Astro resolves explicit page routes (/about, etc.)
+// before this dynamic [slug], so there are no collisions.
+export async function getStaticPaths() {
+  const published: CollectionEntry<"cti">[] = await getCollection("cti");
+  const all = published
+    .filter((entry) => !entry.data.draft)
+    .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  return all.map((post, i) => ({
+    params: { slug: post.slug },
+    props: { post, prev: all[i + 1] ?? null, next: all[i - 1] ?? null },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"cti">;
+  prev: CollectionEntry<"cti"> | null;
+  next: CollectionEntry<"cti"> | null;
+}
+const { post, prev, next } = Astro.props;
+const { Content } = await post.render();
+
+const url = new URL(`/${post.slug}/`, site.url).toString();
+const datePub = post.data.publishedAt.toISOString();
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+const articleSchema = {
+  "@type": "BlogPosting",
+  "@id": `${url}#article`,
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  headline: post.data.title,
+  description: post.data.summary,
+  datePublished: datePub,
+  dateModified: datePub,
+  author: { "@id": `${site.url}/#albert` },
+  publisher: { "@id": `${site.url}/#bulwark-black` },
+  ...(post.data.heroImage ? { image: new URL(post.data.heroImage, site.url).toString() } : {}),
+  keywords: post.data.tags?.join(", "),
+};
+---
+<BaseLayout title={post.data.title} description={post.data.summary}>
+  <JsonLd slot="head" data={graph(
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Cyber Threat Intelligence", path: "/cyber-threat-intelligence/" },
+      { name: post.data.title, path: `/${post.slug}/` },
+    ]),
+    articleSchema,
+  )} />
+
+  <article class="mx-auto max-w-3xl px-6 py-16">
+    <p class="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-intel">
+      <a href="/cyber-threat-intelligence/" class="hover:text-accent">Threat Intel</a>
+      <span class="text-muted/50">·</span>
+      <span>{post.data.category ?? "Intel"}</span>
+      <span class="text-muted/50">·</span>
+      <time datetime={datePub} class="text-muted">{dateFmt.format(post.data.publishedAt)}</time>
+    </p>
+    <h1 class="mt-3 font-display text-3xl leading-tight text-ink break-words md:text-5xl">{post.data.title}</h1>
+    <p class="mt-4 break-words text-lg leading-relaxed text-muted">{post.data.summary}</p>
+    {post.data.heroImage && (
+      <img src={post.data.heroImage} alt={post.data.title} class="mt-8 w-full border border-line" loading="eager" />
+    )}
+    <div class="accent-line my-8"></div>
+    <div class="article-body break-words text-ink/90 leading-relaxed [&_p]:my-4 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-ink [&_h3]:font-display [&_h3]:text-xl [&_h3]:mt-8 [&_h3]:text-ink [&_a]:text-accent [&_a]:underline [&_ul]:my-4 [&_ul]:ml-6 [&_ul]:list-disc [&_ol]:my-4 [&_ol]:ml-6 [&_ol]:list-decimal [&_li]:my-2 [&_strong]:text-ink [&_img]:my-6 [&_img]:max-w-full [&_img]:border [&_img]:border-line [&_table]:my-6 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:text-sm [&_th]:border [&_th]:border-line [&_th]:p-2 [&_td]:border [&_td]:border-line [&_td]:p-2 [&_pre]:my-6 [&_pre]:overflow-x-auto [&_pre]:border [&_pre]:border-line [&_pre]:bg-bg-secondary [&_pre]:p-4 [&_pre]:text-sm [&_code]:font-mono [&_blockquote]:my-6 [&_blockquote]:border-l-2 [&_blockquote]:border-accent [&_blockquote]:pl-4 [&_blockquote]:text-muted">
+      <Content />
+    </div>
+    <div class="accent-line my-10"></div>
+
+    {post.data.tags && post.data.tags.length > 0 && (
+      <p class="flex flex-wrap gap-2">
+        {post.data.tags.map((t: string) => (
+          <span class="border border-line px-2 py-1 font-mono text-[11px] text-muted">#{t}</span>
+        ))}
+      </p>
+    )}
+
+    <nav aria-label="Adjacent reports" class="mt-10 grid gap-4 md:grid-cols-2">
+      {prev ? (
+        <a href={`/${prev.slug}/`} class="block border border-line bg-bg-card p-5 card-lift">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-accent">← Older report</p>
+          <p class="mt-2 font-display text-base text-ink">{prev.data.title}</p>
+        </a>
+      ) : <span />}
+      {next ? (
+        <a href={`/${next.slug}/`} class="block border border-line bg-bg-card p-5 text-right card-lift">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-accent">Newer report →</p>
+          <p class="mt-2 font-display text-base text-ink">{next.data.title}</p>
+        </a>
+      ) : <span />}
+    </nav>
+
+    <p class="mt-10 text-sm text-muted">
+      Need this turned into detection or defense for your environment?
+      <a href="/contact/" class="text-accent">Work with us →</a>
+    </p>
+  </article>
+</BaseLayout>

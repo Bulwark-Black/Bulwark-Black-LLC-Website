@@ -1,0 +1,3552 @@
+[
+ {
+  "id": 139,
+  "count": 30,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/ai-general",
+  "name": "AI (General)",
+  "slug": "ai-general",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>AI (General) Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/ai-general\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"AI (General) Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/ai-general\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/ai-general\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/ai-general\",\"name\":\"AI (General) Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/ai-general#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/ai-general#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"AI (General)\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "AI (General) Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/ai-general",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "AI (General) Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/ai-general",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/ai-general",
+      "url": "https://bulwarkblack.com/category/ai-general",
+      "name": "AI (General) Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/ai-general#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/ai-general#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI (General)"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/139",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=139"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 286,
+  "count": 3,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/becoming-self-sufficient",
+  "name": "Becoming Self Sufficient",
+  "slug": "becoming-self-sufficient",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Becoming Self Sufficient Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/becoming-self-sufficient\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Becoming Self Sufficient Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/becoming-self-sufficient\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/becoming-self-sufficient\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/becoming-self-sufficient\",\"name\":\"Becoming Self Sufficient Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/becoming-self-sufficient#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/becoming-self-sufficient#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Becoming Self Sufficient\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Becoming Self Sufficient Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/becoming-self-sufficient",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Becoming Self Sufficient Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/becoming-self-sufficient",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/becoming-self-sufficient",
+      "url": "https://bulwarkblack.com/category/becoming-self-sufficient",
+      "name": "Becoming Self Sufficient Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/becoming-self-sufficient#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/becoming-self-sufficient#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Becoming Self Sufficient"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/286",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=286"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 113,
+  "count": 8,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/bug-bounty",
+  "name": "Bug Bounty",
+  "slug": "bug-bounty",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Bug Bounty Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/bug-bounty\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Bug Bounty Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/bug-bounty\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/bug-bounty\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/bug-bounty\",\"name\":\"Bug Bounty Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/bug-bounty#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/bug-bounty#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Bug Bounty\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Bug Bounty Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/bug-bounty",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Bug Bounty Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/bug-bounty",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/bug-bounty",
+      "url": "https://bulwarkblack.com/category/bug-bounty",
+      "name": "Bug Bounty Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/bug-bounty#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/bug-bounty#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Bug Bounty"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/113",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=113"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 1,
+  "count": 15,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/business",
+  "name": "Business",
+  "slug": "business",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Business Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/business\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Business Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/business\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/business\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/business\",\"name\":\"Business Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/business#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/business#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Business\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Business Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/business",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Business Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/business",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/business",
+      "url": "https://bulwarkblack.com/category/business",
+      "name": "Business Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/business#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/business#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Business"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/1",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=1"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 24,
+  "count": 38,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/chinese-cyber-threat-intelligence",
+  "name": "Chinese Cyber Threat Intelligence",
+  "slug": "chinese-cyber-threat-intelligence",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Chinese Cyber Threat Intelligence Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/chinese-cyber-threat-intelligence\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Chinese Cyber Threat Intelligence Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/chinese-cyber-threat-intelligence\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/chinese-cyber-threat-intelligence\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/chinese-cyber-threat-intelligence\",\"name\":\"Chinese Cyber Threat Intelligence Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/chinese-cyber-threat-intelligence#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/chinese-cyber-threat-intelligence#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Chinese Cyber Threat Intelligence\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Chinese Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/chinese-cyber-threat-intelligence",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Chinese Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/chinese-cyber-threat-intelligence",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/chinese-cyber-threat-intelligence",
+      "url": "https://bulwarkblack.com/category/chinese-cyber-threat-intelligence",
+      "name": "Chinese Cyber Threat Intelligence Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/chinese-cyber-threat-intelligence#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/chinese-cyber-threat-intelligence#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Chinese Cyber Threat Intelligence"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/24",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=24"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 239,
+  "count": 121,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/cyber-security-blog",
+  "name": "Cyber Security Blog",
+  "slug": "cyber-security-blog",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Cyber Security Blog Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/cyber-security-blog\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Cyber Security Blog Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/cyber-security-blog\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/cyber-security-blog\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/cyber-security-blog\",\"name\":\"Cyber Security Blog Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/cyber-security-blog#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/cyber-security-blog#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Cyber Security Blog\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Cyber Security Blog Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/cyber-security-blog",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Cyber Security Blog Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/cyber-security-blog",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/cyber-security-blog",
+      "url": "https://bulwarkblack.com/category/cyber-security-blog",
+      "name": "Cyber Security Blog Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/cyber-security-blog#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/cyber-security-blog#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cyber Security Blog"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/239",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=239"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 186,
+  "count": 3,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/detection",
+  "name": "Detection",
+  "slug": "detection",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Detection Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/detection\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Detection Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/detection\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/detection\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/detection\",\"name\":\"Detection Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/detection#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/detection#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Detection\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Detection Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/detection",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Detection Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/detection",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/detection",
+      "url": "https://bulwarkblack.com/category/detection",
+      "name": "Detection Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/detection#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/detection#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Detection"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/186",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=186"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 283,
+  "count": 2,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/digital-assets",
+  "name": "Digital Assets",
+  "slug": "digital-assets",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Digital Assets Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/digital-assets\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Digital Assets Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/digital-assets\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/digital-assets\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/digital-assets\",\"name\":\"Digital Assets Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/digital-assets#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/digital-assets#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Digital Assets\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Digital Assets Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/digital-assets",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Digital Assets Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/digital-assets",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/digital-assets",
+      "url": "https://bulwarkblack.com/category/digital-assets",
+      "name": "Digital Assets Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/digital-assets#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/digital-assets#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Digital Assets"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/283",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=283"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 146,
+  "count": 188,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/general-cti",
+  "name": "General CTI",
+  "slug": "general-cti",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>General CTI Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/general-cti\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"General CTI Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/general-cti\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/general-cti\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/general-cti\",\"name\":\"General CTI Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/general-cti#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/general-cti#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"General CTI\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "General CTI Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/general-cti",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "General CTI Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/general-cti",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/general-cti",
+      "url": "https://bulwarkblack.com/category/general-cti",
+      "name": "General CTI Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/general-cti#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/general-cti#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "General CTI"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/146",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=146"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 27,
+  "count": 8,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence",
+  "name": "Global Cyber Threat Intelligence",
+  "slug": "anomalous-cyber-threat-intelligence",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Global Cyber Threat Intelligence Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Global Cyber Threat Intelligence Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/anomalous-cyber-threat-intelligence\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/anomalous-cyber-threat-intelligence\",\"name\":\"Global Cyber Threat Intelligence Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/anomalous-cyber-threat-intelligence#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/anomalous-cyber-threat-intelligence#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Global Cyber Threat Intelligence\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Global Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Global Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence",
+      "url": "https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence",
+      "name": "Global Cyber Threat Intelligence Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/anomalous-cyber-threat-intelligence#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Global Cyber Threat Intelligence"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/27",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=27"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 26,
+  "count": 24,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/iranian-cyber-threat-intelligence",
+  "name": "Iranian Cyber Threat Intelligence",
+  "slug": "iranian-cyber-threat-intelligence",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Iranian Cyber Threat Intelligence Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/iranian-cyber-threat-intelligence\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Iranian Cyber Threat Intelligence Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/iranian-cyber-threat-intelligence\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/iranian-cyber-threat-intelligence\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/iranian-cyber-threat-intelligence\",\"name\":\"Iranian Cyber Threat Intelligence Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/iranian-cyber-threat-intelligence#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/iranian-cyber-threat-intelligence#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Iranian Cyber Threat Intelligence\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Iranian Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/iranian-cyber-threat-intelligence",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Iranian Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/iranian-cyber-threat-intelligence",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/iranian-cyber-threat-intelligence",
+      "url": "https://bulwarkblack.com/category/iranian-cyber-threat-intelligence",
+      "name": "Iranian Cyber Threat Intelligence Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/iranian-cyber-threat-intelligence#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/iranian-cyber-threat-intelligence#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Iranian Cyber Threat Intelligence"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/26",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=26"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 285,
+  "count": 3,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/makes-you-think",
+  "name": "Makes you Think",
+  "slug": "makes-you-think",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Makes you Think Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/makes-you-think\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Makes you Think Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/makes-you-think\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/makes-you-think\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/makes-you-think\",\"name\":\"Makes you Think Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/makes-you-think#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/makes-you-think#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Makes you Think\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Makes you Think Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/makes-you-think",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Makes you Think Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/makes-you-think",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/makes-you-think",
+      "url": "https://bulwarkblack.com/category/makes-you-think",
+      "name": "Makes you Think Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/makes-you-think#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/makes-you-think#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Makes you Think"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/285",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=285"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 28,
+  "count": 103,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/malware",
+  "name": "Malware",
+  "slug": "malware",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Malware Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/malware\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Malware Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/malware\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware\",\"name\":\"Malware Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Malware\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Malware Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/malware",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Malware Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/malware",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/malware",
+      "url": "https://bulwarkblack.com/category/malware",
+      "name": "Malware Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/malware#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/malware#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Malware"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/28",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=28"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 31,
+  "count": 1,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/malware-monsters",
+  "name": "Malware Monsters",
+  "slug": "malware-monsters",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Malware Monsters Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/malware-monsters\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Malware Monsters Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/malware-monsters\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware-monsters\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware-monsters\",\"name\":\"Malware Monsters Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware-monsters#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/malware-monsters#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Malware Monsters\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Malware Monsters Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/malware-monsters",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Malware Monsters Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/malware-monsters",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/malware-monsters",
+      "url": "https://bulwarkblack.com/category/malware-monsters",
+      "name": "Malware Monsters Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/malware-monsters#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/malware-monsters#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Malware Monsters"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/31",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=31"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 25,
+  "count": 12,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence",
+  "name": "North Korean Cyber Threat Intelligence",
+  "slug": "north-korean-cyber-threat-intelligence",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>North Korean Cyber Threat Intelligence Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"North Korean Cyber Threat Intelligence Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/north-korean-cyber-threat-intelligence\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/north-korean-cyber-threat-intelligence\",\"name\":\"North Korean Cyber Threat Intelligence Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/north-korean-cyber-threat-intelligence#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/north-korean-cyber-threat-intelligence#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"North Korean Cyber Threat Intelligence\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "North Korean Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "North Korean Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence",
+      "url": "https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence",
+      "name": "North Korean Cyber Threat Intelligence Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/north-korean-cyber-threat-intelligence#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "North Korean Cyber Threat Intelligence"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/25",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=25"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 123,
+  "count": 13,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/offensive-devices-tactics",
+  "name": "Offensive Devices / Tactics",
+  "slug": "offensive-devices-tactics",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Offensive Devices / Tactics Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/offensive-devices-tactics\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Offensive Devices / Tactics Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/offensive-devices-tactics\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/offensive-devices-tactics\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/offensive-devices-tactics\",\"name\":\"Offensive Devices \\/ Tactics Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/offensive-devices-tactics#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/offensive-devices-tactics#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Offensive Devices \\/ Tactics\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Offensive Devices / Tactics Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/offensive-devices-tactics",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Offensive Devices / Tactics Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/offensive-devices-tactics",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/offensive-devices-tactics",
+      "url": "https://bulwarkblack.com/category/offensive-devices-tactics",
+      "name": "Offensive Devices / Tactics Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/offensive-devices-tactics#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/offensive-devices-tactics#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Offensive Devices / Tactics"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/123",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=123"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 128,
+  "count": 18,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/operational-technology-ot",
+  "name": "Operational Technology (OT)",
+  "slug": "operational-technology-ot",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Operational Technology (OT) Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/operational-technology-ot\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Operational Technology (OT) Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/operational-technology-ot\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/operational-technology-ot\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/operational-technology-ot\",\"name\":\"Operational Technology (OT) Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/operational-technology-ot#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/operational-technology-ot#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Operational Technology (OT)\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Operational Technology (OT) Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/operational-technology-ot",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Operational Technology (OT) Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/operational-technology-ot",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/operational-technology-ot",
+      "url": "https://bulwarkblack.com/category/operational-technology-ot",
+      "name": "Operational Technology (OT) Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/operational-technology-ot#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/operational-technology-ot#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Operational Technology (OT)"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/128",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=128"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 282,
+  "count": 79,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/privacy-security",
+  "name": "Privacy &amp; Security",
+  "slug": "privacy-security",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Privacy &amp; Security Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/privacy-security\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Privacy &amp; Security Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/privacy-security\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/privacy-security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/privacy-security\",\"name\":\"Privacy &amp; Security Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/privacy-security#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/privacy-security#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Privacy &amp; Security\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Privacy &amp; Security Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/privacy-security",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Privacy &amp; Security Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/privacy-security",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/privacy-security",
+      "url": "https://bulwarkblack.com/category/privacy-security",
+      "name": "Privacy &amp; Security Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/privacy-security#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/privacy-security#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy &amp; Security"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/282",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=282"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 211,
+  "count": 6,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/projects",
+  "name": "Projects",
+  "slug": "projects",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Projects Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/projects\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Projects Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/projects\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/projects\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/projects\",\"name\":\"Projects Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/projects#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/projects#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Projects\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Projects Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/projects",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Projects Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/projects",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/projects",
+      "url": "https://bulwarkblack.com/category/projects",
+      "name": "Projects Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/projects#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/projects#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/211",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=211"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 220,
+  "count": 10,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/red-teaming",
+  "name": "Red Teaming",
+  "slug": "red-teaming",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Red Teaming Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/red-teaming\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Red Teaming Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/red-teaming\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/red-teaming\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/red-teaming\",\"name\":\"Red Teaming Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/red-teaming#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/red-teaming#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Red Teaming\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Red Teaming Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/red-teaming",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Red Teaming Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/red-teaming",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/red-teaming",
+      "url": "https://bulwarkblack.com/category/red-teaming",
+      "name": "Red Teaming Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/red-teaming#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/red-teaming#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Red Teaming"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/220",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=220"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 30,
+  "count": 2,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/research-papers",
+  "name": "Research Papers",
+  "slug": "research-papers",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Research Papers Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/research-papers\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Research Papers Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/research-papers\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/research-papers\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/research-papers\",\"name\":\"Research Papers Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/research-papers#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/research-papers#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Research Papers\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Research Papers Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/research-papers",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Research Papers Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/research-papers",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/research-papers",
+      "url": "https://bulwarkblack.com/category/research-papers",
+      "name": "Research Papers Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/research-papers#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/research-papers#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Research Papers"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/30",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=30"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 23,
+  "count": 27,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/russian-cyber-threat-intelligence",
+  "name": "Russian Cyber Threat Intelligence",
+  "slug": "russian-cyber-threat-intelligence",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Russian Cyber Threat Intelligence Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/russian-cyber-threat-intelligence\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Russian Cyber Threat Intelligence Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/russian-cyber-threat-intelligence\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/russian-cyber-threat-intelligence\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/russian-cyber-threat-intelligence\",\"name\":\"Russian Cyber Threat Intelligence Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/russian-cyber-threat-intelligence#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/russian-cyber-threat-intelligence#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Russian Cyber Threat Intelligence\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Russian Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/russian-cyber-threat-intelligence",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Russian Cyber Threat Intelligence Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/russian-cyber-threat-intelligence",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/russian-cyber-threat-intelligence",
+      "url": "https://bulwarkblack.com/category/russian-cyber-threat-intelligence",
+      "name": "Russian Cyber Threat Intelligence Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/russian-cyber-threat-intelligence#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/russian-cyber-threat-intelligence#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Russian Cyber Threat Intelligence"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/23",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=23"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 284,
+  "count": 13,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/social-engineering",
+  "name": "Social Engineering",
+  "slug": "social-engineering",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Social Engineering Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/social-engineering\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Social Engineering Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/social-engineering\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/social-engineering\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/social-engineering\",\"name\":\"Social Engineering Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/social-engineering#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/social-engineering#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Social Engineering\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Social Engineering Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/social-engineering",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Social Engineering Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/social-engineering",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/social-engineering",
+      "url": "https://bulwarkblack.com/category/social-engineering",
+      "name": "Social Engineering Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/social-engineering#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/social-engineering#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Social Engineering"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/284",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=284"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 29,
+  "count": 0,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/student-research-papers",
+  "name": "Student Research Papers",
+  "slug": "student-research-papers",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Student Research Papers Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/student-research-papers\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Student Research Papers Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/student-research-papers\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/student-research-papers\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/student-research-papers\",\"name\":\"Student Research Papers Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/student-research-papers#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/student-research-papers#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Student Research Papers\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Student Research Papers Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/student-research-papers",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Student Research Papers Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/student-research-papers",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/student-research-papers",
+      "url": "https://bulwarkblack.com/category/student-research-papers",
+      "name": "Student Research Papers Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/student-research-papers#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/student-research-papers#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Student Research Papers"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/29",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=29"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 218,
+  "count": 3,
+  "description": "",
+  "link": "https://bulwarkblack.com/category/training",
+  "name": "Training",
+  "slug": "training",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.0 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Training Archives - Bulwark Black LLC</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://bulwarkblack.com/category/training\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Training Archives - Bulwark Black LLC\" />\n<meta property=\"og:url\" content=\"https://bulwarkblack.com/category/training\" />\n<meta property=\"og:site_name\" content=\"Bulwark Black LLC\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/training\",\"url\":\"https:\\/\\/bulwarkblack.com\\/category\\/training\",\"name\":\"Training Archives - Bulwark Black LLC\",\"isPartOf\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/training#breadcrumb\"},\"inLanguage\":\"en-US\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/category\\/training#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bulwarkblack.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Training\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#website\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"name\":\"Bulwark-Black Security\",\"description\":\"Cyber Security | Software Development | Consulting Services\",\"publisher\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bulwarkblack.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#organization\",\"name\":\"Bulwark-Black Security\",\"url\":\"https:\\/\\/bulwarkblack.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"contentUrl\":\"https:\\/\\/bulwarkblack.com\\/wp-content\\/uploads\\/2023\\/12\\/bulwarkblack_alpha_chanel.png\",\"width\":1024,\"height\":1024,\"caption\":\"Bulwark-Black Security\"},\"image\":{\"@id\":\"https:\\/\\/bulwarkblack.com\\/#\\/schema\\/logo\\/image\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Training Archives - Bulwark Black LLC",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://bulwarkblack.com/category/training",
+   "og_locale": "en_US",
+   "og_type": "article",
+   "og_title": "Training Archives - Bulwark Black LLC",
+   "og_url": "https://bulwarkblack.com/category/training",
+   "og_site_name": "Bulwark Black LLC",
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "CollectionPage",
+      "@id": "https://bulwarkblack.com/category/training",
+      "url": "https://bulwarkblack.com/category/training",
+      "name": "Training Archives - Bulwark Black LLC",
+      "isPartOf": {
+       "@id": "https://bulwarkblack.com/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://bulwarkblack.com/category/training#breadcrumb"
+      },
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://bulwarkblack.com/category/training#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bulwarkblack.com/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Training"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://bulwarkblack.com/#website",
+      "url": "https://bulwarkblack.com/",
+      "name": "Bulwark-Black Security",
+      "description": "Cyber Security | Software Development | Consulting Services",
+      "publisher": {
+       "@id": "https://bulwarkblack.com/#organization"
+      },
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://bulwarkblack.com/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://bulwarkblack.com/#organization",
+      "name": "Bulwark-Black Security",
+      "url": "https://bulwarkblack.com/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/",
+       "url": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "contentUrl": "https://bulwarkblack.com/wp-content/uploads/2023/12/bulwarkblack_alpha_chanel.png",
+       "width": 1024,
+       "height": 1024,
+       "caption": "Bulwark-Black Security"
+      },
+      "image": {
+       "@id": "https://bulwarkblack.com/#/schema/logo/image/"
+      }
+     }
+    ]
+   }
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories/218",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://bulwarkblack.com/wp-json/wp/v2/posts?categories=218"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ }
+]

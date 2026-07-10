@@ -1,0 +1,111 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/Header.astro";
+import NewsTicker from "@/components/NewsTicker.astro";
+import Footer from "@/components/Footer.astro";
+import CircuitBackground from "@/components/CircuitBackground.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { site } from "@/lib/site";
+import { graph, personAlbert, organizationBulwarkBlack, localBusiness } from "@/lib/jsonld";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+const {
+  title,
+  description = site.description,
+  ogImage = "/og.svg",
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title ? `${title}, ${site.name}` : `${site.name}, ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, site.url).toString();
+const ogImageUrl = new URL(ogImage, site.url).toString();
+const fontsHref = "https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap";
+
+const globalGraph = graph(personAlbert, organizationBulwarkBlack, localBusiness);
+---
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Bulwark Black — Cyber Threat Intelligence" href="/rss.xml" />
+
+    <!-- Non-blocking Google Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href={fontsHref} />
+    <link
+      rel="stylesheet"
+      href={fontsHref}
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
+
+    <JsonLd data={globalGraph} />
+    <slot name="head" />
+  </head>
+  <body>
+    <CircuitBackground />
+    <div class="relative z-[1]">
+      <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-accent focus:text-black focus:px-3 focus:py-1">Skip to content</a>
+      <Header />
+      <NewsTicker />
+      <main id="main">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+
+    <script>
+      // Card / ticker thumbnails load the small /wp-content/thumbs/ jpg first. If
+      // one 404s (thumbnails are generated server-side and can lag a new post),
+      // retry the full-res original once, then hide so the gradient shows. One
+      // handler for the whole page; also catches eager above-the-fold images that
+      // errored before this module ran.
+      function wireThumb(img: HTMLImageElement) {
+        let retried = false;
+        const fail = () => {
+          const orig = img.dataset.original;
+          if (!retried && orig && !img.src.endsWith(orig)) {
+            retried = true;
+            img.src = orig;
+          } else {
+            img.style.display = "none";
+          }
+        };
+        img.addEventListener("error", fail);
+        if (img.complete && img.naturalWidth === 0) fail();
+      }
+      document
+        .querySelectorAll<HTMLImageElement>("img[data-original]")
+        .forEach(wireThumb);
+    </script>
+  </body>
+</html>

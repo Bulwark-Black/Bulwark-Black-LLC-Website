@@ -1,0 +1,127 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { thumbUrl } from "@/lib/images";
+
+type Size = "lead" | "default" | "compact";
+
+interface Props {
+  /** Pass a whole CTI entry, or the individual fields below. */
+  entry?: CollectionEntry<"cti">;
+  title?: string;
+  summary?: string;
+  category?: string;
+  date?: Date | string;
+  href?: string;
+  heroImage?: string;
+  size?: Size;
+  /** Extra classes merged onto the card root. */
+  class?: string;
+  /** Image loading strategy — set "eager" for above-the-fold cards. */
+  loading?: "eager" | "lazy";
+}
+
+const {
+  entry,
+  size = "default",
+  class: extraClass = "",
+  loading = "lazy",
+} = Astro.props;
+
+// Resolve every field from an entry when one is passed, else from explicit props.
+const title = Astro.props.title ?? entry?.data.title ?? "";
+const summary = Astro.props.summary ?? entry?.data.summary ?? "";
+const category = Astro.props.category ?? entry?.data.category ?? "Intel";
+const href = Astro.props.href ?? (entry ? `/${entry.slug}/` : "#");
+const heroImage = Astro.props.heroImage ?? entry?.data.heroImage;
+// Load the small thumbnail first; fall back to the full-res original once if the
+// thumb is missing (see onerror below), then let the gradient underneath show.
+const thumb = thumbUrl(heroImage);
+
+const rawDate = Astro.props.date ?? entry?.data.publishedAt;
+const dateObj = rawDate instanceof Date ? rawDate : undefined;
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+const dateLabel = dateObj ? dateFmt.format(dateObj) : typeof rawDate === "string" ? rawDate : "";
+const dateTimeAttr = dateObj ? dateObj.toISOString() : undefined;
+
+// Threat-flavored categories get the teal "intel" cue; everything else gold.
+// Gives the card wall visual variety while keeping the intel signal meaningful.
+const INTEL_HINTS = [
+  "cti", "threat", "malware", "chinese", "iranian", "russian",
+  "north korean", "global cyber", "operational technology", "(ot",
+  "detection", "red team", "offensive",
+];
+const isIntel = INTEL_HINTS.some((h) => category.toLowerCase().includes(h));
+
+// NOTE: every class token below is a complete literal so Tailwind's JIT scanner
+// picks it up. Do not build color utilities via string interpolation.
+const kickerClass = isIntel ? "text-intel" : "text-accent";
+const fallbackGradient = isIntel
+  ? "from-intel/30 via-bg-card to-bg-primary"
+  : "from-accent/30 via-bg-card to-bg-primary";
+const fallbackTextClass = isIntel ? "text-intel/70" : "text-accent/70";
+
+const isLead = size === "lead";
+const isCompact = size === "compact";
+---
+{isCompact ? (
+  <a href={href} class:list={["group flex items-center gap-3.5 border border-line bg-bg-card p-3 card-lift", extraClass]}>
+    <div class="relative aspect-[4/3] w-24 shrink-0 overflow-hidden border border-line">
+      <div class:list={["absolute inset-0 flex items-center justify-center bg-gradient-to-br px-1.5 text-center", fallbackGradient]}>
+        <span class:list={["font-mono text-[8px] uppercase leading-tight tracking-wider line-clamp-2", fallbackTextClass]}>{category}</span>
+      </div>
+      {heroImage && (
+        <img
+          src={thumb}
+          data-original={heroImage}
+          alt={title}
+          loading={loading}
+          decoding="async"
+          class="relative z-[1] h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+        />
+      )}
+    </div>
+    <div class="min-w-0 flex-1">
+      <p class:list={["truncate font-mono text-[10px] uppercase tracking-wider", kickerClass]}>{category}</p>
+      <h3 class="mt-1 font-display text-sm leading-snug text-ink transition-colors group-hover:text-accent line-clamp-2 break-words">{title}</h3>
+      {dateTimeAttr
+        ? <time datetime={dateTimeAttr} class="mt-1 block font-mono text-[10px] uppercase tracking-wider text-muted">{dateLabel}</time>
+        : <span class="mt-1 block font-mono text-[10px] uppercase tracking-wider text-muted">{dateLabel}</span>}
+    </div>
+  </a>
+) : (
+  <a href={href} class:list={["group flex h-full min-w-0 flex-col border border-line bg-bg-card card-lift", extraClass]}>
+    <div class="relative aspect-video w-full overflow-hidden border-b border-line">
+      <div class:list={["absolute inset-0 flex items-center justify-center bg-gradient-to-br px-4 text-center", fallbackGradient]}>
+        <span class:list={["font-mono text-xs uppercase tracking-[0.22em]", fallbackTextClass]}>{category}</span>
+      </div>
+      {heroImage && (
+        <img
+          src={thumb}
+          data-original={heroImage}
+          alt={title}
+          loading={loading}
+          decoding="async"
+          class="relative z-[1] h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+        />
+      )}
+    </div>
+    <div class:list={["flex min-w-0 flex-1 flex-col", isLead ? "p-6 md:p-8" : "p-5"]}>
+      <div class="flex flex-wrap items-center gap-2.5 font-mono text-[11px] uppercase tracking-wider">
+        <span class={kickerClass}>{category}</span>
+        <span class="text-muted/40">·</span>
+        {dateTimeAttr
+          ? <time datetime={dateTimeAttr} class="text-muted">{dateLabel}</time>
+          : <span class="text-muted">{dateLabel}</span>}
+      </div>
+      <h3 class:list={["mt-3 font-display leading-tight text-ink transition-colors group-hover:text-accent", isLead ? "text-2xl md:text-4xl" : "text-lg"]}>{title}</h3>
+      {summary && (
+        <p class:list={["break-words leading-relaxed text-muted", isLead ? "mt-3 text-base line-clamp-3" : "mt-2 text-sm line-clamp-2"]}>{summary}</p>
+      )}
+      {isLead && (
+        <span class="mt-5 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+          Read report →
+        </span>
+      )}
+    </div>
+  </a>
+)}

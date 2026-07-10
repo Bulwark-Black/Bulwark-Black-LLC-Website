@@ -1,0 +1,15 @@
+---
+const markers = [
+  "Veteran-Owned · SDVOSB",
+  "SAM Registered",
+  "Remote · Nationwide (US)",
+  "Federal & Agency Ready",
+];
+---
+<section class="border-y border-line bg-bg-secondary py-5">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+    {markers.map((m, i) => (
+      <span class={i === 0 ? "text-accent" : ""}>{i === 0 ? "★ " : ""}{m}</span>
+    ))}
+  </div>
+</section>

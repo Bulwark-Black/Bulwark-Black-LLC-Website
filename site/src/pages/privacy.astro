@@ -1,0 +1,157 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { site } from "@/lib/site";
+import { graph, breadcrumb } from "@/lib/jsonld";
+
+const lastUpdated = "May 20, 2026";
+---
+<BaseLayout
+  title="Privacy Policy"
+  description="What we collect, where it goes, and how long we keep it. Plain English, no dark patterns."
+>
+  <JsonLd slot="head" data={graph(
+    breadcrumb([{ name: "Home", path: "/" }, { name: "Privacy", path: "/privacy/" }]),
+  )} />
+
+  <section class="grid-bg bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">Privacy</p>
+      <h1 class="mt-3 font-display text-4xl text-ink md:text-5xl">
+        What we collect. <span class="text-accent">Plain English.</span>
+      </h1>
+      <p class="mt-4 text-xs text-muted">Last updated: {lastUpdated}</p>
+      <p class="mt-6 text-muted leading-relaxed">
+        I run this site myself. I keep what you submit on a server I own, I read every message
+        personally, and I do not sell, share, or trade your information. If you ever want your
+        data removed, email me and I will delete it.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-3xl space-y-12 text-muted leading-relaxed">
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Who runs this site</h2>
+        <p class="mt-3">
+          {site.legalName}. Registered in {site.operating.city}, {site.operating.state}.
+          Owner-operator: Albert LaScola. Questions about your data go to
+          <a href={`mailto:${site.email}`} class="text-accent">{site.email}</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">What I collect, and when</h2>
+        <ul class="mt-3 space-y-3">
+          <li>
+            <span class="text-ink">Browsing.</span> Standard web-server logs only. IP address, user
+            agent, requested URL, and timestamp. Used for security and debugging. No analytics
+            scripts, no advertising pixels, no third-party trackers run on this site.
+          </li>
+          <li>
+            <span class="text-ink">Newsletter signup.</span> Just your email address.
+          </li>
+          <li>
+            <span class="text-ink">Reviews.</span> Display name, email, location, relationship to
+            the work, star rating, and the review text. Your email is used to verify the review is
+            real and is never published.
+          </li>
+          <li>
+            <span class="text-ink">Apply / Contact / Capability Statement forms.</span> Whatever
+            you choose to write into the form, plus your name, email, and any optional fields you
+            fill in (phone, organization, location, budget range).
+          </li>
+          <li>
+            <span class="text-ink">Booking a call.</span> Handled by Calendly. They collect your
+            name, email, the call details, and (for paid calls) payment information via Stripe.
+            See their policies linked below.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Where it goes</h2>
+        <ul class="mt-3 space-y-3">
+          <li>
+            <span class="text-ink">My server.</span> Reviews, newsletter signups, and form
+            submissions are stored in a self-hosted PostgreSQL database on a server I administer
+            personally. No third-party CRM, no marketing platform.
+          </li>
+          <li>
+            <span class="text-ink">Resend.</span> I use Resend to send transactional emails (form
+            confirmations, review approval notices to me). Resend processes the email address and
+            message contents in transit. See
+            <a href="https://resend.com/legal/privacy-policy" rel="noopener" target="_blank" class="text-accent">resend.com/legal/privacy-policy</a>.
+          </li>
+          <li>
+            <span class="text-ink">Calendly + Stripe.</span> Booking a paid advisory call sends
+            your contact and payment info to Calendly and Stripe respectively. See
+            <a href="https://calendly.com/legal/privacy-notice" rel="noopener" target="_blank" class="text-accent">calendly.com</a> and
+            <a href="https://stripe.com/privacy" rel="noopener" target="_blank" class="text-accent">stripe.com</a>.
+          </li>
+          <li>
+            <span class="text-ink">Email.</span> The mailbox at {site.email} runs on a server I
+            operate. If you email me, the message lives in that mailbox until I delete it.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Cookies</h2>
+        <p class="mt-3">
+          This site does not set tracking or advertising cookies. The booking widget at Calendly
+          may set its own cookies when you book a call. That is governed by Calendly's policy.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">How long I keep it</h2>
+        <ul class="mt-3 space-y-2">
+          <li>· Web-server logs: 30 days, then rotated out.</li>
+          <li>· Newsletter signups: until you unsubscribe.</li>
+          <li>· Reviews: indefinitely (the published ones are the point of the page); rejected reviews are deleted on request.</li>
+          <li>· Form submissions: until the engagement closes, then archived for tax / business-records purposes per Washington State requirements (generally 7 years).</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Your rights</h2>
+        <p class="mt-3">
+          You can ask me to show you what I have on you, correct it, or delete it. I will respond
+          within 30 days. Email <a href={`mailto:${site.email}`} class="text-accent">{site.email}</a> with
+          "Privacy request" in the subject line.
+        </p>
+        <p class="mt-3">
+          If you are in California (CCPA) or the EU/UK (GDPR), you have additional rights to know
+          what is collected, request portability, and object to processing. The same email address
+          handles those requests.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Children</h2>
+        <p class="mt-3">
+          This site is not directed at children under 13 and I do not knowingly collect their
+          information.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Changes to this policy</h2>
+        <p class="mt-3">
+          If I change how data is handled, I will update this page and bump the "Last updated"
+          date at the top. Material changes that affect existing data will be sent to anyone on
+          the newsletter list.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs">
+          See also: <a href="/terms/" class="text-accent">Terms of Service</a>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

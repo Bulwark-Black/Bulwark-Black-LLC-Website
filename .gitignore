@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Astro build output & cache
+site/dist/
+site/.astro/
+dist/
+.astro/
+
+# Local-only image backup — served from the droplet, far too large for git
+backup/uploads/
+backup/thumbs/
+
+# Local preview symlink target (points at backup/)
+site/public/wp-content/
+
+# Scratch / working files
+scratch/
+
+# Real env files (keep .env.example)
+.env
+.env.local
+site/.env
+site/.env.local
+*.local
+
+# OS junk
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

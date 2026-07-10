@@ -1,0 +1,115 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { thumbUrl } from "@/lib/images";
+
+// Newest CTI headlines for the site-wide breaking-news bar.
+const all: CollectionEntry<"cti">[] = await getCollection("cti");
+const entries = all
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 14);
+
+// Teal for threat-flavored items, gold otherwise — mirrors ArticleCard so the
+// fallback thumbnails read as part of the same system. Literal class strings
+// only, so Tailwind's JIT scanner keeps them.
+const INTEL_HINTS = [
+  "cti", "threat", "malware", "chinese", "iranian", "russian",
+  "north korean", "global cyber", "operational technology", "(ot",
+  "detection", "red team", "offensive",
+];
+const items = entries.map((entry) => {
+  const category = entry.data.category ?? "Intel";
+  const isIntel = INTEL_HINTS.some((h) => category.toLowerCase().includes(h));
+  return {
+    title: entry.data.title,
+    href: `/${entry.slug}/`,
+    heroImage: entry.data.heroImage,
+    thumb: thumbUrl(entry.data.heroImage),
+    fallback: isIntel
+      ? "from-intel/40 to-bg-primary"
+      : "from-accent/40 to-bg-primary",
+  };
+});
+---
+{items.length > 0 && (
+  <div class="ticker relative border-b border-line bg-bg-secondary" aria-label="Latest cyber threat intelligence">
+    <div class="flex h-10 items-stretch">
+      <div class="flex shrink-0 items-center gap-2 border-r border-line pl-4 pr-3.5 sm:pl-6">
+        <span class="ticker-dot h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+        <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-accent">Latest</span>
+      </div>
+
+      <div class="ticker-viewport marquee-mask relative flex-1">
+        <div class="ticker-track flex items-center">
+          {[0, 1].map((copy) =>
+            items.map((item) => (
+              <a
+                href={item.href}
+                class="ticker-item group flex shrink-0 items-center gap-2.5 border-r border-line/40 px-4"
+                aria-hidden={copy === 1 ? "true" : undefined}
+                tabindex={copy === 1 ? -1 : undefined}
+              >
+                <span class="relative h-7 w-7 shrink-0 overflow-hidden border border-line">
+                  <span class:list={["absolute inset-0 bg-gradient-to-br", item.fallback]}></span>
+                  {item.heroImage && (
+                    <img
+                      src={item.thumb}
+                      data-original={item.heroImage}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      class="relative z-[1] h-full w-full object-cover"
+                    />
+                  )}
+                </span>
+                <span class="max-w-[24rem] truncate text-xs text-muted transition-colors group-hover:text-accent">
+                  {item.title}
+                </span>
+              </a>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+<style>
+  .ticker-viewport {
+    overflow: hidden;
+  }
+  .ticker-track {
+    width: max-content;
+    will-change: transform;
+    animation: ticker-marquee 75s linear infinite;
+  }
+  /* Pause when the reader mouses over the strip. */
+  .ticker-viewport:hover .ticker-track {
+    animation-play-state: paused;
+  }
+  .ticker-dot {
+    animation: ticker-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes ticker-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes ticker-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  /* No motion: drop the animation, let the row scroll by hand instead. */
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+      animation: none;
+      width: auto;
+    }
+    .ticker-viewport {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .ticker-dot {
+      animation: none;
+    }
+  }
+</style>

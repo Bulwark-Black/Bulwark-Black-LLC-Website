@@ -1,0 +1,133 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { site } from "@/lib/site";
+import { graph, breadcrumb } from "@/lib/jsonld";
+---
+<BaseLayout title="Capability Statement, SDVOSB Tech Support, Jefferson County WA" description="Request a tailored capability statement from Rural Tech and Support, an SDVOSB tech support and cybersecurity practice based in Chimacum, Jefferson County, WA.">
+  <JsonLd slot="head" data={graph(
+    breadcrumb([{ name: "Home", path: "/" }, { name: "Capability Statement", path: "/capability-statement/" }]),
+  )} />
+  <section class="grid-bg bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">Capability Statement</p>
+      <h1 class="mt-3 font-display text-4xl text-ink md:text-6xl">
+        Request a <span class="text-accent">tailored statement.</span>
+      </h1>
+      <p class="mt-6 text-muted leading-relaxed">
+        Tell me a little about your agency or organization and the work in front of you. I'll
+        send a capability statement aligned to your NAICS, your contracting vehicle, and the
+        specific scope you're sourcing.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto grid max-w-5xl gap-10 md:grid-cols-[1fr_2fr]">
+      <aside class="space-y-6 text-sm text-muted">
+        <div>
+          <p class="text-xs uppercase tracking-[2px] text-accent">Identifiers</p>
+          <p class="mt-2 text-ink">CAGE: {site.contracting.cage}</p>
+          <p class="text-ink">UEI: {site.contracting.uei}</p>
+          <p class="text-ink">SDVOSB · SAM Registered</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[2px] text-accent">NAICS</p>
+          <ul class="mt-2 grid grid-cols-3 gap-1">
+            {site.contracting.naics.map((n) => (
+              <li class="border border-accent/15 px-2 py-1 text-center text-xs text-ink">{n}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[2px] text-accent">Contact</p>
+          <p class="mt-2"><a class="text-accent" href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p class="mt-1">{site.address.street}<br/>{site.address.city}, {site.address.state} {site.address.zip}</p>
+        </div>
+      </aside>
+
+      <form class="space-y-4" data-cap-form>
+        <div class="grid gap-4 md:grid-cols-2">
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">Full name *</span>
+            <input required name="full_name" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">Email *</span>
+            <input required type="email" name="email" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">Organization</span>
+            <input name="organization" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[2px] text-accent">Agency / Prime</span>
+            <input name="agency" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+          </label>
+        </div>
+        <label class="block">
+          <span class="text-xs uppercase tracking-[2px] text-accent">Relevant NAICS (comma-separated)</span>
+          <input name="naics" placeholder="541512, 541330" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+        </label>
+        <label class="block">
+          <span class="text-xs uppercase tracking-[2px] text-accent">Scope / opportunity</span>
+          <textarea name="message" rows="5" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none"></textarea>
+        </label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="absolute -left-[9999px] h-0 w-0 opacity-0" aria-hidden="true" />
+        <button type="submit" data-cap-submit class="btn-primary">Send Request →</button>
+        <p data-cap-result class="text-sm" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>("[data-cap-form]");
+    const submit = document.querySelector<HTMLButtonElement>("[data-cap-submit]");
+    const out = document.querySelector<HTMLParagraphElement>("[data-cap-result]");
+
+    function setResult(msg: string, ok: boolean) {
+      if (!out) return;
+      out.hidden = false;
+      out.textContent = msg;
+      out.className = `text-sm ${ok ? "text-accent" : "text-rose-400"}`;
+    }
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!submit) return;
+      const fd = new FormData(form);
+      const payload = {
+        full_name: String(fd.get("full_name") ?? "").trim(),
+        email: String(fd.get("email") ?? "").trim(),
+        organization: String(fd.get("organization") ?? "").trim(),
+        agency: String(fd.get("agency") ?? "").trim(),
+        naics: String(fd.get("naics") ?? "").trim(),
+        message: String(fd.get("message") ?? "").trim(),
+        website: String(fd.get("website") ?? "").trim(),
+      };
+
+      submit.disabled = true;
+      submit.textContent = "Sending…";
+      setResult("", true);
+
+      try {
+        const res = await fetch("/api/capability-statement", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({ error: "submission failed" }));
+          throw new Error(data.error || "submission failed");
+        }
+        setResult("Request sent. Redirecting…", true);
+        setTimeout(() => { window.location.href = "/confirmed/"; }, 800);
+      } catch (err) {
+        setResult(`Couldn't send: ${(err as Error).message}. Try again, or email support@bulwarkblack.com.`, false);
+        submit.disabled = false;
+        submit.textContent = "Send Request →";
+      }
+    });
+  </script>
+</BaseLayout>

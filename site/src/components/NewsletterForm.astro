@@ -1,0 +1,92 @@
+---
+interface Props {
+  source?: string;
+}
+const { source = "footer" } = Astro.props;
+---
+<section class="relative overflow-hidden bg-bg-primary px-6 py-20">
+  <div class="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/30 blur-[90px]"></div>
+  <div class="relative mx-auto max-w-2xl text-center">
+    <p class="eyebrow">Newsletter</p>
+    <h2 class="mt-3 font-display text-3xl text-ink md:text-4xl">
+      The Bulwark Brief.
+    </h2>
+    <p class="mt-3 text-muted">
+      Cyber threat intel, AI, and tech worth your attention, what we're tracking that day, with a "why it matters" line on every item. Most weekdays. No fluff.
+    </p>
+    <form
+      method="POST"
+      action="/api/newsletter"
+      class="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
+      data-newsletter-form
+      data-source={source}
+    >
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="you@company.com"
+        class="flex-1 border border-accent/30 bg-black/60 px-4 py-3 text-sm text-ink placeholder:text-muted/70 focus:border-accent outline-none"
+      />
+      <button type="submit" class="btn-primary !py-3">Subscribe →</button>
+    </form>
+    <p data-newsletter-result class="mt-3 text-sm text-accent" hidden></p>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-newsletter-form]");
+  const out = document.querySelector<HTMLParagraphElement>("[data-newsletter-result]");
+  const source = form?.dataset.source ?? "site";
+
+  function show(msg: string) {
+    if (!out) return;
+    out.hidden = false;
+    out.textContent = msg;
+  }
+  function mailtoFallback(email: string) {
+    const subject = "Subscribe to the Bulwark Brief";
+    const body = `Please add ${email} to the daily brief subscriber list.\n\nSource: ${source}`;
+    window.location.href = `mailto:support@bulwarkblack.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const email = String(data.get("email") ?? "").trim();
+    if (!email) return;
+
+    const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = "Subscribing…"; }
+
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 8000);
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email, source }),
+        signal: ctrl.signal,
+      });
+      clearTimeout(t);
+
+      if (res.ok) {
+        show("Subscribed. First brief lands in your inbox on the next send.");
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        if (data.error === "invalid email") {
+          show("That email looks off, double-check and try again.");
+        } else {
+          show("Couldn't subscribe, opening email as a backup…");
+          setTimeout(() => mailtoFallback(email), 800);
+        }
+      }
+    } catch {
+      show("Network hiccup, opening email as a backup…");
+      setTimeout(() => mailtoFallback(email), 800);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = "Subscribe →"; }
+    }
+  });
+</script>

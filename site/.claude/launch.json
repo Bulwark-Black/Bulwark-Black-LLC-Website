@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mailer",
+      "runtimeExecutable": "env",
+      "runtimeArgs": ["MAILER_NO_OPEN=1", "node", "mailer/server.mjs"],
+      "port": 8787,
+      "autoPort": false
+    },
+    {
+      "name": "bulwark",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "cd /Users/bulwarkblack-apple/Desktop/bulwarkblack-rebuild/site && exec npx astro dev --port 4331"],
+      "port": 4331
+    }
+  ]
+}

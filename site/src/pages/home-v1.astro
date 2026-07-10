@@ -1,0 +1,235 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import SDVOSBStrip from "@/components/SDVOSBStrip.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import FAQ from "@/components/FAQ.astro";
+import NewsletterForm from "@/components/NewsletterForm.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { serviceCategories } from "@/lib/services";
+import { graph, faqPage, softwareApplication } from "@/lib/jsonld";
+
+// Recent CTI teaser. Empty until the archive migration; render a tasteful empty state.
+const allCti: CollectionEntry<"cti">[] = await getCollection("cti");
+const ctiEntries = allCti
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
+
+const topServices = serviceCategories.map((c) => ({
+  icon: c.icon,
+  title: c.title,
+  body: c.summary,
+  href: `/services/#${c.slug}`,
+}));
+
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+const homeFaqs = [
+  {
+    q: "What does Bulwark Black actually do?",
+    a: "Two things. We publish daily cyber threat intelligence, tracking threat actors, malware, and indicators you can act on. And we build and support technology for businesses: websites, custom web and iOS apps, AI setup, and small-business IT and cybersecurity. Same team, two front doors.",
+  },
+  {
+    q: "Do you work remotely, or only in one area?",
+    a: "Remote, nationwide across the United States. The work is delivered online, so where you are is not a constraint. On-site can be arranged for the right engagement.",
+  },
+  {
+    q: "Can you really build a custom iOS app for my business?",
+    a: "Yes. We design, build, and ship native iPhone and iPad apps to the App Store, end to end. VA Disability Calc & Track is a live example, built and published for real users.",
+  },
+  {
+    q: "Are you set up for federal and agency work?",
+    a: "Yes. Bulwark Black is veteran-owned, SDVOSB, and SAM registered, with CAGE and UEI in the footer. See the capability statement for scope and codes.",
+  },
+];
+
+const flagshipApp = softwareApplication({
+  name: "VA Disability Calc & Track",
+  description:
+    "iOS app for veterans navigating VA claims. BVA-accurate combined-rating math, 900+ diagnostic codes, an encrypted document vault, and fully offline operation.",
+  url: "https://apps.apple.com/us/app/va-disability-calc-track/id6748180691",
+  appCategory: "UtilitiesApplication",
+  operatingSystem: "iOS",
+});
+---
+<BaseLayout
+  title="Cyber Threat Intelligence, Custom Software & Remote Tech Help"
+  description="Bulwark Black is a veteran-owned (SDVOSB) studio. Daily cyber threat intelligence plus custom web and iOS apps, AI setup, and small-business IT and cybersecurity, delivered remotely across the US."
+>
+  <JsonLd slot="head" data={graph(faqPage(homeFaqs), flagshipApp)} />
+
+  <Hero
+    eyebrow="Cyber Threat Intelligence Studio"
+    titleTop="Bulwark"
+    titleAccent="Black"
+    tagline="Cyber Threat Intelligence · Custom Software · Remote Tech Help"
+    subtitle="A veteran-owned studio that tracks threats every day and builds the software and security small businesses actually need."
+    primary={{ label: "Cyber Threat Intelligence", href: "/cyber-threat-intelligence/" }}
+    secondary={{ label: "Work with us", href: "/contact/" }}
+    markers={["SDVOSB", "SAM Registered", "Daily CTI", "Remote · US"]}
+  />
+
+  <SDVOSBStrip />
+
+  <!-- Two front doors -->
+  <section class="cv-defer bg-bg-primary px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <SectionHeader
+        eyebrow="Two front doors"
+        title="Intelligence on one side. Building on the other."
+        subtitle="Pick the door that fits. Both are run by the same veteran-owned team, with the same standard: no hype, no filler, work you can verify."
+      />
+
+      <div class="grid gap-5 md:grid-cols-2">
+        <!-- Door 1: Threat Intelligence -->
+        <a href="/cyber-threat-intelligence/" class="group relative flex flex-col overflow-hidden border border-intel/25 bg-bg-card p-8 card-lift">
+          <span class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-intel to-transparent opacity-60"></span>
+          <p class="eyebrow-intel">01 · Threat Intel</p>
+          <h3 class="mt-4 font-display text-2xl text-ink md:text-3xl">Cyber Threat Intelligence</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Daily reporting on active threat actors, malware families, and campaigns, written to be used, not skimmed. Downloadable IOCs and YARA rules for defenders.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-ink/80">
+            <li class="flex gap-2"><span class="text-intel">▹</span> Threat-actor and campaign tracking</li>
+            <li class="flex gap-2"><span class="text-intel">▹</span> Malware and TTP breakdowns</li>
+            <li class="flex gap-2"><span class="text-intel">▹</span> IOC &amp; YARA downloads for defenders</li>
+          </ul>
+          <span class="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-intel">
+            Enter the intel feed →
+          </span>
+        </a>
+
+        <!-- Door 2: Tech Services & Apps -->
+        <a href="/services/" class="group relative flex flex-col overflow-hidden border border-accent/25 bg-bg-card p-8 card-lift">
+          <span class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-60"></span>
+          <p class="eyebrow">02 · Build with us</p>
+          <h3 class="mt-4 font-display text-2xl text-ink md:text-3xl">Tech Services &amp; Apps</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Websites, custom web and iOS apps, AI setup, and small-business IT and cybersecurity. Designed, built, and supported by the person who ships it.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-ink/80">
+            <li class="flex gap-2"><span class="text-accent">▹</span> Websites &amp; custom web apps</li>
+            <li class="flex gap-2"><span class="text-accent">▹</span> Custom iOS apps, built and shipped</li>
+            <li class="flex gap-2"><span class="text-accent">▹</span> AI, IT support &amp; cybersecurity</li>
+          </ul>
+          <span class="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-accent">
+            See services &amp; apps →
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services overview -->
+  <section class="cv-defer border-y border-line bg-bg-secondary px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <SectionHeader
+        eyebrow="What we build"
+        title="Four lanes, one operator."
+        subtitle="From a marketing site to a native iOS product to a hardened backup, scoped honestly and handed off documented. If it is not on the list, ask."
+      />
+      <div class="grid gap-5 md:grid-cols-2">
+        {topServices.map((s) => <ServiceCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Flagship app spotlight -->
+  <section class="cv-defer bg-bg-primary px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid items-center gap-10 border border-line bg-bg-card p-8 md:grid-cols-[1fr_1.1fr] md:p-12">
+        <div>
+          <p class="eyebrow">Flagship App · iOS</p>
+          <h2 class="mt-4 font-display text-3xl text-ink md:text-4xl">VA Disability Calc &amp; Track</h2>
+          <p class="mt-4 leading-relaxed text-muted">
+            A native iPhone and iPad app we designed, built, and shipped to the App Store, for veterans navigating VA claims. BVA-accurate combined-rating math, 900+ diagnostic codes, an encrypted document vault, and it works fully offline.
+          </p>
+          <p class="mt-4 text-sm leading-relaxed text-ink/70">
+            It is a working example of what a custom app built for your business can be: focused, private, and shipped, not a slide deck.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href="https://apps.apple.com/us/app/va-disability-calc-track/id6748180691"
+              class="btn-primary"
+              rel="noopener"
+              target="_blank"
+            >
+              View on the App Store →
+            </a>
+            <a href="/products/" class="btn-ghost">See all our apps →</a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="mx-auto grid max-w-sm grid-cols-2 gap-3">
+            {[
+              { k: "Diagnostic codes", v: "900+" },
+              { k: "Combined-rating math", v: "BVA-accurate" },
+              { k: "Document vault", v: "Encrypted" },
+              { k: "Works offline", v: "100%" },
+            ].map((s) => (
+              <div class="border border-line bg-bg-secondary p-5">
+                <p class="font-display text-xl text-accent">{s.v}</p>
+                <p class="mt-1 font-mono text-[11px] uppercase tracking-wider text-muted">{s.k}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Threat Intel teaser -->
+  <section class="cv-defer border-y border-line bg-bg-secondary px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <SectionHeader
+          eyebrow="Latest intelligence"
+          title="Recent Threat Intel"
+          subtitle="Daily cyber threat intelligence on active actors, malware, and campaigns."
+        />
+        <a href="/cyber-threat-intelligence/" class="mb-10 hidden font-mono text-[11px] uppercase tracking-wider text-intel hover:text-accent md:inline-block">
+          View all intel →
+        </a>
+      </div>
+
+      {ctiEntries.length > 0 ? (
+        <div class="grid gap-5 md:grid-cols-3">
+          {ctiEntries.map((entry) => (
+            <a href={`/${entry.slug}/`} class="group flex flex-col border border-line bg-bg-card p-6 card-lift">
+              <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-intel">
+                <span>{entry.data.category ?? "Intel"}</span>
+                <span class="text-muted/50">·</span>
+                <span class="text-muted">{dateFmt.format(entry.data.publishedAt)}</span>
+              </div>
+              <h3 class="mt-3 font-display text-lg text-ink group-hover:text-accent">{entry.data.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{entry.data.summary}</p>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="border border-dashed border-line bg-bg-card/60 px-6 py-14 text-center">
+          <p class="font-mono text-[11px] uppercase tracking-[0.24em] text-intel">Archive migration in progress</p>
+          <p class="mt-4 font-display text-2xl text-ink">Latest intelligence, landing soon.</p>
+          <p class="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-muted">
+            We are migrating roughly 390 cyber threat intelligence articles into the new site. New daily reporting and the full archive will appear here shortly.
+          </p>
+          <a href="/cyber-threat-intelligence/" class="mt-6 inline-flex btn-outline !py-2 !text-xs">
+            Visit the intel hub →
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <FAQ
+    eyebrow="Common questions"
+    title="What people usually ask."
+    items={homeFaqs}
+  />
+
+  <NewsletterForm source="homepage" />
+</BaseLayout>

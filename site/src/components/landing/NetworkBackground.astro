@@ -1,0 +1,142 @@
+---
+// Self-contained network/particle background — no React, no motion, no extra
+// deps. A canvas of slowly drifting gold nodes that link with hairlines when
+// near, evoking the source site's "circuit / current" feel in Bulwark gold.
+//
+// Deliberately CONTAINED to its parent (the hero, position:relative + overflow
+// hidden), NOT a fixed full-page layer — that avoids the GPU-composited-layer
+// height cap that turns tall pages black. It sizes to the parent element, pauses
+// via IntersectionObserver when scrolled off, and renders nothing animated for
+// reduced-motion users.
+---
+<div class="bb-net" aria-hidden="true">
+  <canvas id="bb-net-canvas"></canvas>
+</div>
+
+<script is:inline>
+  (function () {
+    if (typeof window === "undefined") return;
+    var canvas = document.getElementById("bb-net-canvas");
+    if (!canvas) return;
+    var host = canvas.parentElement;
+    var ctx = canvas.getContext("2d");
+    if (!ctx || !host) return;
+
+    var reduce =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var GOLD = "224, 182, 77";
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = 0,
+      h = 0;
+    var nodes = [];
+    var raf = null;
+    var visible = true;
+
+    function size() {
+      w = host.clientWidth;
+      h = host.clientHeight;
+      canvas.width = Math.max(1, Math.floor(w * dpr));
+      canvas.height = Math.max(1, Math.floor(h * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seed();
+    }
+
+    function seed() {
+      // Density scales with area but is capped hard for performance.
+      var count = Math.max(24, Math.min(72, Math.round((w * h) / 16000)));
+      nodes = [];
+      for (var i = 0; i < count; i++) {
+        nodes.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          r: Math.random() * 1.4 + 0.8,
+        });
+      }
+    }
+
+    var LINK = 132; // px distance under which two nodes connect
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      for (var i = 0; i < nodes.length; i++) {
+        var a = nodes[i];
+        a.x += a.vx;
+        a.y += a.vy;
+        if (a.x < 0 || a.x > w) a.vx *= -1;
+        if (a.y < 0 || a.y > h) a.vy *= -1;
+      }
+
+      // Links
+      for (var i = 0; i < nodes.length; i++) {
+        for (var j = i + 1; j < nodes.length; j++) {
+          var a = nodes[i],
+            b = nodes[j];
+          var dx = a.x - b.x,
+            dy = a.y - b.y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < LINK) {
+            var o = (1 - d / LINK) * 0.28;
+            ctx.strokeStyle = "rgba(" + GOLD + "," + o.toFixed(3) + ")";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Nodes
+      for (var i = 0; i < nodes.length; i++) {
+        var a = nodes[i];
+        ctx.fillStyle = "rgba(" + GOLD + ",0.7)";
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      raf = requestAnimationFrame(draw);
+    }
+
+    function start() {
+      if (raf || reduce || !visible) return;
+      raf = requestAnimationFrame(draw);
+    }
+    function stop() {
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+    }
+
+    size();
+
+    if (reduce) {
+      // Draw a single static frame so the field is present without motion.
+      draw();
+      stop();
+    } else {
+      start();
+    }
+
+    var resizeT;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(size, 200);
+    });
+
+    // Pause when the hero scrolls out of view.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        if (visible) start();
+        else stop();
+      }).observe(host);
+    }
+  })();
+</script>

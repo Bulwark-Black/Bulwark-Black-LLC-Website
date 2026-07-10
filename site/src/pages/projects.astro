@@ -1,0 +1,211 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { graph, breadcrumb } from "@/lib/jsonld";
+
+interface Project {
+  title: string;
+  eyebrow: string;
+  blurb: string;
+  learned?: string;
+  links?: { label: string; href: string }[];
+  status?: "shipped" | "live" | "ongoing" | "open-source";
+}
+
+const projects: Project[] = [
+  {
+    title: "Home fiber, run by hand under my own property",
+    eyebrow: "Property infrastructure",
+    blurb:
+      "Trenched conduit, pulled fiber, terminated ends, and connected the outbuildings to the house network. Did it myself because the local contractor quote was four-figures of mostly labor.",
+    learned:
+      "What conduit depth, bend radius, and termination tolerances actually look like, versus what the spec sheets say.",
+    status: "shipped",
+  },
+  {
+    title: "Property security camera system",
+    eyebrow: "Physical security",
+    blurb:
+      "Installed and wired a full camera system across the property. Cabled, mounted, configured retention, set up local recording, and dialed in alert zones that don't trigger on every passing deer.",
+    status: "live",
+  },
+  {
+    title: "Self-hosted cloud stack",
+    eyebrow: "Infrastructure",
+    blurb:
+      "Built and operate my own staging environment, production environment, database servers, scheduled backups, and a tested disaster recovery plan. Not a third-party PaaS, actual servers I administer.",
+    learned:
+      "If you've never failed over to a backup under time pressure, you don't have a backup. You have a hope.",
+    status: "ongoing",
+  },
+  {
+    title: "Self-hosted email server",
+    eyebrow: "Infrastructure",
+    blurb:
+      "Run my own email server end-to-end, MX, DKIM/SPF/DMARC, queue, spam filtering, and deliverability against the big providers. Every piece of mail I send is auditable from my own box.",
+    learned:
+      "Deliverability isn't a config problem; it's an ongoing reputation problem. Documenting what I do is half the work.",
+    status: "ongoing",
+  },
+  {
+    title: "Home VPN, your traffic exits from your couch",
+    eyebrow: "Networking · Privacy",
+    blurb:
+      "A router-level VPN setup that tunnels all your travel traffic back to your home network, so every site you visit sees your residential IP. Banking, geofenced services, and home-only services all 'just work' from a coffee shop or hotel.",
+    status: "shipped",
+  },
+  {
+    title: "CTI pipeline + curated daily newsletter",
+    eyebrow: "Threat intelligence · Automation",
+    blurb:
+      "A multi-agent pipeline I built and run myself, pulls open-source threat intel, market signals, AI news, geopolitics, and OT/SCADA events; deduplicates, tags, summarizes, and ships a daily brief. Linked to topics you care about, not a firehose.",
+    links: [{ label: "House-Of-L Daily Brief →", href: "/#newsletter" }],
+    status: "ongoing",
+  },
+  {
+    title: "Collab-Mentions, Obsidian plugin (open source)",
+    eyebrow: "Open source",
+    blurb:
+      "A plugin I built for shared Obsidian vaults that notifies collaborators which file was just worked on. Works over Google Drive, iCloud, Dropbox, any sync layer where the vault lives on a shared drive.",
+    links: [
+      { label: "GitHub: AlbertL7/Collab-Mentions →", href: "https://github.com/AlbertL7/Collab-Mentions" },
+    ],
+    status: "open-source",
+  },
+  {
+    title: "Family IT, the ongoing engagement",
+    eyebrow: "Personal IT",
+    blurb:
+      "Help my in-laws and family with router issues, Starlink quirks, social-media account recovery, email problems, and general computer management. The work that taught me how to explain technology to people who didn't grow up with it.",
+    learned:
+      "If your grandma can use it, your business can deploy it. If she can't, it doesn't matter how good the docs are.",
+    status: "ongoing",
+  },
+  {
+    title: "Business AI workflows",
+    eyebrow: "AI integration",
+    blurb:
+      "Designed and deployed real AI agent workflows that replace manual work, not chatbot demos. Built for specific tasks, measured by outcome, retired when they stop being worth the spend.",
+    status: "ongoing",
+  },
+  {
+    title: "SAMscout.ai",
+    eyebrow: "Product · SDVOSB tooling",
+    blurb:
+      "Multi-agent AI platform that writes federal contracting proposals. Built it because SDVOSBs lose contracts to bigger BD teams, not on capability. Most active product I run.",
+    links: [{ label: "samscout.ai →", href: "https://samscout.ai" }],
+    status: "live",
+  },
+  {
+    title: "Contractor Codex",
+    eyebrow: "Product · Service businesses",
+    blurb:
+      "Branded client portal for service businesses, time tracking, invoicing, Stripe, client approval workflows, all white-labeled, $10/mo. Built it because the existing tools are overpriced for what they do.",
+    links: [{ label: "contractorcodex.com →", href: "https://contractorcodex.com" }],
+    status: "live",
+  },
+  {
+    title: "VA Disability Calc & Track",
+    eyebrow: "Product · Veterans",
+    blurb:
+      "iOS app for vets working through VA claims. BVA-accurate math, 900+ diagnostic codes, encrypted document vault, fully offline. Built because the VA claims process is brutal and the existing tools are terrible.",
+    links: [
+      {
+        label: "Download on the App Store →",
+        href: "https://apps.apple.com/us/app/va-disability-calc-track/id6748180691",
+      },
+    ],
+    status: "live",
+  },
+];
+
+const statusLabel: Record<NonNullable<Project["status"]>, string> = {
+  shipped: "Shipped",
+  live: "Live",
+  ongoing: "Ongoing",
+  "open-source": "Open Source",
+};
+---
+<BaseLayout
+  title="Projects"
+  description="The receipts, fiber I ran, servers I administer, products I ship. Real first-hand work, not stock photos and case-study templates."
+>
+  <JsonLd slot="head" data={graph(
+    breadcrumb([{ name: "Home", path: "/" }, { name: "Projects", path: "/projects/" }]),
+  )} />
+
+  <section class="grid-bg bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">Projects</p>
+      <h1 class="mt-3 font-display text-4xl text-ink md:text-6xl">
+        The receipts. <span class="text-accent">Not the brochure.</span>
+      </h1>
+      <p class="mt-6 text-muted leading-relaxed">
+        I'm a one-person shop with deep practitioner experience, not a consultancy with a
+        polished case-study deck. The way I prove I can do something is by showing you the
+        version I've already done, on my own property, on my own servers, or in my own apps.
+      </p>
+      <p class="mt-4 text-muted leading-relaxed">
+        These are the projects I'd ship publicly. Some are infrastructure for me and my
+        family; some are products with paying users; some are open source. All of them are
+        real, and I'll happily walk you through any of them in detail.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/work-with-me/apply/" class="btn-primary">Work With Me →</a>
+        <a href="/about/" class="btn-ghost">More About Me →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-5xl">
+      <SectionHeader eyebrow="What I've actually built" title="Personal infrastructure, products, and open source." />
+      <ul class="grid gap-5 md:grid-cols-2">
+        {projects.map((p) => (
+          <li class="flex flex-col border border-accent/15 bg-bg-card p-6">
+            <div class="flex items-center justify-between gap-3">
+              <p class="text-xs uppercase tracking-[2px] text-accent">{p.eyebrow}</p>
+              {p.status && (
+                <span class="chip">{statusLabel[p.status]}</span>
+              )}
+            </div>
+            <h3 class="mt-3 font-display text-xl text-ink">{p.title}</h3>
+            <p class="mt-3 text-sm text-muted leading-relaxed">{p.blurb}</p>
+            {p.learned && (
+              <p class="mt-3 border-l-2 border-accent/40 pl-3 text-xs italic text-muted/90 leading-relaxed">
+                {p.learned}
+              </p>
+            )}
+            {p.links && p.links.length > 0 && (
+              <div class="mt-auto pt-4">
+                {p.links.map((l) => (
+                  <a href={l.href} class="mr-4 inline-block text-xs uppercase tracking-wider text-accent" rel="noopener">
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">Want To See One In Detail?</p>
+      <h2 class="mt-3 font-display text-3xl text-ink md:text-4xl">
+        Ask me about any of these.
+      </h2>
+      <p class="mt-3 text-muted">
+        Real walkthroughs, real screenshots, real config, not sanitized case studies. If
+        it's something you want to build, I can probably help you build it.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/contact/" class="btn-primary">Contact Me →</a>
+        <a href="/blog/" class="btn-ghost">Read the Blog →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

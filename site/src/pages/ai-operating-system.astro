@@ -1,0 +1,283 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { site } from "@/lib/site";
+import { graph, breadcrumb } from "@/lib/jsonld";
+
+const booking = site.aiosBooking;
+
+const whatYouWalkAwayWith = [
+  {
+    title: "Your own AI workspace",
+    body: "We set up the right workspace for your situation and organize it around your actual business. This could include tools like ChatGPT, Claude, Claude Code, project folders, documents, prompts, workflows, and structured business context.",
+  },
+  {
+    title: "Your business knowledge organized",
+    body: "We start capturing the way you think, write, estimate, respond, plan, and operate so AI has useful context instead of generic instructions.",
+  },
+  {
+    title: "One real workflow you can use",
+    body: "We build one practical workflow together. Examples include drafting customer replies, writing estimates or proposals, organizing job notes, creating service descriptions, building a quoting assistant, turning scattered notes into SOPs, planning content or marketing, or creating an internal knowledge base.",
+  },
+  {
+    title: "A plain-English next step map",
+    body: "You leave knowing what we built, how to use it, what to practice, and what we would improve next if you continue.",
+  },
+];
+
+const whereThisCanGo = [
+  "A repeatable quoting or proposal workflow",
+  "A customer intake system",
+  "Internal SOPs and training documents",
+  "A sales and follow-up assistant",
+  "A content and marketing workflow",
+  "A business knowledge base",
+  "AI-supported admin workflows",
+  "Client-facing automation ideas",
+  "A foundation for offering AI-enabled services to your own customers",
+];
+
+const goodFit = [
+  "A small business owner, contractor, consultant, or operator",
+  "Feeling behind on AI but ready to learn",
+  "Tired of hype videos and vague advice",
+  "Running a business where too much knowledge lives in your head",
+  "Looking for practical workflows, not theory",
+  "Willing to sit down for one focused hour and build",
+];
+
+const notFor = [
+  "A generic AI lecture",
+  "A magic button that replaces your team",
+  "Someone to build everything for you while you watch",
+  "Beginner computer help like logging into accounts or using a browser",
+  "A $30,000 strategy deck with no working system behind it",
+];
+
+const howItGoes = [
+  {
+    step: "Before the call",
+    body: "You book the session and receive a short prep email. Bring your laptop, a real business problem, and any documents, notes, examples, or processes you want to work with.",
+  },
+  {
+    step: "First 10 minutes",
+    body: "We talk through your business in plain English. What you do, who you serve, what takes too much time, and where AI could realistically help.",
+  },
+  {
+    step: "The middle of the session",
+    body: "We set up your workspace, organize your business context, and start building around one useful workflow. I explain what we are doing as we go so you understand the system instead of just watching me click around.",
+  },
+  {
+    step: "Last 10 minutes",
+    body: "We test what we built, clean it up, and write down what to do next.",
+  },
+  {
+    step: "After the session",
+    body: "You receive a short follow-up with the main things to try, what we completed, and what would make sense to build next.",
+  },
+];
+
+const bookingService = {
+  "@type": "Service",
+  name: booking.offering,
+  serviceType: "AI workspace setup and coaching",
+  provider: { "@id": `${site.url}/#localbusiness` },
+  description:
+    "One-hour paid working session with Albert LaScola to set up a practical AI workspace on your machine, organize your business knowledge, and build one real working AI workflow together. Veteran-owned, SDVOSB.",
+  offers: {
+    "@type": "Offer",
+    price: booking.price.replace(/[^0-9.]/g, ""),
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    url: booking.calendlyUrl,
+  },
+};
+---
+<BaseLayout
+  title="AI Workspace Setup Hour"
+  description={`Book a paid ${booking.duration} working session with Albert LaScola: ${booking.price}, payment required to book. Build a practical AI workspace for your business with a senior practitioner, one-on-one, on your machine.`}
+>
+  <JsonLd slot="head" data={graph(
+    breadcrumb([{ name: "Home", path: "/" }, { name: "AI Workspace Setup", path: "/ai-operating-system/" }]),
+    bookingService,
+  )} />
+
+  <!-- HERO -->
+  <section class="grid-bg bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">AI Workspace Setup</p>
+      <h1 class="mt-3 font-display text-4xl text-ink md:text-6xl">
+        One hour. <span class="text-accent">Your business AI workspace, set up with you.</span>
+      </h1>
+      <p class="mt-6 text-muted leading-relaxed">
+        You know AI could probably help your business. The hard part is knowing where to
+        start, what tools to use, and how to connect AI to the way your business actually
+        works.
+      </p>
+      <p class="mt-4 text-muted leading-relaxed">
+        This is a paid one-on-one working session with Albert LaScola. We set up a practical
+        AI workspace on your machine, organize your business knowledge, talk through your
+        pain points, and build one real workflow together before you log off.
+      </p>
+      <p class="mt-4 text-muted leading-relaxed">
+        This is not a tutorial. This is not a sales pitch. This is a working system you
+        understand because we built it side by side. Over time, your workspace becomes the
+        AI operating system for your business.
+      </p>
+      <div class="mt-8 border border-accent/30 bg-bg-card p-6">
+        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <p class="font-display text-3xl text-ink">{booking.price}</p>
+          <p class="text-sm text-muted">{booking.duration}, one-on-one, on your machine</p>
+        </div>
+        <p class="mt-1 text-xs text-muted">{booking.priceNote}</p>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href={booking.calendlyUrl} class="btn-primary" rel="noopener" target="_blank">
+          Book Your Session →
+        </a>
+      </div>
+      <p class="mt-6 text-xs text-muted">
+        Most owners use the first session to get set up, then book additional sessions as
+        needed to build out the workflows that matter most.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILD TOGETHER -->
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader eyebrow="What we build together" title="Your business knowledge, turned into a system AI can actually use." />
+      <p class="text-muted leading-relaxed">
+        In this session, we start turning your business knowledge into a system AI can
+        actually use. That may include your services, pricing logic, customer messages,
+        estimates, proposals, standard operating procedures, documents, notes, sales
+        process, admin tasks, or the things that currently live only in your head.
+      </p>
+      <p class="mt-4 text-muted leading-relaxed">
+        The goal is not to chase the newest AI trend. The goal is to help your business
+        move faster, communicate better, document what you know, and reduce the number of
+        things that depend entirely on you.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU WALK AWAY WITH -->
+  <section class="bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-5xl">
+      <SectionHeader eyebrow="The deliverable" title="What you walk away with after one hour." />
+      <ul class="grid gap-4 md:grid-cols-2">
+        {whatYouWalkAwayWith.map((u) => (
+          <li class="border border-accent/15 bg-bg-card p-6">
+            <p class="font-display text-xl text-ink">{u.title}</p>
+            <p class="mt-3 text-sm text-muted leading-relaxed">{u.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHERE THIS CAN GO -->
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader eyebrow="Where this can go" title="One workspace, many possible workflows." />
+      <p class="text-muted leading-relaxed">
+        The first session gets the foundation in place. From there, your AI workspace can
+        grow into a larger business system. Future sessions can help you build:
+      </p>
+      <ul class="mt-5 space-y-2 text-muted leading-relaxed">
+        {whereThisCanGo.map((w) => <li>· {w}</li>)}
+      </ul>
+      <p class="mt-6 text-muted leading-relaxed">
+        For some owners, this becomes a better way to run their own business.
+      </p>
+      <p class="mt-3 text-muted leading-relaxed">
+        For others, it becomes the beginning of a new service offering they can sell to
+        clients.
+      </p>
+      <p class="mt-3 text-muted leading-relaxed">
+        Either way, the process starts the same way: build something real, understand how
+        it works, and improve it one workflow at a time.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW THE HOUR WORKS -->
+  <section class="bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader eyebrow="How the hour works" title="No mystery. Here is the actual flow." />
+      <ol class="space-y-5">
+        {howItGoes.map((s, i) => (
+          <li class="border border-accent/15 bg-bg-card p-5">
+            <p class="text-[11px] uppercase tracking-[3px] text-accent">
+              {String(i + 1).padStart(2, "0")} · {s.step}
+            </p>
+            <p class="mt-2 text-muted leading-relaxed">{s.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- GOOD FIT -->
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader eyebrow="Good fit" title="This is a good fit if you are." />
+      <ul class="space-y-3 text-muted leading-relaxed">
+        {goodFit.map((g) => <li>· {g}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- NOT FOR -->
+  <section class="bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader eyebrow="Not for" title="This is not a good fit if you want." />
+      <ul class="space-y-3 text-muted">
+        {notFor.map((n) => <li>· {n}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHY WORK WITH ME -->
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader eyebrow="Why me" title="Who is on the other end of the session." />
+      <p class="text-muted leading-relaxed">
+        I am Albert LaScola, owner of Bulwark Black LLC and Rural Tech and Support.
+      </p>
+      <p class="mt-4 text-muted leading-relaxed">
+        My background includes the U.S. Navy submarine force, cybersecurity detection and
+        response work at VMware, technical instruction at Western Washington University,
+        and building my own software and AI-assisted business systems.
+      </p>
+      <p class="mt-4 text-muted leading-relaxed">
+        I use these workflows in my own business to build products, organize knowledge,
+        write documentation, plan services, support clients, and move faster without losing
+        control of the work.
+      </p>
+      <p class="mt-4 text-muted leading-relaxed">
+        I am not here to overwhelm you with hype. I am here to help you build something
+        useful.
+      </p>
+      <p class="mt-6 text-sm text-muted">
+        <a href="/about/" class="text-accent">Full background →</a>
+        <span class="ml-3"><a href="/projects/" class="text-accent">See what I have built →</a></span>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="bg-bg-primary px-6 py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">Ready to build your AI workspace?</p>
+      <h2 class="mt-3 font-display text-3xl text-ink md:text-4xl">
+        One hour. One-on-one. <span class="text-accent">Built around your business.</span>
+      </h2>
+      <p class="mt-4 text-muted">{booking.price}. {booking.priceNote}</p>
+      <a href={booking.calendlyUrl} class="btn-primary mt-8" rel="noopener" target="_blank">
+        Book Your Session →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

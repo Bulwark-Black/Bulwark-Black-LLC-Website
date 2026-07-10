@@ -1,0 +1,9 @@
+posts: 391
+pages: 22
+categories: 25
+tags: 436
+media(meta): 493
+media files: downloaded=4599 skipped=1 errors=9 bytes=1209604195
+app-ads.txt: 7435 bytes
+robots.txt: 24 bytes
+sitemap_index.xml: 914 bytes

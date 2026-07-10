@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Email DNS changes — Rural Tech and Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #161a22;
+      --panel-2: #1c2230;
+      --text: #e6e8ee;
+      --muted: #9aa3b2;
+      --line: #2a3142;
+      --green: #34d399;
+      --red: #f87171;
+      --amber: #fbbf24;
+      --blue: #60a5fa;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 980px; margin: 0 auto; padding: 32px 24px 80px; }
+    h1 { font-size: 26px; margin: 0 0 8px; letter-spacing: -0.01em; }
+    h2 { font-size: 20px; margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+    h3 { font-size: 15px; margin: 22px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    p, li { color: var(--text); }
+    .lead { color: var(--muted); margin: 0 0 24px; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; }
+    .pill.delete { background: rgba(248,113,113,0.12); color: var(--red); border: 1px solid rgba(248,113,113,0.3); }
+    .pill.add    { background: rgba(52,211,153,0.12); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
+    .pill.keep   { background: rgba(96,165,250,0.12); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
+    .pill.update { background: rgba(251,191,36,0.12); color: var(--amber); border: 1px solid rgba(251,191,36,0.3); }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 14px; margin: 14px 0; }
+    .card.delete { border-left: 4px solid var(--red); }
+    .card.add    { border-left: 4px solid var(--green); }
+    .card.keep   { border-left: 4px solid var(--blue); }
+    .card.update { border-left: 4px solid var(--amber); }
+    .row { display: grid; grid-template-columns: 100px 140px 1fr; gap: 8px 16px; align-items: start; margin: 8px 0; }
+    .row .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px; }
+    .row .value { font-family: var(--mono); font-size: 13px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; word-break: break-all; }
+    .why { color: var(--muted); margin: 10px 0 0; font-size: 14px; }
+    .why strong { color: var(--text); }
+    .step { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--panel-2); border: 1px solid var(--line); text-align: center; line-height: 20px; font-size: 12px; font-weight: 700; margin-right: 8px; color: var(--muted); }
+    .domain-tag { display: inline-block; font-family: var(--mono); font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--panel-2); color: var(--blue); border: 1px solid var(--line); margin-bottom: 4px; }
+    .checklist { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+    .checklist li { margin: 4px 0; }
+    code.inline { font-family: var(--mono); font-size: 13px; background: var(--panel-2); border: 1px solid var(--line); padding: 1px 6px; border-radius: 4px; }
+    .small { font-size: 13px; color: var(--muted); }
+    .copy-btn { float: right; background: var(--panel-2); border: 1px solid var(--line); color: var(--muted); font: 11px var(--mono); padding: 3px 8px; border-radius: 4px; cursor: pointer; }
+    .copy-btn:hover { color: var(--text); border-color: var(--blue); }
+    .copy-btn.copied { color: var(--green); border-color: var(--green); }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+  </style>
+</head>
+<body>
+<main>
+
+<h1>Email DNS changes</h1>
+<p class="lead">Goal: clean up the email DNS so forms send reliably through Resend and the support inbox actually receives. Below is exactly what to change, separated by domain.</p>
+
+<div class="checklist">
+  <strong>Summary of changes</strong>
+  <ul>
+    <li><span class="pill delete">delete</span> 4 stale records on <code class="inline">ruraltechandsupport.com</code> (Mailgun MX × 2, Mailgun CNAME, old DKIM)</li>
+    <li><span class="pill add">add</span> 1 optional record on <code class="inline">ruraltechandsupport.com</code> (null SPF at root)</li>
+    <li><span class="pill update">fix</span> SPF on <code class="inline">bulwarkblack.com</code> and add DMARC + Microsoft 365 DKIM</li>
+  </ul>
+</div>
+
+<h2>1. <code class="inline" style="font-size:18px">ruraltechandsupport.com</code> <span class="small">(GoDaddy DNS, the records you pasted)</span></h2>
+
+<h3>Delete these (stale / broken)</h3>
+
+<div class="card delete">
+  <div><span class="pill delete">delete</span> &nbsp;<span class="step">1</span> MX record pointing to Mailgun</div>
+  <div class="row"><div class="label">Type</div><div class="value">MX</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">@</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">mxa.mailgun.org. (Priority 60)</div></div>
+  <p class="why"><strong>Why:</strong> Mailgun is not configured anywhere in the server code or environment. Mail sent to anyone@ruraltechandsupport.com (for example if a recipient hits "reply" on a form notification) is currently being accepted by Mailgun and dropped. Removing this MX is safer than leaving a broken inbound path.</p>
+</div>
+
+<div class="card delete">
+  <div><span class="pill delete">delete</span> &nbsp;<span class="step">2</span> Second Mailgun MX record</div>
+  <div class="row"><div class="label">Type</div><div class="value">MX</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">@</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">mxb.mailgun.org. (Priority 60)</div></div>
+  <p class="why"><strong>Why:</strong> Same reason as above. Both Mailgun MX records go together.</p>
+</div>
+
+<div class="card delete">
+  <div><span class="pill delete">delete</span> &nbsp;<span class="step">3</span> Mailgun email CNAME</div>
+  <div class="row"><div class="label">Type</div><div class="value">CNAME</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">email</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">mailgun.org.</div></div>
+  <p class="why"><strong>Why:</strong> Pointer to Mailgun's tracking subdomain. Unused since we send through Resend now. Removing it has no effect on anything currently working.</p>
+</div>
+
+<div class="card delete">
+  <div><span class="pill delete">delete</span> &nbsp;<span class="step">4</span> Stale DKIM key from a previous provider</div>
+  <div class="row"><div class="label">Type</div><div class="value">TXT</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">pic._domainkey</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/qOvDnGlQc1JDQbs64zMT6ZzJeFSeKoEOHNvMdxONugtDo1cIbbAshyzs3VhMnjULJWd4X5Vep+hjm8SzioL7bFsEYvqOjVf8XLAagQ91eE60rotwPSVQFEQCUb4iKmMhhK1ydZPhaP53DUn8SMQCqjHXbtnhaM5JNKsEjLxvMQIDAQAB</div></div>
+  <p class="why"><strong>Why:</strong> The "pic" DKIM selector is not used by Resend (Resend uses the <code class="inline">resend._domainkey</code> selector, which is already in place). This record is leftover from a previous email service. Stale DKIM keys are clutter and a (small) security hygiene issue, since whoever still controls the private key could sign mail as your domain.</p>
+</div>
+
+<h3>Optional: add a null SPF at the root</h3>
+
+<div class="card add">
+  <div><span class="pill add">add</span> &nbsp;<span class="step">5</span> Declare that the root domain does not send mail directly</div>
+  <div class="row"><div class="label">Type</div><div class="value">TXT</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">@</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">v=spf1 -all</div></div>
+  <div class="row"><div class="label">TTL</div><div class="value">1 Hour</div></div>
+  <p class="why"><strong>Why:</strong> Resend sends with the Return-Path on the <code class="inline">send.</code> subdomain (you already have that SPF set correctly). The root domain itself does not send mail, so publishing an empty SPF (<code class="inline">-all</code>) tells the world that any mail with MAIL FROM = ruraltechandsupport.com is forged. This blocks spoofing at the SPF layer and is fully compatible with how Resend is already working (DMARC will still pass via DKIM alignment).</p>
+  <p class="why"><strong>Skip this if:</strong> you plan to add a mailbox or sending service at the root domain later. In that case leave it off until you know what to allow.</p>
+</div>
+
+<h3>Keep these (they are correct, do not touch)</h3>
+
+<div class="card keep">
+  <p class="small" style="margin: 0 0 8px;">These records are the working Resend setup. Listed here so you don't accidentally delete them while cleaning up.</p>
+  <ul style="margin: 6px 0 0;">
+    <li><code class="inline">A @ &rarr; 138.68.30.174</code> &mdash; the web server</li>
+    <li><code class="inline">CNAME www &rarr; ruraltechandsupport.com.</code></li>
+    <li><code class="inline">CNAME pay &rarr; paylinks.commerce.godaddy.com.</code> &mdash; GoDaddy payments, unrelated to email</li>
+    <li><code class="inline">CNAME _domainconnect &rarr; ...</code> &mdash; GoDaddy auto-config</li>
+    <li><code class="inline">MX send &rarr; feedback-smtp.us-east-1.amazonses.com (10)</code> &mdash; Resend bounce handling</li>
+    <li><code class="inline">TXT send &rarr; v=spf1 include:dc-fd741b8612._spfm.send.ruraltechandsupport.com ~all</code></li>
+    <li><code class="inline">TXT dc-fd741b8612._spfm.send &rarr; v=spf1 include:amazonses.com ~all</code></li>
+    <li><code class="inline">TXT resend._domainkey &rarr; p=MIGfMA0G...</code> &mdash; Resend DKIM</li>
+    <li><code class="inline">TXT _dmarc &rarr; v=DMARC1; p=quarantine; adkim=r; aspf=r; rua=...</code></li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>2. <code class="inline" style="font-size:18px">bulwarkblack.com</code> <span class="small">(the receive side, separate zone)</span></h2>
+
+<p class="lead">Form notifications land in <code class="inline">support@bulwarkblack.com</code>, which is on Microsoft 365 (Outlook). Receive works, but three DNS records on this domain are wrong or missing. None of these affect form receive today, but they do prevent you from reliably sending mail FROM bulwarkblack.com via Outlook (responses, replies, anything client-facing). Worth fixing now.</p>
+
+<div class="card update">
+  <div><span class="pill update">replace</span> &nbsp;<span class="step">1</span> Fix the SPF to point at Microsoft 365 instead of GoDaddy</div>
+  <p class="small" style="margin: 8px 0 6px;"><strong>Find and edit</strong> the existing TXT record on <code class="inline">@</code> that contains <code class="inline">v=spf1 include:secureserver.net -all</code> and change its data to:</p>
+  <div class="row"><div class="label">Type</div><div class="value">TXT</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">@</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">v=spf1 include:spf.protection.outlook.com -all</div></div>
+  <p class="why"><strong>Why:</strong> Your MX is <code class="inline">bulwarkblack-com.mail.protection.outlook.com</code> (Microsoft 365), but the SPF still says GoDaddy sends mail for you. Outlook outbound mail currently fails SPF as a hardfail (the <code class="inline">-all</code>), which means recipients are likely sending your replies to spam.</p>
+  <p class="why"><strong>If GoDaddy hosting also sends mail</strong> (forms on the GoDaddy site, for example), use this combined version instead: <code class="inline">v=spf1 include:spf.protection.outlook.com include:secureserver.net -all</code></p>
+</div>
+
+<div class="card add">
+  <div><span class="pill add">add</span> &nbsp;<span class="step">2</span> Publish a DMARC policy</div>
+  <div class="row"><div class="label">Type</div><div class="value">TXT</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">_dmarc</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">v=DMARC1; p=none; rua=mailto:dmarc@bulwarkblack.com; pct=100; adkim=r; aspf=r</div></div>
+  <p class="why"><strong>Why:</strong> Currently there is no DMARC record on bulwarkblack.com. Start with <code class="inline">p=none</code> (monitor only) for a week or two, watch the reports that land in <code class="inline">dmarc@bulwarkblack.com</code> (set up that mailbox or forward to support), then tighten to <code class="inline">p=quarantine</code> once you confirm only legitimate sources are signing your mail.</p>
+</div>
+
+<div class="card add">
+  <div><span class="pill add">add</span> &nbsp;<span class="step">3</span> Enable Microsoft 365 DKIM and publish the two CNAMEs</div>
+  <p class="small" style="margin: 8px 0 10px;">This is a two-step process. First, enable DKIM in the Microsoft 365 admin center, then publish the CNAMEs at GoDaddy.</p>
+  <p class="small" style="margin: 8px 0 10px;"><strong>Microsoft has already given you the exact CNAME targets.</strong> Add these two CNAMEs at GoDaddy DNS for bulwarkblack.com first, then go back to the M365 DKIM page and click Enable.</p>
+  <div class="row"><div class="label">Type</div><div class="value">CNAME</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">selector1._domainkey</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">selector1-bulwarkblack-com._domainkey.NETORGFT14427777.w-v1.dkim.mail.microsoft</div></div>
+  <div class="row"><div class="label">TTL</div><div class="value">1 Hour</div></div>
+  <div class="row" style="margin-top: 14px;"><div class="label">Type</div><div class="value">CNAME</div></div>
+  <div class="row"><div class="label">Name</div><div class="value">selector2._domainkey</div></div>
+  <div class="row"><div class="label">Data</div><div class="value">selector2-bulwarkblack-com._domainkey.NETORGFT14427777.w-v1.dkim.mail.microsoft</div></div>
+  <div class="row"><div class="label">TTL</div><div class="value">1 Hour</div></div>
+  <p class="why"><strong>Watch out:</strong> the target ends in <code class="inline">.microsoft</code> (a real top-level domain Microsoft owns), not <code class="inline">.com</code>. Paste it exactly as written. Do not add a trailing dot in GoDaddy's UI; GoDaddy treats CNAME targets as fully qualified automatically.</p>
+  <p class="why"><strong>After saving,</strong> open a terminal and run <code class="inline">dig +short selector1._domainkey.bulwarkblack.com CNAME</code> to confirm the record resolves. Microsoft says sync can take up to 4 days but GoDaddy is usually live within a few minutes. Once both resolve, return to <code class="inline">https://security.microsoft.com</code> &rarr; Policies &amp; rules &rarr; Threat policies &rarr; Email authentication settings &rarr; DKIM and click "Enable" for bulwarkblack.com.</p>
+</div>
+
+<hr>
+
+<h2>Order of operations</h2>
+<ol>
+  <li>Clean up ruraltechandsupport.com (the four deletions). Safe to do first, no service impact.</li>
+  <li>Optionally add the root SPF (<code class="inline">v=spf1 -all</code> at <code class="inline">@</code>).</li>
+  <li>Replace the bulwarkblack.com SPF record.</li>
+  <li>Publish DMARC for bulwarkblack.com.</li>
+  <li>Enable M365 DKIM and publish the two selector CNAMEs.</li>
+  <li>Wait an hour, then test:
+    <ul>
+      <li>Submit the contact form on the live site. Verify the notification arrives at <code class="inline">support@bulwarkblack.com</code>.</li>
+      <li>Send a test message from <code class="inline">support@bulwarkblack.com</code> to a Gmail account, view headers, confirm <code class="inline">SPF: pass</code>, <code class="inline">DKIM: pass</code>, <code class="inline">DMARC: pass</code>.</li>
+    </ul>
+  </li>
+</ol>
+
+<p class="small" style="margin-top: 28px;">Generated 2026-05-22 from a live audit of the prod server (138.68.30.174) and DNS resolutions for both domains.</p>
+
+</main>
+
+<script>
+  document.querySelectorAll('.value').forEach((el) => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'copy';
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(el.textContent.trim());
+        btn.textContent = 'copied';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1200);
+      } catch {
+        btn.textContent = 'err';
+      }
+    });
+    el.appendChild(btn);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+---
+const advantages = [
+  {
+    emoji: "🎖",
+    title: "Veteran-owned & accountable",
+    sub: "SDVOSB, SAM registered — a real name behind the work",
+  },
+  {
+    emoji: "🚫",
+    title: "No hype, no filler",
+    sub: "Straight answers and honest scope, even when it costs us the upsell",
+  },
+  {
+    emoji: "🛠",
+    title: "One operator, end to end",
+    sub: "The person who scopes it is the person who builds and ships it",
+  },
+  {
+    emoji: "🔎",
+    title: "Work you can verify",
+    sub: "Shipped apps, a live intel feed, and handoffs you can actually check",
+  },
+];
+---
+<section class="advantage advantage-right" id="why-bulwark">
+  <div class="container">
+    <div class="advantage-grid">
+      <div class="advantage-visual reveal order-first">
+        <p class="advantage-eyebrow">What you get</p>
+        <div class="chip-row">
+          {
+            advantages.map((a) => (
+              <div class="chip-tile">
+                <span class="chip-emoji">{a.emoji}</span>
+                <div>
+                  <div class="chip-title">{a.title}</div>
+                  <div class="chip-sub">{a.sub}</div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="section-label">Why Bulwark Black</span>
+        <h2 class="section-title advantage-title-left">
+          A small shop is the feature,<br />not the compromise.
+        </h2>
+        <p class="advantage-body">
+          Most technical work fails on communication, not code. Briefs get lost
+          between the salesperson, the account manager, and whoever actually
+          builds the thing. Here, that whole chain is one veteran-owned team, so
+          nothing gets lost in translation and there is always someone
+          accountable to call.
+        </p>
+        <p class="advantage-body">
+          We say no when a project is not a fit, tell you when the simple option
+          is the right one, and hand off documented work you can maintain
+          without us. The daily threat-intelligence feed is the proof of work:
+          public, current, and free to read.
+        </p>
+        <p class="advantage-body">
+          You are not hiring a logo or a call center. You are hiring the person
+          who ships it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

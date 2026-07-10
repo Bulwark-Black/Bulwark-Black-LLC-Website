@@ -1,0 +1,227 @@
+---
+// Ambient PCB-trace background. A static tiled circuit pattern with a few gold
+// "current" pulses (tail -> glow -> core -> white-hot head) that travel along
+// real traces and reroute to a new random trace each run. Ported from the
+// samscout marketing site and recolored green -> gold to match the accent.
+//
+// It is a FIXED viewport layer (100vw x 100vh), not a page-tall element, so it
+// never hits the compositor's ~16384px height cap. Mounted once in BaseLayout
+// behind all content; primary section bands are transparent (see global.css) so
+// the texture reads in the open field while cards/panels stay solid on top of it.
+//
+// prefers-reduced-motion: static pattern only, no pulses. Under 640px the pulse
+// generator bails (static pattern only) to stay cheap on phones.
+---
+<div id="circuit-bg" aria-hidden="true">
+  <div class="circuit-pattern"></div>
+  <div id="circuit-pulse-layer"></div>
+</div>
+
+<!-- is:global — the pulse paths are injected at runtime by the script below and
+     carry no scope attribute, so scoped selectors would never match them. All
+     selectors are qualified under the unique #circuit-bg / #circuit-pulse-layer
+     ids, so global scope can't collide with anything else. -->
+<style is:global>
+  #circuit-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* Static tiled circuit field — kept very faint so it's ambient texture. */
+  #circuit-bg .circuit-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("/circuit-pattern.svg");
+    background-repeat: repeat;
+    /* 320 trace units x 0.7 scale — keep in sync with SCALE in the script. */
+    background-size: 224px 224px;
+    opacity: 0.05;
+  }
+
+  /* Traveling-current layer. Each pulse = four stacked copies of one trace
+     (soft tail, glow, bright core, white-hot head) sharing a path + phase. */
+  #circuit-pulse-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    contain: layout paint;
+    opacity: 0.7;
+  }
+  #circuit-pulse-layer svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  #circuit-pulse-layer .epulse-tail,
+  #circuit-pulse-layer .epulse-glow,
+  #circuit-pulse-layer .epulse-core,
+  #circuit-pulse-layer .epulse-head {
+    fill: none;
+    stroke-linecap: butt;
+    animation-name: etrace-run;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* animation-duration + delay set inline, per pulse */
+  }
+  #circuit-pulse-layer .epulse-tail {  /* long soft afterglow */
+    stroke: #a8842f;
+    stroke-width: 7;
+    opacity: 0.16;
+    stroke-dasharray: 0 2 26 72;
+    filter: blur(3px);
+  }
+  #circuit-pulse-layer .epulse-glow {  /* body glow */
+    stroke: #e0b64d;
+    stroke-width: 3.5;
+    opacity: 0.4;
+    stroke-dasharray: 0 10 18 72;
+    filter: blur(1.2px);
+  }
+  #circuit-pulse-layer .epulse-core {  /* bright gold core */
+    stroke: #f2c14e;
+    stroke-width: 1.8;
+    opacity: 0.9;
+    stroke-dasharray: 0 20 8 72;
+  }
+  #circuit-pulse-layer .epulse-head {  /* white-hot leading tip */
+    stroke: #fff7e6;
+    stroke-width: 1.4;
+    stroke-dasharray: 0 24 4 72;
+    filter: drop-shadow(0 0 3px rgba(224, 182, 77, 0.95))
+            drop-shadow(0 0 6px rgba(224, 182, 77, 0.5));
+  }
+  @keyframes etrace-run {
+    from { stroke-dashoffset: 100; }
+    to   { stroke-dashoffset: 0; }
+  }
+
+  /* The whole comet fades in on the wire and flickers out as it runs off. */
+  #circuit-pulse-layer .epulse {
+    animation-name: epulse-fade;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes epulse-fade {
+    0%   { opacity: 0; }
+    7%   { opacity: 1; }
+    68%  { opacity: 1; }
+    82%  { opacity: 0.35; }
+    88%  { opacity: 0.7; }   /* flicker blip on the way out */
+    100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #circuit-pulse-layer { display: none; }
+  }
+</style>
+
+<script is:inline>
+  // Current running through the circuit: a sparse, random set of traces each
+  // carry a short bright segment that travels along the wire (animated SVG
+  // stroke-dash). Speed and start phase are randomised per pulse so nothing runs
+  // in lockstep. Vanilla JS/SVG, no framework, no hydration.
+  (function () {
+    if (typeof window === "undefined") return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    var SVGNS = "http://www.w3.org/2000/svg";
+    var TILE = 320;            // trace coordinate tile (matches circuit-pattern.svg viewBox)
+    var SCALE = 0.7;           // shrink the board so it reads finer / less zoomed-in
+    var STEP = TILE * SCALE;   // on-screen size of one tile, px (must equal background-size)
+    // Traces from circuit-pattern.svg, in tile-local coordinates.
+    var TRACES = [
+      "M0,60 L80,60 L80,90 L160,90 L160,60 L240,60 L240,30 L320,30",
+      "M0,180 L40,180 L40,150 L130,150 L130,180 L210,180 L210,210 L320,210",
+      "M0,260 L90,260 L90,290 L200,290 L200,260 L320,260",
+      "M30,0 L30,40 L70,40 L70,80",
+      "M120,0 L120,30 L100,30 L100,60",
+      "M200,0 L200,20 L180,20 L180,50",
+      "M280,0 L280,60 L260,60 L260,90 L290,90 L290,120",
+      "M50,320 L50,290 L75,290 L75,250",
+      "M150,320 L150,300 L130,300 L130,240",
+      "M240,320 L240,270 L260,270 L260,220",
+      "M160,90 L160,120 L190,120 L190,160",
+      "M230,150 L230,110 L260,110 L260,140"
+    ];
+
+    // Place a tile-local trace on the board: offset into its tile, then scale
+    // the whole thing down so it stays locked to the (equally scaled) pattern.
+    function place(d, col, row) {
+      var ox = col * TILE, oy = row * TILE;
+      return d.replace(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g, function (_, x, y) {
+        return ((parseFloat(x) + ox) * SCALE).toFixed(2) + "," + ((parseFloat(y) + oy) * SCALE).toFixed(2);
+      });
+    }
+    function rand(min, max) { return min + Math.random() * (max - min); }
+
+    function build() {
+      var layer = document.getElementById("circuit-pulse-layer");
+      if (!layer) return;
+      layer.textContent = "";
+      var W = window.innerWidth, H = window.innerHeight;
+      // Phones: static pattern only. Cheaper, and the texture still reads.
+      if (W < 640) return;
+      var cols = Math.ceil(W / STEP), rows = Math.ceil(H / STEP);
+      // Sparse and gentle — only a few wires carry current at once.
+      var count = Math.max(3, Math.min(10, Math.round((W * H) / 150000)));
+
+      var svg = document.createElementNS(SVGNS, "svg");
+      svg.setAttribute("width", W);
+      svg.setAttribute("height", H);
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+      svg.setAttribute("preserveAspectRatio", "none");
+
+      function pickD() {
+        var col = Math.floor(Math.random() * cols);
+        var row = Math.floor(Math.random() * rows);
+        return place(TRACES[Math.floor(Math.random() * TRACES.length)], col, row);
+      }
+
+      var LAYERS = ["epulse-tail", "epulse-glow", "epulse-core", "epulse-head"];
+      function makePulse() {
+        var dur = rand(2.8, 6.5);
+        var durStr = dur.toFixed(2) + "s";
+        var delay = (-rand(0, dur)).toFixed(2) + "s";
+        var g = document.createElementNS(SVGNS, "g");
+        g.setAttribute("class", "epulse");
+        g.style.animationDuration = durStr;
+        g.style.animationDelay = delay;
+        var paths = LAYERS.map(function (cls) {
+          var p = document.createElementNS(SVGNS, "path");
+          p.setAttribute("class", cls);
+          p.setAttribute("pathLength", "100");
+          p.style.animationDuration = durStr;
+          p.style.animationDelay = delay;
+          g.appendChild(p);
+          return p;
+        });
+        function reroute() {
+          var d = pickD();
+          paths.forEach(function (p) { p.setAttribute("d", d); });
+        }
+        reroute();
+        paths[paths.length - 1].addEventListener("animationiteration", reroute);
+        svg.appendChild(g);
+      }
+
+      for (var i = 0; i < count; i++) makePulse();
+      layer.appendChild(svg);
+    }
+
+    var t;
+    function schedule() { clearTimeout(t); t = setTimeout(build, 200); }
+    window.addEventListener("resize", schedule);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", build);
+    } else {
+      build();
+    }
+  })();
+</script>

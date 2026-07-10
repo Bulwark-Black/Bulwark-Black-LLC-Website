@@ -1,0 +1,53 @@
+---
+const APP_STORE_URL =
+  "https://apps.apple.com/us/app/va-disability-calc-track/id6748180691";
+
+const stats = [
+  { value: "900+", key: "Diagnostic codes" },
+  { value: "BVA-accurate", key: "Combined-rating math" },
+  { value: "Encrypted", key: "Document vault" },
+  { value: "100%", key: "Works offline" },
+];
+---
+<section class="spotlight" id="flagship">
+  <div class="container">
+    <div class="spotlight-card reveal">
+      <div>
+        <span class="section-label">Flagship App · iOS</span>
+        <h2 class="section-title">VA Disability Calc &amp; Track</h2>
+        <p class="spotlight-lead">
+          A native iPhone and iPad app we designed, built, and shipped to the
+          App Store, for veterans navigating VA claims. BVA-accurate
+          combined-rating math, 900+ diagnostic codes, an encrypted document
+          vault, and it works fully offline.
+        </p>
+        <p class="spotlight-fine">
+          It is a working example of what a custom app built for your business
+          can be: focused, private, and shipped, not a slide deck.
+        </p>
+        <div class="spotlight-buttons">
+          <a
+            href={APP_STORE_URL}
+            class="btn btn-primary"
+            rel="noopener"
+            target="_blank"
+          >
+            View on the App Store &rarr;
+          </a>
+          <a href="/products/" class="btn btn-secondary">See all our apps</a>
+        </div>
+      </div>
+
+      <div class="spotlight-stats">
+        {
+          stats.map((s) => (
+            <div class="spotlight-stat">
+              <div class="stat-value">{s.value}</div>
+              <div class="stat-key">{s.key}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

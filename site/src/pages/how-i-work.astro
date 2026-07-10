@@ -1,0 +1,73 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { graph, breadcrumb } from "@/lib/jsonld";
+import SectionHeader from "@/components/SectionHeader.astro";
+
+const phases = [
+  {
+    n: "01",
+    title: "Discover",
+    body: "I map your assets, your data flows, and your real exposure. No assumptions. I use what you already have before recommending anything new.",
+  },
+  {
+    n: "02",
+    title: "Stabilize",
+    body: "I close the obvious gaps first: patching, MFA, backups, segmentation, monitoring. Most incidents stop here.",
+  },
+  {
+    n: "03",
+    title: "Engineer",
+    body: "I design the long-term architecture: detection telemetry, identity, OT/IT segmentation, and automation. Built for your team, not for mine.",
+  },
+  {
+    n: "04",
+    title: "Operate",
+    body: "I run it with you, train your operators, and hand it off when you're ready. I stay reachable when you need me.",
+  },
+];
+---
+<BaseLayout title="How I Work, Tech Support Methodology" description="How I deliver tech support, IT, and AI work for households and small businesses across Jefferson County and the Olympic Peninsula. Fundamentals first, AI where it earns its keep.">
+  <JsonLd slot="head" data={graph(
+    breadcrumb([{ name: "Home", path: "/" }, { name: "How I Work", path: "/how-i-work/" }]),
+  )} />
+  <section class="grid-bg bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-[11px] uppercase tracking-[3px] text-accent">How I Work</p>
+      <h1 class="mt-3 font-display text-4xl text-ink md:text-6xl">
+        Fundamentals first. <span class="text-accent">AI where it earns its keep.</span>
+      </h1>
+      <p class="mt-6 text-muted leading-relaxed">
+        Most breaches do not require novel zero-days. They require missed fundamentals.
+        My methodology is built around closing those gaps before anything fancy.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-bg-secondary px-6 py-20">
+    <div class="mx-auto max-w-5xl">
+      <SectionHeader eyebrow="Method" title="Four phases. No fluff." />
+      <ol class="grid gap-4 md:grid-cols-2">
+        {phases.map((p) => (
+          <li class="border border-accent/15 bg-bg-card p-6">
+            <p class="font-display text-3xl text-accent">{p.n}</p>
+            <p class="mt-1 font-display text-xl text-ink">{p.title}</p>
+            <p class="mt-3 text-sm text-muted leading-relaxed">{p.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-bg-primary px-6 py-20">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader eyebrow="What I will not do" title="Honest constraints." />
+      <ul class="space-y-3 text-muted">
+        <li>· I will not sell you AI you do not need.</li>
+        <li>· I will not take on a project I cannot resource correctly.</li>
+        <li>· I will not bypass safety checks to hit a deadline.</li>
+        <li>· I will not mark a gap "closed" without telemetry that proves it.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
