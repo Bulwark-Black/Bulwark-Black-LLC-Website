@@ -1,54 +1,28 @@
 #!/usr/bin/env bash
-# Rebuild the static site from /srv/ruraltech-build and atomically swap it
-# into /var/www/ruraltechandsupport.com. Invoked by the
-# ruraltech-rebuild.service systemd unit, which is started by reviews.mjs
-# after a review is approved through the email moderation flow.
-#
-# Mirrors the post-rsync half of deploy.sh, but runs entirely on the server
-# (no source sync) since /srv/ruraltech-build already has the latest source
-# from the most recent deploy.
+# Bulwark Black — on-demand static rebuild, triggered by the Openclaw shim
+# (via `systemctl start bulwark-rebuild.service`, which runs this as root).
+# Builds the Astro site from /srv/bulwark-build and swaps dist/ into the nginx
+# web root, PRESERVING /wp-content (images + thumbs live there, not in the build).
+set -uo pipefail
 
-set -euo pipefail
+BUILD=/srv/bulwark-build
+WEB=/var/www/staging.bulwarkblack.com
+LOG=/var/log/bulwark-rebuild.log
+LOCK=/tmp/bulwark-rebuild.lock
 
-BUILD=/srv/ruraltech-build
-WEB=/var/www/ruraltechandsupport.com
-LOG=/var/log/ruraltech-rebuild.log
+exec >>"$LOG" 2>&1
+echo "=== rebuild start $(date -u +%FT%TZ) ==="
 
-ts() { date -u +'%Y-%m-%dT%H:%M:%SZ'; }
-say() { echo "[$(ts)] $*" | tee -a "$LOG"; }
+# One rebuild at a time; a trigger during a build is a no-op (the running build
+# will already pick up any content written before it started).
+exec 9>"$LOCK"
+if ! flock -n 9; then echo "already running, skipping"; exit 0; fi
 
-say "rebuild start"
-
-if [ ! -d "$BUILD" ]; then
-  say "FATAL: build dir $BUILD missing"
+if ! sudo -u deploy bash -lc "cd $BUILD && NODE_OPTIONS=--max-old-space-size=1400 npx astro build"; then
+  echo "!!! BUILD FAILED — web root left unchanged"
   exit 1
 fi
 
-# Install deps only if lockfile newer than node_modules.
-if ! sudo -u ruraltech bash -lc "cd $BUILD && [ -d node_modules ] && [ package-lock.json -ot node_modules ]"; then
-  say "installing deps"
-  sudo -u ruraltech bash -lc "cd $BUILD && npm install --no-audit --no-fund --silent" >>"$LOG" 2>&1
-fi
-
-say "running astro build"
-sudo -u ruraltech bash -lc "cd $BUILD && npx astro build" >>"$LOG" 2>&1
-
-STAGING="${WEB}.new"
-rm -rf "$STAGING"
-mkdir -p "$STAGING"
-cp -a "$BUILD/dist/." "$STAGING/"
-chown -R www-data:www-data "$STAGING"
-
-OLD="${WEB}.old"
-rm -rf "$OLD"
-[ -d "$WEB" ] && mv "$WEB" "$OLD"
-mv "$STAGING" "$WEB"
-rm -rf "$OLD"
-
-if nginx -t >>"$LOG" 2>&1; then
-  systemctl reload nginx
-  say "rebuild ok, nginx reloaded"
-else
-  say "ERROR: nginx config test failed, leaving previous config running"
-  exit 1
-fi
+# Sync the fresh build into the live web root; never delete /wp-content.
+rsync -a --delete --exclude '/wp-content/' "$BUILD/dist/" "$WEB/"
+echo "=== rebuild done  $(date -u +%FT%TZ) ==="
