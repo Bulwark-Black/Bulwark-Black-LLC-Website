@@ -39,7 +39,7 @@
     --intel: 14 116 144;
     --intel-dim: 15 94 110;
     --line-rgb: 15 21 32;
-    --line: rgb(var(--line-rgb) / 0.16);
+    --line: rgb(var(--line-rgb) / 0.25);
     --field: 255 255 255;
   }
 
