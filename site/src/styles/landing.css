@@ -796,3 +796,21 @@
     transition: none;
   }
 }
+
+/* Light theme. The landing owns its own --bb-* scale, so retune just the
+   neutrals to the light palette and deepen the gold so it stays legible on a
+   near-white background. Hairlines flip to dark-on-light. */
+:root.light .bb-landing {
+  --bb-bg: #f6f7f9;
+  --bb-bg-2: #eceef2;
+  --bb-card: #ffffff;
+  --bb-line: rgba(15, 21, 32, 0.1);
+  --bb-line-2: rgba(15, 21, 32, 0.07);
+  --bb-line-strong: rgba(15, 21, 32, 0.16);
+  --bb-ink: #111621;
+  --bb-text: #33404f;
+  --bb-muted: #5b6675;
+  --bb-gold: #b4821e;
+  --bb-gold-deep: #916918;
+  --bb-gold-bright: #d49c28;
+}

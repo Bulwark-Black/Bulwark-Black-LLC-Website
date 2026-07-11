@@ -6,28 +6,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Off-white text + muted gray
-        ink: "#e6edf3",
-        muted: "#8b98a9",
+        // Every token resolves through a CSS variable (space-separated RGB
+        // channels) so the whole palette flips between the dark default and the
+        // `:root.light` override — while keeping the `/opacity` modifiers used
+        // all over the site working via <alpha-value>. Channel values live in
+        // src/styles/global.css.
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
         // Restrained gold/amber accent for CTAs, links, highlights
         accent: {
-          DEFAULT: "#e0b64d",
-          bright: "#f2c14e",
-          dim: "#a8842f",
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
+          bright: "rgb(var(--accent-bright) / <alpha-value>)",
+          dim: "rgb(var(--accent-dim) / <alpha-value>)",
         },
         // Cool teal used sparingly for "data / intel" cues
         intel: {
-          DEFAULT: "#4fd1c5",
-          dim: "#2f8f87",
+          DEFAULT: "rgb(var(--intel) / <alpha-value>)",
+          dim: "rgb(var(--intel-dim) / <alpha-value>)",
         },
         // Near-black background with slightly lifted panels
         bg: {
-          primary: "#0a0e14",
-          secondary: "#0f1520",
-          card: "#111725",
+          primary: "rgb(var(--bg-primary) / <alpha-value>)",
+          secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
+          card: "rgb(var(--bg-card) / <alpha-value>)",
         },
-        // Thin hairline border
-        line: "rgba(255,255,255,0.08)",
+        // Thin hairline border. Kept as a fully-baked rgba var (not the channel
+        // pattern) so bare `border-line` stays at its low alpha instead of going
+        // solid; the few places that need a stronger divider use an arbitrary
+        // value built on --line-rgb. See global.css.
+        line: "var(--line)",
+        // Form-input surface: black wash in dark, white in light.
+        field: "rgb(var(--field) / <alpha-value>)",
       },
       fontFamily: {
         display: ["Oswald", "ui-sans-serif", "system-ui", "sans-serif"],

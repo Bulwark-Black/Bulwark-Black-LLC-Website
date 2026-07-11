@@ -3,22 +3,49 @@
 @tailwind utilities;
 
 @layer base {
+  /* Design tokens as space-separated RGB channels so Tailwind's
+     rgb(var(--token) / <alpha-value>) colors flip by theme without breaking the
+     /opacity modifiers. Dark is the default; :root.light overrides win by
+     specificity. --line stays a fully-baked rgba (bare border-line must render
+     faint, not solid) and --line-rgb exposes its channels for the rare stronger
+     divider. */
   :root {
     color-scheme: dark;
-    --bg-primary: #0a0e14;
-    --bg-secondary: #0f1520;
-    --bg-card: #111725;
-    --ink: #e6edf3;
-    --muted: #8b98a9;
-    --accent: #e0b64d;
-    --accent-bright: #f2c14e;
-    --intel: #4fd1c5;
-    --hairline: rgba(255, 255, 255, 0.08);
+    --bg-primary: 10 14 20;
+    --bg-secondary: 15 21 32;
+    --bg-card: 17 23 37;
+    --ink: 230 237 243;
+    --muted: 139 152 169;
+    --accent: 224 182 77;
+    --accent-bright: 242 193 78;
+    --accent-dim: 168 132 47;
+    --intel: 79 209 197;
+    --intel-dim: 47 143 135;
+    --line-rgb: 255 255 255;
+    --line: rgb(var(--line-rgb) / 0.08);
+    --field: 0 0 0;
+  }
+
+  :root.light {
+    color-scheme: light;
+    --bg-primary: 246 247 249;
+    --bg-secondary: 236 238 242;
+    --bg-card: 255 255 255;
+    --ink: 17 22 33;
+    --muted: 91 102 117;
+    --accent: 180 130 30;
+    --accent-bright: 212 156 40;
+    --accent-dim: 146 105 24;
+    --intel: 14 116 144;
+    --intel-dim: 15 94 110;
+    --line-rgb: 15 21 32;
+    --line: rgb(var(--line-rgb) / 0.12);
+    --field: 255 255 255;
   }
 
   html {
     scroll-behavior: smooth;
-    background: var(--bg-primary);
+    background: rgb(var(--bg-primary));
   }
 
   body {
@@ -36,7 +63,7 @@
   }
 
   ::selection {
-    background: var(--accent);
+    background: rgb(var(--accent));
     color: #0a0e14;
   }
 
@@ -67,14 +94,14 @@
   .accent-line {
     height: 2px;
     width: 72px;
-    background: linear-gradient(to right, var(--accent), transparent);
+    background: linear-gradient(to right, rgb(var(--accent)), transparent);
   }
 
   /* Faint ops-console grid — section-scoped only, never page-height */
   .grid-bg {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      linear-gradient(rgb(var(--line-rgb) / 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--line-rgb) / 0.025) 1px, transparent 1px);
     background-size: 46px 46px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
@@ -118,7 +145,7 @@
   }
 
   .hairline {
-    border-color: var(--hairline);
+    border-color: var(--line);
   }
 
   .marquee-track {
@@ -144,4 +171,17 @@
    body copy. Higher specificity than the utility, so no @layer ordering needed. */
 section.bg-bg-primary {
   background-color: transparent;
+}
+
+/* Theme-toggle button icon swap. Dark (default) shows the sun (click for light);
+   light shows the moon. Driven purely by the `light` class on <html>, so the
+   toggle script only has to flip that one class. */
+.theme-icon-moon {
+  display: none;
+}
+:root.light .theme-icon-sun {
+  display: none;
+}
+:root.light .theme-icon-moon {
+  display: block;
 }

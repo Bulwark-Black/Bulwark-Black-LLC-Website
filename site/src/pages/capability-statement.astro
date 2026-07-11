@@ -51,28 +51,28 @@ import { graph, breadcrumb } from "@/lib/jsonld";
         <div class="grid gap-4 md:grid-cols-2">
           <label class="block">
             <span class="text-xs uppercase tracking-[2px] text-accent">Full name *</span>
-            <input required name="full_name" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            <input required name="full_name" class="mt-1 w-full border border-accent/20 bg-field/50 px-3 py-2 text-ink focus:border-accent outline-none" />
           </label>
           <label class="block">
             <span class="text-xs uppercase tracking-[2px] text-accent">Email *</span>
-            <input required type="email" name="email" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            <input required type="email" name="email" class="mt-1 w-full border border-accent/20 bg-field/50 px-3 py-2 text-ink focus:border-accent outline-none" />
           </label>
           <label class="block">
             <span class="text-xs uppercase tracking-[2px] text-accent">Organization</span>
-            <input name="organization" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            <input name="organization" class="mt-1 w-full border border-accent/20 bg-field/50 px-3 py-2 text-ink focus:border-accent outline-none" />
           </label>
           <label class="block">
             <span class="text-xs uppercase tracking-[2px] text-accent">Agency / Prime</span>
-            <input name="agency" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+            <input name="agency" class="mt-1 w-full border border-accent/20 bg-field/50 px-3 py-2 text-ink focus:border-accent outline-none" />
           </label>
         </div>
         <label class="block">
           <span class="text-xs uppercase tracking-[2px] text-accent">Relevant NAICS (comma-separated)</span>
-          <input name="naics" placeholder="541512, 541330" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none" />
+          <input name="naics" placeholder="541512, 541330" class="mt-1 w-full border border-accent/20 bg-field/50 px-3 py-2 text-ink focus:border-accent outline-none" />
         </label>
         <label class="block">
           <span class="text-xs uppercase tracking-[2px] text-accent">Scope / opportunity</span>
-          <textarea name="message" rows="5" class="mt-1 w-full border border-accent/20 bg-black/50 px-3 py-2 text-ink focus:border-accent outline-none"></textarea>
+          <textarea name="message" rows="5" class="mt-1 w-full border border-accent/20 bg-field/50 px-3 py-2 text-ink focus:border-accent outline-none"></textarea>
         </label>
         <input type="text" name="website" tabindex="-1" autocomplete="off" class="absolute -left-[9999px] h-0 w-0 opacity-0" aria-hidden="true" />
         <button type="submit" data-cap-submit class="btn-primary">Send Request →</button>

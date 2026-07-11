@@ -33,6 +33,20 @@ const globalGraph = graph(personAlbert, organizationBulwarkBlack, localBusiness)
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    {/* Set the theme before first paint so there's no flash. Dark is the
+        baseline (html.dark); add `light` from the saved choice, else the OS
+        preference. Blocking + inline on purpose — must run before body render. */}
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var light = saved
+            ? saved === "light"
+            : window.matchMedia("(prefers-color-scheme: light)").matches;
+          if (light) document.documentElement.classList.add("light");
+        } catch (e) {}
+      })();
+    </script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />

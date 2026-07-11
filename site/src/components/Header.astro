@@ -17,11 +17,11 @@ function isActive(item: (typeof nav)[number]): boolean {
 }
 ---
 <header class="sticky top-0 z-40 border-b border-line bg-bg-primary/85 backdrop-blur">
-  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
-    <a href="/" class="group flex items-center gap-2.5" aria-label={`${site.name} home`}>
-      <img src="/logo.png" alt="Bulwark Black" width="40" height="40" class="h-10 w-10 shrink-0 object-contain" />
+  <div class="flex w-full items-center justify-between gap-4 px-6 py-4 sm:px-8">
+    <a href="/" class="group flex items-center gap-3" aria-label={`${site.name} home`}>
+      <img src="/logo.png" alt="Bulwark Black" width="56" height="56" class="h-12 w-12 shrink-0 object-contain lg:h-14 lg:w-14" />
       <span class="font-display text-lg font-semibold uppercase tracking-[0.14em] text-ink">
-        Bulwark<span class="text-accent"> Black</span>
+        Bulwark<span class="text-accent"> Black</span><span class="text-[0.7em] font-normal tracking-normal text-muted"> LLC</span>
       </span>
     </a>
 
@@ -85,6 +85,31 @@ function isActive(item: (typeof nav)[number]): boolean {
       >
         Threat Intel →
       </a>
+      <a
+        href="/rss.xml"
+        aria-label="RSS feed"
+        class="inline-flex items-center justify-center border border-line p-2 text-ink/80 transition-colors hover:border-accent hover:text-accent"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="6.18" cy="17.82" r="2.18" />
+          <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zM4 10.1v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z" />
+        </svg>
+      </a>
+      <button
+        type="button"
+        data-theme-toggle
+        aria-label="Toggle light/dark"
+        aria-pressed="false"
+        class="inline-flex items-center justify-center border border-line p-2 text-ink/80 transition-colors hover:border-accent hover:text-accent"
+      >
+        <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+        <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
       <a href="/contact/" class="btn-primary !py-2 !text-xs">Work with us →</a>
     </div>
 
@@ -98,10 +123,10 @@ function isActive(item: (typeof nav)[number]): boolean {
   </div>
 
   <div id="mobile-nav" class="hidden border-t border-line bg-bg-secondary lg:hidden">
-    <nav class="mx-auto flex max-w-7xl flex-col px-6 py-4" aria-label="Mobile">
+    <nav class="flex w-full flex-col px-6 py-4 sm:px-8" aria-label="Mobile">
       {nav.map((item) => (
         item.children && item.children.length > 0 ? (
-          <div class="acc border-b border-line/60">
+          <div class="acc border-b border-[rgb(var(--line-rgb)_/_0.6)]">
             <button
               type="button"
               class="acc-trigger flex w-full items-center justify-between py-3 text-left text-sm font-medium text-ink"
@@ -132,12 +157,42 @@ function isActive(item: (typeof nav)[number]): boolean {
             </div>
           </div>
         ) : (
-          <a href={item.href} class="border-b border-line/60 py-3 text-sm font-medium text-ink hover:text-ink">
+          <a href={item.href} class="border-b border-[rgb(var(--line-rgb)_/_0.6)] py-3 text-sm font-medium text-ink hover:text-ink">
             {item.label}
           </a>
         )
       ))}
       <a href="/contact/" class="btn-primary mt-4 justify-center !text-xs">Work with us →</a>
+      <div class="mt-4 flex items-center gap-3">
+        <a
+          href="/rss.xml"
+          aria-label="RSS feed"
+          class="inline-flex items-center gap-2 border border-line px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-ink/80 transition-colors hover:border-accent hover:text-accent"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <circle cx="6.18" cy="17.82" r="2.18" />
+            <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zM4 10.1v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z" />
+          </svg>
+          RSS
+        </a>
+        <button
+          type="button"
+          data-theme-toggle
+          aria-label="Toggle light/dark"
+          aria-pressed="false"
+          class="inline-flex items-center gap-2 border border-line px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-ink/80 transition-colors hover:border-accent hover:text-accent"
+        >
+          <svg class="theme-icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg class="theme-icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <span class="theme-icon-sun">Light mode</span>
+          <span class="theme-icon-moon">Dark mode</span>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
@@ -168,6 +223,26 @@ function isActive(item: (typeof nav)[number]): boolean {
 </style>
 
 <script>
+  // Light/dark toggle. Icon swap is pure CSS off the `light` class (see
+  // global.css), so the buttons only flip that class + persist the choice.
+  // Handles the desktop and mobile toggles together.
+  const root = document.documentElement;
+  const themeButtons = document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]");
+  function syncThemeButtons() {
+    const isLight = root.classList.contains("light");
+    themeButtons.forEach((b) => b.setAttribute("aria-pressed", String(isLight)));
+  }
+  themeButtons.forEach((b) =>
+    b.addEventListener("click", () => {
+      const isLight = root.classList.toggle("light");
+      try {
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+      } catch {}
+      syncThemeButtons();
+    })
+  );
+  syncThemeButtons();
+
   // Mobile hamburger.
   const toggle = document.getElementById("nav-toggle");
   const panel = document.getElementById("mobile-nav");
