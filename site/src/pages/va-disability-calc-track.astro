@@ -9,7 +9,8 @@ const description = "Privacy Policy for VADisabilityCalculator Last updated: Jul
 const hasBody = bodyHtml.replace(/<[^>]*>/g, "").trim().length > 0;
 ---
 <BaseLayout title={title} description={description}>
-  <article class="mx-auto max-w-3xl px-6 py-16">
+  <div class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+    <article class="border border-line bg-bg-card p-6 sm:p-8 md:p-10">
     <a href="/va-disability-calc-track-app/" class="font-mono text-[11px] uppercase tracking-wider text-accent hover:underline">
       ← Back to VA Disability Calc &amp; Track
     </a>
@@ -26,5 +27,6 @@ const hasBody = bodyHtml.replace(/<[^>]*>/g, "").trim().length > 0;
         </p>
       </div>
     )}
-  </article>
+    </article>
+  </div>
 </BaseLayout>

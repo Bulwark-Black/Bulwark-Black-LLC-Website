@@ -55,7 +55,8 @@ const articleSchema = {
     articleSchema,
   )} />
 
-  <article class="mx-auto max-w-3xl px-6 py-16">
+  <div class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+    <article class="border border-line bg-bg-card p-6 sm:p-8 md:p-10">
     <p class="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-intel">
       <a href="/cyber-threat-intelligence/" class="hover:text-accent">Threat Intel</a>
       <span class="text-muted/50">·</span>
@@ -81,8 +82,9 @@ const articleSchema = {
         ))}
       </p>
     )}
+    </article>
 
-    <nav aria-label="Adjacent reports" class="mt-10 grid gap-4 md:grid-cols-2">
+    <nav aria-label="Adjacent reports" class="mt-8 grid gap-4 md:grid-cols-2">
       {prev ? (
         <a href={`/${prev.slug}/`} class="block border border-line bg-bg-card p-5 card-lift">
           <p class="font-mono text-[11px] uppercase tracking-wider text-accent">← Older report</p>
@@ -101,5 +103,5 @@ const articleSchema = {
       Need this turned into detection or defense for your environment?
       <a href="/contact/" class="text-accent">Work with us →</a>
     </p>
-  </article>
+  </div>
 </BaseLayout>
