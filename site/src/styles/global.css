@@ -28,8 +28,8 @@
 
   :root.light {
     color-scheme: light;
-    --bg-primary: 246 247 249;
-    --bg-secondary: 236 238 242;
+    --bg-primary: 240 242 246;
+    --bg-secondary: 228 231 238;
     --bg-card: 255 255 255;
     --ink: 17 22 33;
     --muted: 91 102 117;
@@ -39,7 +39,7 @@
     --intel: 14 116 144;
     --intel-dim: 15 94 110;
     --line-rgb: 15 21 32;
-    --line: rgb(var(--line-rgb) / 0.12);
+    --line: rgb(var(--line-rgb) / 0.16);
     --field: 255 255 255;
   }
 
@@ -116,6 +116,16 @@
     transform: translateY(-4px);
     box-shadow: 0 24px 48px -24px rgba(224, 182, 77, 0.28);
     border-color: rgba(224, 182, 77, 0.45);
+  }
+  /* Light mode: white cards sit on a grey page, so use real shadows for depth
+     (in dark, depth came from lighter surfaces + borders). */
+  :root.light .card-lift,
+  :root.light .lift-shadow {
+    box-shadow: 0 1px 2px rgb(15 21 32 / 0.06), 0 10px 24px -10px rgb(15 21 32 / 0.14);
+  }
+  :root.light .card-lift:hover {
+    box-shadow: 0 18px 38px -14px rgb(15 21 32 / 0.26);
+    border-color: rgb(15 21 32 / 0.22);
   }
 
   .btn-primary {
