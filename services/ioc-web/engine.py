@@ -10,7 +10,7 @@ auto-attach pipeline.
 """
 from typing import Dict, List, Tuple
 
-from sanitize import clean
+from sanitize import clean, clean_value
 from vendor.ioc_parser import extract_iocs, defang_text, refang_text
 
 # Rule bodies (YARA/Sigma/Snort rule text) that the parser can surface are not
@@ -27,13 +27,19 @@ def _canon(category: str) -> str:
     return _MERGE.get(c, c)
 
 
-def analyze(text: str) -> Tuple[Dict[str, List[str]], Dict[str, List[str]]]:
-    """Return (live_map, defanged_map), each ``{category: [sorted indicators]}``.
+def analyze(
+    text: str,
+) -> Tuple[Dict[str, List[str]], Dict[str, List[str]], List[List[int]]]:
+    """Return (live_map, defanged_map, spans).
 
-    Values in ``live_map`` are canonical (refanged); ``defanged_map`` is derived
-    from the live values so it is always single-defanged.
+    ``live_map``/``defanged_map`` are ``{category: [sorted indicators]}`` (live
+    values canonical/refanged; defanged derived from them so always
+    single-defanged). ``spans`` is a merged, non-overlapping list of
+    ``[start, end]`` character offsets into the ORIGINAL text, covering only the
+    matches that survived into ``live_map`` (so highlights track the results and
+    exclude filtered-out noise).
     """
-    found, _ = extract_iocs(text, collect_spans=False)
+    found, raw_spans = extract_iocs(text, collect_spans=True)
 
     live: Dict[str, set] = {}
     for category, items in found.items():
@@ -49,7 +55,28 @@ def analyze(text: str) -> Tuple[Dict[str, List[str]], Dict[str, List[str]]]:
     defanged_map = {
         k: sorted({defang_text(x) for x in v}) for k, v in live_map.items()
     }
-    return live_map, defanged_map
+
+    # Keep only spans whose (canonical, cleaned) value made it into live_map.
+    live_sets = {k: set(v) for k, v in live_map.items()}
+    accepted: List[Tuple[int, int]] = []
+    for start, end, category in raw_spans:
+        if category.startswith("__error__") or category in _SKIP:
+            continue
+        canon = _canon(category)
+        value = clean_value(canon, refang_text(text[start:end]).strip())
+        if value is not None and value in live_sets.get(canon, ()):
+            accepted.append((start, end))
+
+    accepted.sort()
+    merged: List[List[int]] = []
+    for start, end in accepted:
+        if merged and start <= merged[-1][1]:
+            if end > merged[-1][1]:
+                merged[-1][1] = end
+        else:
+            merged.append([start, end])
+
+    return live_map, defanged_map, merged
 
 
 def summarize(iocs: Dict[str, List[str]]) -> Tuple[int, Dict[str, int]]:

@@ -50,19 +50,26 @@ _VALIDATORS = {
 }
 
 
+def clean_value(category: str, value: str):
+    """Trim + validate a single value; return the cleaned value or None if dropped."""
+    v = _trim(value)
+    if not v:
+        return None
+    validator = _VALIDATORS.get(category)
+    if validator and not validator(v):
+        return None
+    return v
+
+
 def clean(iocs: Dict[str, List[str]]) -> Dict[str, List[str]]:
     """Trim + validate each value; return a new map (empty categories dropped)."""
     out: Dict[str, List[str]] = {}
     for category, items in iocs.items():
-        validator = _VALIDATORS.get(category)
         kept = set()
         for raw in items:
-            value = _trim(raw)
-            if not value:
-                continue
-            if validator and not validator(value):
-                continue
-            kept.add(value)
+            v = clean_value(category, raw)
+            if v:
+                kept.add(v)
         if kept:
             out[category] = sorted(kept)
     return out

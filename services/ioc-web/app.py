@@ -64,7 +64,7 @@ def extract(req: ExtractRequest):
     if not text.strip():
         raise HTTPException(status_code=400, detail="No text provided.")
 
-    live, defanged = analyze(text)
+    live, defanged, spans = analyze(text)
     total, counts = summarize(live)
     source = (req.source or "").strip() or None
 
@@ -81,6 +81,8 @@ def extract(req: ExtractRequest):
         "counts": counts,
         # Defanged is the default view; live is available for tooling.
         "iocs": {"defanged": defanged, "live": live},
+        # Merged [start, end] offsets into the submitted text, for highlighting.
+        "spans": spans,
         "exports": {
             "defanged": bundle(defanged, True),
             "live": bundle(live, False),
