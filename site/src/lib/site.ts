@@ -34,7 +34,7 @@ export const site = {
         { label: "IOC / YARA downloads", href: "/cyber-threat-intelligence/" },
       ],
     },
-    { label: "Tools", href: "/tools/ioc-extractor/" },
+    { label: "IOC Extractor", href: "/tools/ioc-extractor/" },
     {
       label: "Services",
       href: "/services/",
