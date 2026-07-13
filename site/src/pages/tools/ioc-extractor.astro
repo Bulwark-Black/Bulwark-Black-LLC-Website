@@ -1,0 +1,256 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const title = "IOC Extractor";
+const description =
+  "Free tool: paste a threat report or any text and pull out indicators of compromise (IPs, domains, URLs, hashes, CVEs, and more), defanged for safe sharing, plus a ready-to-use YARA rule. Nothing is stored.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="border-b border-line bg-bg-secondary px-6 py-12 md:py-16">
+    <div class="mx-auto max-w-4xl">
+      <p class="eyebrow-intel">Free Tool</p>
+      <h1 class="mt-3 font-display text-3xl uppercase tracking-[0.02em] text-ink md:text-5xl">
+        IOC Extractor
+      </h1>
+      <p class="mt-4 max-w-2xl leading-relaxed text-muted">
+        Paste a threat report, advisory, log, or article. Pull out indicators of
+        compromise, IPs, domains, URLs, file hashes, CVEs and more, defanged for
+        safe sharing, plus a ready-to-use YARA rule. It all runs on our server in
+        one pass. Nothing you paste is stored.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-10 md:py-12">
+    <div class="mx-auto max-w-4xl">
+      <form id="ioc-form" class="border border-line bg-bg-card p-5 md:p-6">
+        <label for="ioc-text" class="eyebrow">Paste text</label>
+        <textarea
+          id="ioc-text"
+          rows="10"
+          class="mt-3 block w-full resize-y border border-line bg-bg-primary px-3 py-2.5 font-mono text-sm leading-relaxed text-ink placeholder:text-muted/50 focus:border-accent focus:outline-none"
+          placeholder="Paste a CTI report, advisory, log lines, or an article here..."></textarea>
+        <div class="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <input
+            id="ioc-source"
+            type="text"
+            maxlength="300"
+            class="min-w-0 flex-1 border border-line bg-bg-primary px-3 py-2 font-mono text-sm text-ink placeholder:text-muted/50 focus:border-accent focus:outline-none"
+            placeholder="Source (optional) — e.g. report URL, used in the YARA metadata"
+          />
+          <button type="submit" id="ioc-submit" class="btn-primary shrink-0">
+            Extract indicators →
+          </button>
+        </div>
+      </form>
+
+      <p
+        id="ioc-error"
+        role="alert"
+        class="mt-4 hidden border border-accent/40 bg-accent/[0.06] px-4 py-3 text-sm text-accent"></p>
+
+      <div id="ioc-empty" class="mt-8 hidden border border-dashed border-line bg-bg-card/60 px-6 py-12 text-center">
+        <p class="font-mono text-[11px] uppercase tracking-[0.24em] text-intel">No indicators found</p>
+        <p class="mt-3 text-muted">Nothing matched in that text. Try a report with hashes, domains, or IPs.</p>
+      </div>
+
+      <div id="ioc-results" class="mt-8 hidden">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-line pb-4">
+          <div>
+            <p class="eyebrow">Results</p>
+            <p id="ioc-summary" class="mt-1.5 font-mono text-sm text-muted"></p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-muted">Format</span>
+            <div class="inline-flex border border-line" role="group" aria-label="Indicator format">
+              <button type="button" data-fang="defanged" class="fang-btn px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider transition-colors">Defanged</button>
+              <button type="button" data-fang="live" class="fang-btn border-l border-line px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider transition-colors">Live</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2">
+          <span class="mr-1 font-mono text-[11px] uppercase tracking-wider text-muted">Download</span>
+          <button type="button" data-dl="txt" class="dl-btn">.txt</button>
+          <button type="button" data-dl="csv" class="dl-btn">.csv</button>
+          <button type="button" data-dl="json" class="dl-btn">.json</button>
+          <button type="button" data-dl="yara" class="dl-btn">.yar</button>
+        </div>
+
+        <div id="ioc-groups" class="mt-6 grid gap-4"></div>
+
+        <p class="mt-6 border-t border-line pt-4 text-xs leading-relaxed text-muted">
+          Indicators are auto-extracted with pattern matching and may include false
+          positives, verify before you act on them. <strong class="text-ink/80">Defanged</strong>
+          output (1.2.3<span class="text-accent">[.]</span>4, hxxp) is safe to share and paste.
+          Switch to <strong class="text-ink/80">Live</strong> when you need working values for
+          tooling. A defanged YARA rule is marked non-functional, refang it before scanning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .fang-btn { color: rgb(var(--muted)); }
+    .fang-btn[aria-pressed="true"] { background: rgb(var(--accent)); color: #0a0e14; }
+    .dl-btn {
+      display: inline-flex; align-items: center;
+      border: 1px solid var(--line);
+      padding: 0.375rem 0.75rem;
+      font-family: var(--font-mono, ui-monospace, monospace);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+      color: rgb(var(--ink)); transition: border-color .2s, color .2s;
+    }
+    .dl-btn:hover:not(:disabled) { border-color: rgb(var(--accent)); color: rgb(var(--accent)); }
+    .dl-btn:disabled { opacity: .35; cursor: not-allowed; }
+  </style>
+
+  <script>
+    type Exports = { txt: string; csv: string; json: string; yara: string };
+    type ExtractResponse = {
+      total: number;
+      counts: Record<string, number>;
+      iocs: { defanged: Record<string, string[]>; live: Record<string, string[]> };
+      exports: { defanged: Exports; live: Exports };
+    };
+
+    const form = document.getElementById("ioc-form") as HTMLFormElement;
+    const textEl = document.getElementById("ioc-text") as HTMLTextAreaElement;
+    const sourceEl = document.getElementById("ioc-source") as HTMLInputElement;
+    const submitEl = document.getElementById("ioc-submit") as HTMLButtonElement;
+    const errorEl = document.getElementById("ioc-error") as HTMLParagraphElement;
+    const resultsEl = document.getElementById("ioc-results") as HTMLDivElement;
+    const emptyEl = document.getElementById("ioc-empty") as HTMLDivElement;
+    const summaryEl = document.getElementById("ioc-summary") as HTMLParagraphElement;
+    const groupsEl = document.getElementById("ioc-groups") as HTMLDivElement;
+    const fangBtns = Array.from(document.querySelectorAll<HTMLButtonElement>(".fang-btn"));
+    const dlBtns = Array.from(document.querySelectorAll<HTMLButtonElement>(".dl-btn"));
+
+    let data: ExtractResponse | null = null;
+    let fang: "defanged" | "live" = "defanged";
+
+    function showError(msg: string) {
+      errorEl.textContent = msg;
+      errorEl.classList.remove("hidden");
+    }
+    function clearError() {
+      errorEl.textContent = "";
+      errorEl.classList.add("hidden");
+    }
+
+    async function extract(e: Event) {
+      e.preventDefault();
+      const text = textEl.value;
+      if (!text.trim()) { showError("Paste some text first."); return; }
+      clearError();
+      resultsEl.classList.add("hidden");
+      emptyEl.classList.add("hidden");
+      submitEl.disabled = true;
+      submitEl.textContent = "Extracting...";
+      try {
+        const res = await fetch("/api/ioc/extract", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text, source: sourceEl.value.trim() || null }),
+        });
+        if (res.status === 429) { showError("Too many requests. Wait a moment and try again."); return; }
+        if (res.status === 413) { showError("That text is too large (1 MB maximum)."); return; }
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          showError(body?.detail || "Extraction failed. Try again.");
+          return;
+        }
+        data = (await res.json()) as ExtractResponse;
+        if (!data.total) { emptyEl.classList.remove("hidden"); return; }
+        render();
+        resultsEl.classList.remove("hidden");
+      } catch {
+        showError("Network error. Please try again.");
+      } finally {
+        submitEl.disabled = false;
+        submitEl.textContent = "Extract indicators →";
+      }
+    }
+
+    function render() {
+      if (!data) return;
+      const iocs = data.iocs[fang];
+      summaryEl.textContent =
+        `${data.total} indicator${data.total === 1 ? "" : "s"} across ` +
+        `${Object.keys(iocs).length} categor${Object.keys(iocs).length === 1 ? "y" : "ies"}`;
+
+      groupsEl.replaceChildren();
+      for (const [category, items] of Object.entries(iocs)) {
+        const box = document.createElement("div");
+        box.className = "border border-line bg-bg-card";
+
+        const head = document.createElement("div");
+        head.className = "flex items-center justify-between gap-3 border-b border-line px-4 py-2.5";
+        const catTitle = document.createElement("p");
+        catTitle.className = "font-mono text-xs uppercase tracking-wider text-accent";
+        catTitle.textContent = `${category} (${items.length})`; // textContent = no injection
+        const copyBtn = document.createElement("button");
+        copyBtn.type = "button";
+        copyBtn.className = "font-mono text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent";
+        copyBtn.textContent = "Copy";
+        copyBtn.addEventListener("click", () => copyText(items.join("\n"), copyBtn));
+        head.append(catTitle, copyBtn);
+
+        const pre = document.createElement("pre");
+        pre.className = "overflow-x-auto px-4 py-3 font-mono text-xs leading-relaxed text-ink/90";
+        pre.textContent = items.join("\n"); // textContent = no injection
+        box.append(head, pre);
+        groupsEl.append(box);
+      }
+      updateDownloadState();
+    }
+
+    function updateDownloadState() {
+      if (!data) return;
+      const ex = data.exports[fang];
+      for (const btn of dlBtns) {
+        const key = btn.dataset.dl as keyof Exports;
+        btn.disabled = !ex[key];
+      }
+    }
+
+    async function copyText(text: string, btn: HTMLButtonElement) {
+      const original = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copied";
+      } catch {
+        btn.textContent = "Copy failed";
+      }
+      setTimeout(() => { btn.textContent = original; }, 1400);
+    }
+
+    function download(key: keyof Exports) {
+      if (!data) return;
+      const content = data.exports[fang][key];
+      if (!content) return;
+      const ext = key === "yara" ? "yar" : key;
+      const name = key === "yara" ? `bulwark-rules-${fang}.yar` : `indicators-${fang}.${ext}`;
+      const mime = key === "json" ? "application/json" : key === "csv" ? "text/csv" : "text/plain";
+      const url = URL.createObjectURL(new Blob([content], { type: `${mime};charset=utf-8` }));
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function setFang(next: "defanged" | "live") {
+      fang = next;
+      for (const b of fangBtns) b.setAttribute("aria-pressed", String(b.dataset.fang === next));
+      if (data && data.total) render();
+    }
+
+    form.addEventListener("submit", extract);
+    for (const b of fangBtns) b.addEventListener("click", () => setFang(b.dataset.fang as "defanged" | "live"));
+    for (const b of dlBtns) b.addEventListener("click", () => download(b.dataset.dl as keyof Exports));
+    setFang("defanged");
+  </script>
+</BaseLayout>
