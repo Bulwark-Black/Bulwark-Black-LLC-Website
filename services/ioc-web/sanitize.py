@@ -50,15 +50,37 @@ _VALIDATORS = {
 }
 
 
+# When a validated value fails as-a-whole (the regex grabbed a leading word or
+# trailing junk), try to pull the clean core out before giving up.
+_EXTRACTORS = {
+    "Email Addresses": re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"),
+    "CVEs": re.compile(r"CVE-\d{4}-\d{3,}", re.IGNORECASE),
+    "IPv4": re.compile(r"\d{1,3}(?:\.\d{1,3}){3}"),
+}
+
+
 def clean_value(category: str, value: str):
-    """Trim + validate a single value; return the cleaned value or None if dropped."""
+    """Trim + validate a single value; return the cleaned value or None if dropped.
+
+    For validated categories, if the whole trimmed value fails, try to extract a
+    valid core (e.g. the email out of ``"and user@host.com."``) before dropping.
+    """
     v = _trim(value)
     if not v:
         return None
     validator = _VALIDATORS.get(category)
-    if validator and not validator(v):
-        return None
-    return v
+    if not validator:
+        return v
+    if validator(v):
+        return v
+    extractor = _EXTRACTORS.get(category)
+    if extractor:
+        match = extractor.search(v)
+        if match:
+            core = _trim(match.group(0))
+            if validator(core):
+                return core
+    return None
 
 
 def clean(iocs: Dict[str, List[str]]) -> Dict[str, List[str]]:
