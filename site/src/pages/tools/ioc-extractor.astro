@@ -48,6 +48,10 @@ const description =
             Extract indicators →
           </button>
         </div>
+        <label class="mt-3 flex cursor-pointer items-center gap-2 font-mono text-[11px] text-muted">
+          <input type="checkbox" id="ioc-tidy" class="h-3.5 w-3.5 accent-[rgb(var(--accent))]" />
+          Tidy: drop likely false positives and trim stray punctuation (off = exact engine output)
+        </label>
       </form>
 
       <p
@@ -138,11 +142,6 @@ const description =
       user-select: none;
       z-index: 0;
     }
-    #ioc-highlights mark {
-      background: rgb(var(--accent) / 0.30);
-      color: transparent;
-      border-radius: 2px;
-    }
     #ioc-text {
       position: relative;
       z-index: 1;
@@ -156,6 +155,19 @@ const description =
       outline: none;
     }
     #ioc-text::placeholder { color: rgb(var(--muted) / 0.5); }
+  </style>
+
+  <style is:global>
+    /* The <mark> highlights are created in JS, so they don't carry Astro's
+       scoped-style attribute — this rule must be global to reach them. It's
+       namespaced under #ioc-highlights (which only exists on this page), so it
+       doesn't leak elsewhere. Muted accent tint (not the browser-default solid
+       yellow) so the text on top stays readable in both light and dark. */
+    #ioc-highlights mark {
+      background-color: rgb(var(--accent) / 0.30);
+      color: transparent;
+      border-radius: 2px;
+    }
   </style>
 
   <script>
@@ -180,6 +192,7 @@ const description =
     const fangBtns = Array.from(document.querySelectorAll<HTMLButtonElement>(".fang-btn"));
     const dlBtns = Array.from(document.querySelectorAll<HTMLButtonElement>(".dl-btn"));
     const hlEl = document.getElementById("ioc-highlights") as HTMLDivElement;
+    const tidyEl = document.getElementById("ioc-tidy") as HTMLInputElement;
 
     let data: ExtractResponse | null = null;
     let fang: "defanged" | "live" = "defanged";
@@ -212,8 +225,8 @@ const description =
       hlEl.replaceChildren();
     }
 
-    async function extract(e: Event) {
-      e.preventDefault();
+    async function extract(e?: Event) {
+      e?.preventDefault();
       const text = textEl.value;
       if (!text.trim()) { showError("Paste some text first."); return; }
       clearError();
@@ -226,7 +239,7 @@ const description =
         const res = await fetch("/api/ioc/extract", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text, source: sourceEl.value.trim() || null }),
+          body: JSON.stringify({ text, source: sourceEl.value.trim() || null, tidy: tidyEl.checked }),
         });
         if (res.status === 429) { showError("Too many requests. Wait a moment and try again."); return; }
         if (res.status === 413) { showError("That text is too large (1 MB maximum)."); return; }
@@ -332,6 +345,7 @@ const description =
       hlEl.scrollLeft = textEl.scrollLeft;
     });
     textEl.addEventListener("input", clearHighlights);
+    tidyEl.addEventListener("change", () => { if (textEl.value.trim()) extract(); });
     setFang("defanged");
   </script>
 </BaseLayout>

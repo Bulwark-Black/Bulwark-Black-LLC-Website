@@ -49,6 +49,8 @@ class ExtractRequest(BaseModel):
     text: str = Field(default="", max_length=4_000_000)
     # Optional label (article title/URL) recorded in the YARA/JSON metadata.
     source: Optional[str] = Field(default=None, max_length=300)
+    # Opt-in cleanup: trim artifacts + drop clear false positives. Off = exact.
+    tidy: bool = False
 
 
 @app.get("/health")
@@ -64,7 +66,7 @@ def extract(req: ExtractRequest):
     if not text.strip():
         raise HTTPException(status_code=400, detail="No text provided.")
 
-    live, defanged, spans = analyze(text)
+    live, defanged, spans = analyze(text, tidy=req.tidy)
     total, counts = summarize(live)
     source = (req.source or "").strip() or None
 
