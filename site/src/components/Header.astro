@@ -34,14 +34,14 @@ function isActive(item: (typeof nav)[number]): boolean {
               href={item.href}
               class:list={[
                 "mega-trigger flex items-center gap-1 border-b-2 px-3 py-2 text-sm transition-colors",
-                active ? "border-intel text-ink" : "border-transparent text-ink/80 hover:text-ink",
+                active ? "border-intel text-accent-bright" : "border-transparent text-accent hover:text-accent-bright",
               ]}
               aria-haspopup="true"
               aria-expanded="false"
               aria-current={active ? "page" : undefined}
             >
               {item.label}
-              <svg class="mega-caret h-3 w-3 text-muted/60 transition-transform" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <svg class="mega-caret h-3 w-3 text-accent/60 transition-transform" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <path d="M3 4.5 6 7.5 9 4.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
@@ -53,7 +53,7 @@ function isActive(item: (typeof nav)[number]): boolean {
                       href={c.href}
                       target={c.external ? "_blank" : undefined}
                       rel={c.external ? "noopener" : undefined}
-                      class="flex items-center justify-between gap-2 border-l-2 border-transparent px-3 py-2 text-sm text-ink/80 transition-colors hover:border-intel/40 hover:bg-white/[0.04] hover:text-ink"
+                      class="flex items-center justify-between gap-2 border-l-2 border-transparent px-3 py-2 text-sm text-ink/80 transition-colors hover:border-intel/40 hover:bg-white/[0.04] hover:text-accent"
                     >
                       {c.label}
                       {c.external && <span class="text-[11px] text-muted/60" aria-hidden="true">↗</span>}
@@ -68,7 +68,7 @@ function isActive(item: (typeof nav)[number]): boolean {
             href={item.href}
             class:list={[
               "border-b-2 px-3 py-2 text-sm transition-colors",
-              active ? "border-intel text-ink" : "border-transparent text-ink/80 hover:text-ink",
+              active ? "border-intel text-accent-bright" : "border-transparent text-accent hover:text-accent-bright",
             ]}
             aria-current={active ? "page" : undefined}
           >
@@ -129,7 +129,7 @@ function isActive(item: (typeof nav)[number]): boolean {
           <div class="acc border-b border-[rgb(var(--line-rgb)_/_0.6)]">
             <button
               type="button"
-              class="acc-trigger flex w-full items-center justify-between py-3 text-left text-sm font-medium text-ink"
+              class="acc-trigger flex w-full items-center justify-between py-3 text-left text-sm font-medium text-accent"
               aria-expanded="false"
             >
               {item.label}
@@ -139,7 +139,7 @@ function isActive(item: (typeof nav)[number]): boolean {
             </button>
             <div class="acc-panel hidden pb-2">
               {item.href && (
-                <a href={item.href} class="block py-2 pl-3 text-sm text-muted hover:text-ink">
+                <a href={item.href} class="block py-2 pl-3 text-sm text-muted hover:text-accent">
                   All {item.label} →
                 </a>
               )}
@@ -148,7 +148,7 @@ function isActive(item: (typeof nav)[number]): boolean {
                   href={c.href}
                   target={c.external ? "_blank" : undefined}
                   rel={c.external ? "noopener" : undefined}
-                  class="flex items-center gap-1.5 py-2 pl-3 text-sm text-ink/70 hover:text-ink"
+                  class="flex items-center gap-1.5 py-2 pl-3 text-sm text-ink/70 hover:text-accent"
                 >
                   {c.label}
                   {c.external && <span class="text-[11px] text-muted/60" aria-hidden="true">↗</span>}
@@ -157,7 +157,7 @@ function isActive(item: (typeof nav)[number]): boolean {
             </div>
           </div>
         ) : (
-          <a href={item.href} class="border-b border-[rgb(var(--line-rgb)_/_0.6)] py-3 text-sm font-medium text-ink hover:text-ink">
+          <a href={item.href} class="border-b border-[rgb(var(--line-rgb)_/_0.6)] py-3 text-sm font-medium text-accent hover:text-accent-bright">
             {item.label}
           </a>
         )
