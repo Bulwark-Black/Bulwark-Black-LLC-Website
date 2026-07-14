@@ -27,6 +27,11 @@ interface Props {
 const { post, prev, next } = Astro.props;
 const { Content } = await post.render();
 
+// Zod's preprocess loosens the inferred type; assert the known shape.
+const iocs = post.data.iocs as
+  | { count: number; files: string[]; indicators: Record<string, string[]> }
+  | undefined;
+
 const url = new URL(`/${post.slug}/`, site.url).toString();
 const datePub = post.data.publishedAt.toISOString();
 const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
@@ -83,6 +88,42 @@ const articleSchema = {
       </p>
     )}
     </article>
+
+    {iocs && iocs.count > 0 && (
+      <section class="mt-8 border border-intel/30 bg-intel/[0.04] p-6 sm:p-8" aria-label="Indicators of compromise">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p class="eyebrow-intel">Indicators of Compromise</p>
+            <p class="mt-1.5 font-mono text-xs text-muted">{iocs.count} indicators, auto-extracted and defanged.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {iocs.files.map((f) => (
+              <a
+                href={`/wp-content/iocs/${post.slug}/${f}`}
+                download
+                class="inline-flex items-center border border-line px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-ink transition-colors hover:border-accent hover:text-accent"
+              >
+                {f.endsWith(".yar") ? "YARA" : (f.split(".").pop()?.toUpperCase() ?? "FILE")}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-5 grid gap-4">
+          {Object.entries(iocs.indicators).map(([cat, items]) => (
+            <div>
+              <p class="font-mono text-[11px] uppercase tracking-wider text-accent">{cat} ({items.length})</p>
+              <pre class="mt-1.5 overflow-x-auto whitespace-pre-wrap break-all font-mono text-xs leading-relaxed text-ink/90">{items.join("\n")}</pre>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-5 border-t border-line pt-4 text-xs leading-relaxed text-muted">
+          Auto-extracted from this report. Indicators shown are <strong class="text-ink/80">defanged</strong> for safe viewing.
+          The downloads contain <strong class="text-ink/80">live</strong> values plus a YARA rule for tooling. Verify before acting.
+        </p>
+      </section>
+    )}
 
     <nav aria-label="Adjacent reports" class="mt-8 grid gap-4 md:grid-cols-2">
       {prev ? (

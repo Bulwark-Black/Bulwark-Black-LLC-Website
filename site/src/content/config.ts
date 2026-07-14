@@ -26,6 +26,19 @@ const cti = defineCollection({
     wpId: z.number().optional(),
     wpSlug: z.string().optional(),
     originalLink: z.string().optional(),
+    // Auto-extracted indicators (Path B). Stored as a JSON string in frontmatter
+    // (the shim writes JSON.stringify); parsed here. `indicators` is the defanged
+    // display map; the live download files live at /wp-content/iocs/<slug>/.
+    iocs: z
+      .preprocess(
+        (v) => (typeof v === "string" ? JSON.parse(v) : v),
+        z.object({
+          count: z.number(),
+          files: z.array(z.string()),
+          indicators: z.record(z.array(z.string())),
+        }),
+      )
+      .optional(),
     draft: z.boolean().default(false),
   }),
 });

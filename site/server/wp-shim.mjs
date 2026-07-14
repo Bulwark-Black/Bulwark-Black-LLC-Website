@@ -27,6 +27,8 @@ const SITE = (process.env.SITE_URL ?? "https://staging.bulwarkblack.com").replac
 const CONTENT_DIR = process.env.CONTENT_DIR ?? "/srv/bulwark-build/src/content/cti";
 const UPLOADS_DIR = process.env.UPLOADS_DIR ?? "/var/www/staging.bulwarkblack.com/wp-content/uploads";
 const THUMBS_DIR = process.env.THUMBS_DIR ?? "/var/www/staging.bulwarkblack.com/wp-content/thumbs";
+const IOCS_DIR = process.env.IOCS_DIR ?? "/var/www/staging.bulwarkblack.com/wp-content/iocs";
+const IOC_SERVICE = process.env.IOC_SERVICE ?? "http://127.0.0.1:3020/article";
 const STATE_DIR = process.env.STATE_DIR ?? "/srv/bulwark-api";
 const REBUILD_UNIT = process.env.REBUILD_UNIT ?? "bulwark-rebuild.service";
 
@@ -115,6 +117,30 @@ async function postMediaMeta(req, res, id) {
   sendJson(res, 200, { id: Number(id), alt_text: item.alt_text ?? "", caption: { rendered: item.caption ?? "" }, source_url: item.source_url ?? "" });
 }
 
+// Path B: ask the IOC service for publishable indicators. Resolves null on any
+// failure so a hiccup never blocks the post.
+function extractIocs(text, source) {
+  return new Promise((resolve) => {
+    let payload;
+    try { payload = JSON.stringify({ text: String(text).slice(0, 900000), source }); }
+    catch { return resolve(null); }
+    const u = new URL(IOC_SERVICE);
+    const r = http.request(
+      { host: u.hostname, port: u.port, path: u.pathname, method: "POST",
+        headers: { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(payload) },
+        timeout: 25000 },
+      (resp) => {
+        let data = "";
+        resp.on("data", (c) => (data += c));
+        resp.on("end", () => { try { resolve(resp.statusCode === 200 ? JSON.parse(data) : null); } catch { resolve(null); } });
+      },
+    );
+    r.on("error", (e) => { log("warn", "ioc_extract_error", { error: String(e) }); resolve(null); });
+    r.on("timeout", () => { r.destroy(); resolve(null); });
+    r.write(payload); r.end();
+  });
+}
+
 async function postPost(req, res) {
   const buf = await readRaw(req, 5 * 1024 * 1024);
   let body; try { body = JSON.parse(buf.toString("utf8")); } catch { return sendJson(res, 400, { code: "invalid_json" }); }
@@ -140,7 +166,24 @@ async function postPost(req, res) {
   else fmLines.push("categories: []");
   fmLines.push("tags: []");
   if (heroImage) fmLines.push(`heroImage: ${yml(heroImage)}`);
-  fmLines.push(`wpId: ${id}`, `wpSlug: ${yml(slug)}`, `originalLink: ${yml(`https://bulwarkblack.com/${slug}`)}`, "draft: false", "---", "", String(body.content ?? ""));
+  fmLines.push(`wpId: ${id}`, `wpSlug: ${yml(slug)}`, `originalLink: ${yml(`https://bulwarkblack.com/${slug}`)}`, "draft: false");
+
+  // Path B: auto-extract publishable indicators, write the live download files
+  // to /wp-content/iocs/<slug>/, and record the defanged display map in frontmatter.
+  try {
+    const iocText = `${title}\n${summary}\n${stripHtml(body.content)}`;
+    const iocs = await extractIocs(iocText, `https://bulwarkblack.com/${slug}/`);
+    if (iocs && iocs.total > 0 && iocs.files && Object.keys(iocs.files).length) {
+      const dir = path.join(IOCS_DIR, slug);
+      fs.mkdirSync(dir, { recursive: true });
+      for (const [name, content] of Object.entries(iocs.files)) fs.writeFileSync(path.join(dir, name), String(content));
+      const iocData = { count: iocs.total, files: Object.keys(iocs.files), indicators: iocs.display || {} };
+      fmLines.push(`iocs: '${JSON.stringify(iocData).replace(/'/g, "''")}'`);
+      log("info", "iocs_attached", { slug, count: iocs.total });
+    }
+  } catch (e) { log("warn", "iocs_skip", { slug, error: String(e) }); }
+
+  fmLines.push("---", "", String(body.content ?? ""));
 
   fs.mkdirSync(CONTENT_DIR, { recursive: true });
   fs.writeFileSync(path.join(CONTENT_DIR, `${slug}.md`), fmLines.join("\n"));
