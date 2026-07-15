@@ -1,0 +1,147 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { thumbUrl } from "@/lib/images";
+
+interface Props {
+  entries: CollectionEntry<"cti">[];
+  eyebrow?: string;
+  heading?: string;
+  intervalMs?: number;
+}
+const {
+  entries,
+  eyebrow = "This Week in Threats",
+  heading = "Latest Threat Intelligence",
+  intervalMs = 6000,
+} = Astro.props;
+
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+const items = entries.filter(Boolean).slice(0, 8).map((e) => ({
+  slug: e.slug,
+  title: e.data.title,
+  summary: e.data.summary,
+  category: e.data.category ?? "Intel",
+  heroImage: e.data.heroImage,
+  thumb: thumbUrl(e.data.heroImage),
+  date: dateFmt.format(e.data.publishedAt),
+  iocCount: (e.data.iocs as { count?: number } | undefined)?.count ?? 0,
+}));
+---
+{items.length > 0 && (
+  <section class="border-b border-line bg-bg-primary px-6 py-14 md:py-16">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <p class="eyebrow-intel">{eyebrow}</p>
+          <h2 class="mt-3 font-display text-3xl uppercase tracking-[0.02em] text-ink md:text-4xl">{heading}</h2>
+          <div class="accent-line mt-5"></div>
+        </div>
+        <a href="/cyber-threat-intelligence/" class="hidden shrink-0 font-mono text-xs uppercase tracking-wider text-accent transition-colors hover:text-accent-bright sm:inline-flex">
+          View all intelligence →
+        </a>
+      </div>
+
+      <div class="threat-spotlight mt-8 border border-line bg-bg-card" data-interval={intervalMs} aria-roledescription="carousel">
+        <div class="spot-stack">
+          {items.map((it, i) => (
+            <a
+              href={`/${it.slug}/`}
+              class:list={["spot-slide grid md:grid-cols-2", i === 0 && "is-active"]}
+              data-idx={i}
+              aria-hidden={i === 0 ? "false" : "true"}
+            >
+              <div class="relative aspect-video w-full overflow-hidden border-b border-line md:border-b-0 md:border-r">
+                <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-intel/25 via-bg-card to-bg-primary px-4 text-center">
+                  <span class="font-mono text-xs uppercase tracking-[0.22em] text-intel/60">{it.category}</span>
+                </div>
+                {it.heroImage && (
+                  <img
+                    src={it.thumb}
+                    data-original={it.heroImage}
+                    alt={it.title}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    class="relative z-[1] h-full w-full object-cover"
+                  />
+                )}
+              </div>
+              <div class="flex flex-col justify-center p-6 md:p-8">
+                <div class="flex flex-wrap items-center gap-2.5 font-mono text-[11px] uppercase tracking-wider">
+                  <span class="text-intel">{it.category}</span>
+                  <span class="text-muted/40">·</span>
+                  <span class="text-muted">{it.date}</span>
+                  {it.iocCount > 0 && (
+                    <>
+                      <span class="text-muted/40">·</span>
+                      <span class="text-accent">{it.iocCount} IOCs</span>
+                    </>
+                  )}
+                </div>
+                <h3 class="mt-3 font-display text-2xl leading-tight text-ink line-clamp-3 md:text-3xl">{it.title}</h3>
+                <p class="mt-3 leading-relaxed text-muted line-clamp-3">{it.summary}</p>
+                <span class="mt-5 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">Read report →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div class="flex items-center justify-between gap-4 border-t border-line px-4 py-3">
+          <div class="flex flex-wrap gap-1.5">
+            {items.map((_, i) => (
+              <button type="button" class:list={["spot-dot h-1.5 w-6 border border-line transition-colors", i === 0 && "is-active"]} data-dot={i} aria-label={`Show threat ${i + 1}`}></button>
+            ))}
+          </div>
+          <div class="flex items-center gap-1">
+            <button type="button" class="spot-prev border border-line px-2.5 py-1 font-mono text-xs text-muted transition-colors hover:border-accent hover:text-accent" aria-label="Previous threat">←</button>
+            <button type="button" class="spot-next border border-line px-2.5 py-1 font-mono text-xs text-muted transition-colors hover:border-accent hover:text-accent" aria-label="Next threat">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .spot-stack { display: grid; }
+  /* Stack every slide in the same grid cell so the box sizes to the tallest and
+     slides crossfade in place (no clipping, no fixed height). */
+  .spot-slide { grid-area: 1 / 1; opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
+  .spot-slide.is-active { opacity: 1; pointer-events: auto; z-index: 1; }
+  .spot-dot.is-active { background: rgb(var(--accent)); border-color: rgb(var(--accent)); }
+  @media (prefers-reduced-motion: reduce) {
+    .spot-slide { transition: none; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".threat-spotlight").forEach((root) => {
+    const slides = Array.from(root.querySelectorAll<HTMLElement>(".spot-slide"));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>(".spot-dot"));
+    if (slides.length <= 1) return;
+    const interval = Number(root.dataset.interval) || 6000;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let idx = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    function show(n: number) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        const active = i === idx;
+        s.classList.toggle("is-active", active);
+        s.setAttribute("aria-hidden", String(!active));
+      });
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === idx));
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = undefined; } }
+    function start() { if (reduce) return; stop(); timer = setInterval(() => show(idx + 1), interval); }
+
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("focusout", start);
+    dots.forEach((d, i) => d.addEventListener("click", (e) => { e.preventDefault(); show(i); start(); }));
+    root.querySelector(".spot-prev")?.addEventListener("click", (e) => { e.preventDefault(); show(idx - 1); start(); });
+    root.querySelector(".spot-next")?.addEventListener("click", (e) => { e.preventDefault(); show(idx + 1); start(); });
+    start();
+  });
+</script>
