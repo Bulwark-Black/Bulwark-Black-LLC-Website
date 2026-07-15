@@ -4,7 +4,8 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 type Iocs = { count: number; files: string[]; indicators: Record<string, string[]> };
 
-const withIocs = (await getCollection("cti"))
+const entries: CollectionEntry<"cti">[] = await getCollection("cti");
+const withIocs = entries
   .filter((e) => !e.data.draft && e.data.iocs)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
