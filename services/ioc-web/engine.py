@@ -11,12 +11,25 @@ never the default and never used by the article auto-attach path unchanged.
 """
 from typing import Dict, List, Tuple
 
+import re as _re
+
 from sanitize import clean, clean_value
 from vendor.ioc_parser import (
     defang_ioc_map,
     extract_iocs,
     refang_ioc_map,
     refang_text,
+)
+from vendor.patterns import IOC_PATTERNS as _IOC_PATTERNS
+
+# The vendored URLs regex backtracks catastrophically (4s+ on a few KB of prose,
+# which hangs the single-worker service). Swap in a linear-time equivalent that
+# matches the same http/https/ftp + hxxp/fxp URL forms, including the defanged
+# separators [:]// and [://]. extract_iocs reads this same dict, so the override
+# applies to both the public tool and the article path.
+_IOC_PATTERNS["URLs"] = _re.compile(
+    r"(?:hxxps?|https?|ftps?|fxps?)(?::\/\/|\[:\]\/\/|\[:\/\/\]|:\\\\)\S+",
+    _re.IGNORECASE,
 )
 
 
