@@ -35,6 +35,7 @@ export const site = {
       ],
     },
     { label: "IOC Extractor", href: "/tools/ioc-extractor/" },
+    { label: "Indicators", href: "/indicators/" },
     {
       label: "Services",
       href: "/services/",
