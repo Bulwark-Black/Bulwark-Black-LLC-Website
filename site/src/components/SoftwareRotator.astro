@@ -1,0 +1,95 @@
+---
+// Compact, auto-rotating replacement for the tall 3-card software grid.
+interface App {
+  name: string;
+  tab: string;
+  chip: string;
+  tagline: string;
+  oneLiner: string;
+  href: string;
+  titleHref: string;
+  ctaLabel: string;
+}
+interface Props {
+  apps: App[];
+  intervalMs?: number;
+}
+const { apps, intervalMs = 5000 } = Astro.props;
+const isExt = (u: string) => /^https?:\/\//.test(u);
+---
+<div class="software-rotator mt-5 border border-line bg-bg-card" data-interval={intervalMs}>
+  <div class="soft-stack">
+    {apps.map((app, i) => (
+      <div class:list={["soft-slide flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between md:px-6", i === 0 && "is-active"]} data-idx={i}>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2.5">
+            <a
+              href={app.titleHref}
+              target={isExt(app.titleHref) ? "_blank" : undefined}
+              rel={isExt(app.titleHref) ? "noopener" : undefined}
+              class="font-display text-lg font-semibold text-ink transition-colors hover:text-accent md:text-xl"
+            >
+              {app.name}
+            </a>
+            <span class="shrink-0 border border-intel/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-intel">{app.chip}</span>
+          </div>
+          <p class="mt-2 font-display text-base text-accent">{app.tagline}</p>
+          <p class="mt-1 max-w-xl text-sm leading-relaxed text-muted line-clamp-2">{app.oneLiner}</p>
+        </div>
+        <a
+          href={app.href}
+          target={isExt(app.href) ? "_blank" : undefined}
+          rel={isExt(app.href) ? "noopener" : undefined}
+          class="btn-primary shrink-0 !py-2 !text-xs"
+        >
+          {app.ctaLabel}
+        </a>
+      </div>
+    ))}
+  </div>
+
+  <div class="flex flex-wrap items-center gap-1.5 border-t border-line px-4 py-2.5">
+    {apps.map((app, i) => (
+      <button type="button" class:list={["soft-tab border border-line px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider transition-colors", i === 0 && "is-active"]} data-tab={i}>
+        {app.tab}
+      </button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .soft-stack { display: grid; }
+  .soft-slide { grid-area: 1 / 1; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+  .soft-slide.is-active { opacity: 1; pointer-events: auto; z-index: 1; }
+  .soft-tab { color: rgb(var(--muted)); }
+  .soft-tab:hover { border-color: rgb(var(--accent)); color: rgb(var(--accent)); }
+  .soft-tab.is-active { background: rgb(var(--accent)); border-color: rgb(var(--accent)); color: #0a0e14; }
+  @media (prefers-reduced-motion: reduce) { .soft-slide { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".software-rotator").forEach((root) => {
+    const slides = Array.from(root.querySelectorAll<HTMLElement>(".soft-slide"));
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>(".soft-tab"));
+    if (slides.length <= 1) return;
+    const interval = Number(root.dataset.interval) || 5000;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let idx = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    function show(n: number) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle("is-active", i === idx));
+      tabs.forEach((t, i) => t.classList.toggle("is-active", i === idx));
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = undefined; } }
+    function start() { if (reduce) return; stop(); timer = setInterval(() => show(idx + 1), interval); }
+
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("focusout", start);
+    tabs.forEach((t, i) => t.addEventListener("click", () => { show(i); start(); }));
+    start();
+  });
+</script>
