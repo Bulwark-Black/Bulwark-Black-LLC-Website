@@ -1,25 +1,12 @@
 #!/usr/bin/env python3
-"""One-time backfill: attach IOCs to existing CTI articles (Path B).
-
-For each /srv/bulwark-build/src/content/cti/*.md that doesn't already have an
-`iocs:` frontmatter line, POST its body to the /article service; if indicators
-are found, write the live files to /wp-content/iocs/<slug>/ and add the defanged
-display map to the frontmatter. Idempotent. DRY=1 reports without writing;
-LIMIT=N processes at most N un-backfilled articles.
-"""
-import glob
-import json
-import os
-import re
-import sys
-import urllib.request
+"""Backfill / refresh IOCs on existing CTI articles from the FETCHED SOURCE."""
+import glob, json, os, re, sys, urllib.request
 
 CONTENT = "/srv/bulwark-build/src/content/cti"
 IOCS_DIR = "/var/www/staging.bulwarkblack.com/wp-content/iocs"
 SVC = "http://127.0.0.1:3020/article"
 DRY = os.environ.get("DRY") == "1"
 LIMIT = int(os.environ.get("LIMIT", "0"))
-
 FM = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.S)
 
 
@@ -40,13 +27,21 @@ def field(fm, key):
     return v
 
 
-def call(text, source):
-    payload = json.dumps({"text": text[:900000], "source": source}).encode()
-    req = urllib.request.Request(
-        SVC, data=payload, headers={"Content-Type": "application/json"}
-    )
+def source_url(body):
+    m = re.search(r'Source:.*?href=["\'](https?://[^"\'> ]+)', body, re.S)
+    if m:
+        return m.group(1)
+    for u in re.findall(r'href=["\'](https?://[^"\'> ]+)', body):
+        if "bulwarkblack.com" not in u:
+            return u
+    return None
+
+
+def call(text, source, src_url):
+    payload = json.dumps({"text": text[:900000], "source": source, "source_url": src_url}).encode()
+    req = urllib.request.Request(SVC, data=payload, headers={"Content-Type": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=45) as r:
+        with urllib.request.urlopen(req, timeout=50) as r:
             return json.load(r)
     except Exception as e:
         print(f"  !! service error: {e}", file=sys.stderr)
@@ -54,8 +49,7 @@ def call(text, source):
 
 
 files = sorted(glob.glob(os.path.join(CONTENT, "*.md")))
-processed = attached = already = noiocs = bad = 0
-sample = []
+processed = attached = from_src = noiocs = bad = 0
 
 for path in files:
     s = open(path, encoding="utf-8").read()
@@ -63,39 +57,47 @@ for path in files:
     if not m:
         bad += 1
         continue
-    fm, body = m.group(1), m.group(2)
-    if re.search(r"^iocs:", fm, re.M):
-        already += 1
-        continue
     if LIMIT and processed >= LIMIT:
         break
     processed += 1
+    fm, body = m.group(1), m.group(2)
     slug = os.path.basename(path)[:-3]
+    url = source_url(body)
     text = f"{field(fm, 'title')}\n{field(fm, 'summary')}\n{strip_html(body)}"
-    res = call(text, f"https://bulwarkblack.com/{slug}/")
-    if not res or not res.get("total") or not res.get("files"):
-        noiocs += 1
+    res = call(text, f"https://bulwarkblack.com/{slug}/", url)
+    if not res:
         continue
+    if res.get("from_source"):
+        from_src += 1
+
+    fm_clean = "\n".join(l for l in fm.split("\n") if not l.startswith("iocs:"))
+    d = os.path.join(IOCS_DIR, slug)
+
+    if not res.get("total") or not res.get("files"):
+        noiocs += 1
+        if not DRY:
+            if os.path.isdir(d):
+                for fn in os.listdir(d):
+                    os.remove(os.path.join(d, fn))
+                os.rmdir(d)
+            if fm_clean != fm:
+                open(path, "w", encoding="utf-8").write(f"---\n{fm_clean}\n---\n{body}")
+        continue
+
     attached += 1
-    if len(sample) < 6:
-        sample.append((slug, res["total"], res.get("display", {})))
     if DRY:
         continue
-    d = os.path.join(IOCS_DIR, slug)
     os.makedirs(d, exist_ok=True)
+    for name in list(os.listdir(d)):
+        if name not in res["files"]:
+            os.remove(os.path.join(d, name))
     for name, content in res["files"].items():
         open(os.path.join(d, name), "w", encoding="utf-8").write(str(content))
-    iocdata = {
-        "count": res["total"],
-        "files": list(res["files"].keys()),
-        "indicators": res.get("display", {}),
-    }
+    iocdata = {"count": res["total"], "files": list(res["files"].keys()), "indicators": res.get("display", {})}
     iocline = "iocs: '" + json.dumps(iocdata).replace("'", "''") + "'"
-    new = f"---\n{fm.rstrip(chr(10))}\n{iocline}\n---\n{body}"
-    open(path, "w", encoding="utf-8").write(new)
+    open(path, "w", encoding="utf-8").write(f"---\n{fm_clean.rstrip(chr(10))}\n{iocline}\n---\n{body}")
+    if processed % 25 == 0:
+        print(f"  ...{processed}/{len(files)} attached={attached} from_source={from_src}", flush=True)
 
 print(f"{'DRY ' if DRY else ''}files={len(files)} processed={processed} "
-      f"attached={attached} no_iocs={noiocs} already={already} bad_fm={bad}")
-for slug, total, disp in sample:
-    cats = {c: len(v) for c, v in disp.items()}
-    print(f"  {slug}: {total}  {cats}")
+      f"attached={attached} from_source={from_src} no_iocs={noiocs} bad_fm={bad}")

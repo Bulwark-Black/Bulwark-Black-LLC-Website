@@ -119,16 +119,16 @@ async function postMediaMeta(req, res, id) {
 
 // Path B: ask the IOC service for publishable indicators. Resolves null on any
 // failure so a hiccup never blocks the post.
-function extractIocs(text, source) {
+function extractIocs(text, source, sourceUrl) {
   return new Promise((resolve) => {
     let payload;
-    try { payload = JSON.stringify({ text: String(text).slice(0, 900000), source }); }
+    try { payload = JSON.stringify({ text: String(text).slice(0, 900000), source, source_url: sourceUrl || null }); }
     catch { return resolve(null); }
     const u = new URL(IOC_SERVICE);
     const r = http.request(
       { host: u.hostname, port: u.port, path: u.pathname, method: "POST",
         headers: { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(payload) },
-        timeout: 25000 },
+        timeout: 40000 },
       (resp) => {
         let data = "";
         resp.on("data", (c) => (data += c));
@@ -172,7 +172,13 @@ async function postPost(req, res) {
   // to /wp-content/iocs/<slug>/, and record the defanged display map in frontmatter.
   try {
     const iocText = `${title}\n${summary}\n${stripHtml(body.content)}`;
-    const iocs = await extractIocs(iocText, `https://bulwarkblack.com/${slug}/`);
+    // Pull the original "Source:" link so the service extracts IOCs from the full
+    // source report, not just our summary (falls back to the summary if unreachable).
+    const rawBody = String(body.content ?? "");
+    const srcMatch =
+      rawBody.match(/Source:[\s\S]{0,120}?href=["'](https?:\/\/[^"']+)/i) ||
+      rawBody.match(/href=["'](https?:\/\/(?![^"']*bulwarkblack\.com)[^"']+)/i);
+    const iocs = await extractIocs(iocText, `https://bulwarkblack.com/${slug}/`, srcMatch ? srcMatch[1] : null);
     if (iocs && iocs.total > 0 && iocs.files && Object.keys(iocs.files).length) {
       const dir = path.join(IOCS_DIR, slug);
       fs.mkdirSync(dir, { recursive: true });

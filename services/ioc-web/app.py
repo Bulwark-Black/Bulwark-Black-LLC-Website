@@ -7,6 +7,7 @@ nginx (rate-limited, CORS-locked) exactly like the WordPress shim.
 Run: uvicorn app:app --host 127.0.0.1 --port 3020
 """
 import os
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as _FTimeout
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException
@@ -16,6 +17,7 @@ from pydantic import BaseModel, Field
 from article import extract_article
 from engine import analyze, summarize
 from serialize import to_grouped_txt, to_csv, to_json
+from sourcefetch import fetch_text
 from yara_gen import generate_yara
 
 # 1 MiB default cap on request text (bytes). nginx also caps the body.
@@ -43,6 +45,18 @@ app.add_middleware(
     allow_methods=["POST", "GET", "OPTIONS"],
     allow_headers=["Content-Type"],
 )
+
+# Bound source fetches with a hard deadline. socket.getaddrinfo has no timeout,
+# so a hung DNS lookup could otherwise stall a request (and a live post); running
+# the fetch in a pool with .result(timeout=...) caps it even if DNS hangs.
+_fetch_pool = ThreadPoolExecutor(max_workers=4)
+
+
+def _bounded_fetch(url: str):
+    try:
+        return _fetch_pool.submit(fetch_text, url).result(timeout=18)
+    except _FTimeout:
+        return None
 
 
 class ExtractRequest(BaseModel):
@@ -97,18 +111,28 @@ class ArticleRequest(BaseModel):
     text: str = Field(default="", max_length=4_000_000)
     # Article URL/title, recorded in the YARA/JSON metadata.
     source: Optional[str] = Field(default=None, max_length=300)
+    # Original external source to fetch + extract from (falls back to `text`).
+    source_url: Optional[str] = Field(default=None, max_length=2000)
 
 
 @app.post("/article")
 def article(req: ArticleRequest):
     """Path B: publishable indicators for a CTI article.
 
-    Returns a DEFANGED display map (safe for the page) and LIVE file contents
-    (functional downloads). High-signal only, benign domains/IPs dropped.
+    Extracts from the fetched original source when reachable (its full IOC
+    appendix), else from the provided summary text. Returns a DEFANGED display
+    map (safe for the page) and LIVE file contents (functional downloads).
     """
     text = req.text or ""
     if len(text.encode("utf-8")) > MAX_INPUT_BYTES:
         raise HTTPException(status_code=413, detail="Input too large (max 1 MB).")
+
+    from_source = False
+    if req.source_url:
+        fetched = _bounded_fetch(req.source_url)
+        if fetched:
+            text = fetched[:MAX_INPUT_BYTES]
+            from_source = True
 
     live, display = extract_article(text)
     total = sum(len(v) for v in live.values())
@@ -126,6 +150,7 @@ def article(req: ArticleRequest):
     return {
         "total": total,
         "counts": {k: len(v) for k, v in live.items()},
+        "from_source": from_source,  # True if extracted from the fetched source
         "display": display,  # defanged, ordered — for the article page
         "files": files,      # LIVE file contents — written to /wp-content/iocs/<slug>/
     }

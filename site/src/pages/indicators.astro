@@ -10,47 +10,49 @@ const withIocs = entries
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
 const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+// Normalize a defanged value so "45.9.148.99" matches "45[.]9[.]148[.]99".
+const norm = (s: string) => s.replace(/\[\.\]|\[dot\]|\(dot\)/gi, ".").replace(/hxxp/gi, "http").toLowerCase();
 
-interface Row {
-  value: string;
-  type: string;
-  slug: string;
-  title: string;
-  date: string;
-  dateIso: string;
-  search: string;
+const ORDER = [
+  "IPv4", "CIDR", "Domains", "URLs", "Email Addresses",
+  "md5", "sha1", "sha256", "sha512", "SS-Deep", "IMPHASH",
+  "JARM", "JA3/JA3S", "JA4+", "CVEs",
+  "Bitcoin Addresses", "Bitcoin Bech32", "Ethereum Addresses",
+  "Monero Addresses", "Monero Integrated Addresses", "Dark Web", "Mutex Names",
+];
+
+interface Group { type: string; values: string[] }
+interface Report {
+  slug: string; title: string; date: string; dateIso: string;
+  count: number; groups: Group[]; types: string; search: string;
 }
 
-// Normalize a defanged value so "45.9.148.99" matches "45[.]9[.]148[.]99" etc.
-const norm = (s: string) =>
-  s.replace(/\[\.\]|\[dot\]|\(dot\)/gi, ".").replace(/hxxp/gi, "http").toLowerCase();
-
-const rows: Row[] = [];
+const reports: Report[] = [];
 const typeCounts = new Map<string, number>();
 for (const e of withIocs) {
-  const iocs = e.data.iocs as Iocs;
-  for (const [type, values] of Object.entries(iocs.indicators)) {
-    for (const value of values) {
-      rows.push({
-        value,
-        type,
-        slug: e.slug,
-        title: e.data.title,
-        date: dateFmt.format(e.data.publishedAt),
-        dateIso: e.data.publishedAt.toISOString(),
-        search: `${norm(value)} ${e.data.title.toLowerCase()}`,
-      });
-      typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
-    }
-  }
+  const ind = (e.data.iocs as Iocs).indicators;
+  const cats = [...ORDER.filter((t) => ind[t]?.length), ...Object.keys(ind).filter((t) => !ORDER.includes(t) && ind[t]?.length)];
+  const groups: Group[] = cats.map((t) => ({ type: t, values: ind[t] }));
+  for (const g of groups) typeCounts.set(g.type, (typeCounts.get(g.type) ?? 0) + g.values.length);
+  const count = groups.reduce((n, g) => n + g.values.length, 0);
+  reports.push({
+    slug: e.slug,
+    title: e.data.title,
+    date: dateFmt.format(e.data.publishedAt),
+    dateIso: e.data.publishedAt.toISOString(),
+    count,
+    groups,
+    types: groups.map((g) => g.type).join(" "),
+    search: `${e.data.title.toLowerCase()} ${groups.flatMap((g) => g.values).map(norm).join(" ")}`,
+  });
 }
 
 const types = [...typeCounts.entries()].sort((a, b) => b[1] - a[1]);
-const totalIndicators = rows.length;
-const reportCount = withIocs.length;
+const totalIndicators = [...typeCounts.values()].reduce((a, b) => a + b, 0);
+const reportCount = reports.length;
 
 const title = "Indicator Database";
-const description = `Searchable database of ${totalIndicators} indicators of compromise auto-extracted from ${reportCount} Bulwark Black threat reports. Search IPs, domains, URLs, hashes, and CVEs and jump to the report each came from.`;
+const description = `Searchable database of ${totalIndicators} indicators of compromise auto-extracted from ${reportCount} Bulwark Black threat reports, grouped by report. Search IPs, domains, URLs, hashes, and CVEs and jump to the report each came from.`;
 ---
 <BaseLayout title={title} description={description}>
   <section class="border-b border-line bg-bg-secondary px-6 py-12 md:py-16">
@@ -58,9 +60,9 @@ const description = `Searchable database of ${totalIndicators} indicators of com
       <p class="eyebrow-intel">Threat Intelligence</p>
       <h1 class="mt-3 font-display text-3xl uppercase tracking-[0.02em] text-ink md:text-5xl">Indicator Database</h1>
       <p class="mt-4 max-w-2xl leading-relaxed text-muted">
-        Every indicator we auto-extract from our threat reports, in one place. Search by value or report,
-        filter by type, and jump straight to the article it came from. Values are defanged for safe viewing.
-        Live values and YARA rules are on each report.
+        Every indicator we auto-extract from our threat reports, grouped by report. Search by value or report,
+        filter by type, and jump straight to the source. Values are defanged for safe viewing; live values and
+        YARA rules download from each report.
       </p>
       <p class="mt-4 font-mono text-xs uppercase tracking-wider text-muted">
         <span class="text-accent">{totalIndicators}</span> indicators · <span class="text-accent">{reportCount}</span> reports
@@ -89,40 +91,38 @@ const description = `Searchable database of ${totalIndicators} indicators of com
         ))}
       </div>
 
-      <p id="ioc-count" class="mt-5 font-mono text-xs text-muted">{totalIndicators} indicators</p>
+      <p id="ioc-count" class="mt-5 font-mono text-xs text-muted">{reportCount} reports</p>
 
-      <div class="mt-3 overflow-x-auto border border-line">
-        <table class="w-full min-w-[720px] border-collapse text-left">
-          <thead>
-            <tr class="border-b border-line bg-bg-card font-mono text-[11px] uppercase tracking-wider text-muted">
-              <th class="px-4 py-3 font-normal">Indicator</th>
-              <th class="px-4 py-3 font-normal">Type</th>
-              <th class="px-4 py-3 font-normal">Report</th>
-              <th class="whitespace-nowrap px-4 py-3 font-normal">Date</th>
-            </tr>
-          </thead>
-          <tbody id="ioc-rows">
-            {rows.map((r) => (
-              <tr class="ioc-row border-b border-line/60 align-top" data-type={r.type} data-search={r.search}>
-                <td class="px-4 py-2.5 font-mono text-xs text-ink/90"><span class="break-all">{r.value}</span></td>
-                <td class="whitespace-nowrap px-4 py-2.5"><span class="chip">{r.type}</span></td>
-                <td class="px-4 py-2.5 text-sm">
-                  <a href={`/${r.slug}/`} class="text-intel transition-colors hover:text-accent">{r.title}</a>
-                </td>
-                <td class="whitespace-nowrap px-4 py-2.5 font-mono text-[11px] text-muted"><time datetime={r.dateIso}>{r.date}</time></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div id="ioc-reports" class="mt-3 grid gap-4">
+        {reports.map((r) => (
+          <article class="ioc-report border border-line bg-bg-card p-5 md:p-6" data-types={r.types} data-search={r.search}>
+            <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-line pb-3">
+              <a href={`/${r.slug}/`} class="font-display text-base leading-snug text-ink transition-colors hover:text-accent md:text-lg">{r.title}</a>
+              <span class="shrink-0 font-mono text-[11px] uppercase tracking-wider text-muted">{r.count} indicators · {r.date}</span>
+            </div>
+            <div class="mt-4 grid gap-3">
+              {r.groups.map((g) => (
+                <div class="ioc-group" data-type={g.type}>
+                  <p class="font-mono text-[11px] uppercase tracking-wider text-accent">{g.type} ({g.values.length})</p>
+                  <div class="mt-1.5 flex flex-wrap gap-1.5">
+                    {g.values.map((v) => (
+                      <span class="border border-line/60 bg-bg-primary px-2 py-1 font-mono text-[11px] text-ink/90 break-all">{v}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
 
       <p id="ioc-empty" class="mt-6 hidden border border-dashed border-line bg-bg-card/60 px-6 py-10 text-center text-muted">
-        No indicators match your search.
+        No reports match your search.
       </p>
 
       <p class="mt-6 text-xs leading-relaxed text-muted">
-        Auto-extracted from our reports and may include false positives, verify before acting. Need to pull IOCs from your own text?
-        <a href="/tools/ioc-extractor/" class="text-accent hover:underline">Use the IOC Extractor →</a>
+        Auto-extracted from the original source reports and may include false positives, verify before acting.
+        Need to pull IOCs from your own text? <a href="/tools/ioc-extractor/" class="text-accent hover:underline">Use the IOC Extractor →</a>
       </p>
     </div>
   </section>
@@ -135,11 +135,10 @@ const description = `Searchable database of ${totalIndicators} indicators of com
 
   <script>
     const search = document.getElementById("ioc-search") as HTMLInputElement;
-    const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>(".ioc-row"));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(".ioc-report"));
     const chips = Array.from(document.querySelectorAll<HTMLButtonElement>(".type-chip"));
     const countEl = document.getElementById("ioc-count") as HTMLParagraphElement;
     const emptyEl = document.getElementById("ioc-empty") as HTMLParagraphElement;
-
     let activeType = "all";
 
     function normQuery(s: string) {
@@ -149,14 +148,21 @@ const description = `Searchable database of ${totalIndicators} indicators of com
     function apply() {
       const q = normQuery(search.value);
       let shown = 0;
-      for (const row of rows) {
-        const typeOk = activeType === "all" || row.dataset.type === activeType;
-        const searchOk = !q || (row.dataset.search ?? "").includes(q);
+      for (const card of cards) {
+        const cardTypes = (card.dataset.types ?? "").split(" ");
+        const typeOk = activeType === "all" || cardTypes.includes(activeType);
+        const searchOk = !q || (card.dataset.search ?? "").includes(q);
         const visible = typeOk && searchOk;
-        row.hidden = !visible;
-        if (visible) shown++;
+        card.hidden = !visible;
+        if (visible) {
+          shown++;
+          // when a type is selected, show only that type's group within each report
+          for (const g of Array.from(card.querySelectorAll<HTMLElement>(".ioc-group"))) {
+            g.hidden = activeType !== "all" && g.dataset.type !== activeType;
+          }
+        }
       }
-      countEl.textContent = `${shown} indicator${shown === 1 ? "" : "s"}`;
+      countEl.textContent = `${shown} report${shown === 1 ? "" : "s"}`;
       emptyEl.classList.toggle("hidden", shown !== 0);
     }
 
