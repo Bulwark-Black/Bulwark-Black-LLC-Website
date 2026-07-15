@@ -27,7 +27,7 @@ _CANON = {
 }
 _KEEP = {
     "IPv4", "CIDR", "Domains", "URLs", "Email Addresses",
-    "md5", "sha1", "sha256", "sha512", "SS-Deep", "IMPHASH",
+    "md5", "sha1", "sha256", "sha512", "IMPHASH",
     "JARM", "JA3/JA3S", "JA4+", "CVEs",
     "Bitcoin Addresses", "Bitcoin Bech32", "Ethereum Addresses",
     "Monero Addresses", "Monero Integrated Addresses",
@@ -35,7 +35,7 @@ _KEEP = {
 }
 _ORDER = [
     "IPv4", "CIDR", "Domains", "URLs", "Email Addresses",
-    "md5", "sha1", "sha256", "sha512", "SS-Deep", "IMPHASH",
+    "md5", "sha1", "sha256", "sha512", "IMPHASH",
     "JARM", "JA3/JA3S", "JA4+", "CVEs",
     "Bitcoin Addresses", "Bitcoin Bech32", "Ethereum Addresses",
     "Monero Addresses", "Monero Integrated Addresses",
@@ -108,12 +108,17 @@ def _global_ip(text: str):
     return ip.is_global and str(ip) not in _BENIGN_IPS
 
 
+# Real ccTLDs, but they collide with filenames far more than they name real
+# domains in CTI prose (README.md, install.sh, main.rs) -> reject as domains.
+_BAD_TLDS = {"md", "sh", "rs"}
+
+
 def _valid_domain(host: str) -> bool:
     host = host.strip(".").lower()
     if not host or "." not in host:
         return False
     labels = host.split(".")
-    if labels[-1] not in _TLDS:
+    if labels[-1] not in _TLDS or labels[-1] in _BAD_TLDS:
         return False
     return all(re.fullmatch(r"[a-z0-9_-]{1,63}", lab) for lab in labels)
 
